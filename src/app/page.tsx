@@ -1,11 +1,11 @@
+import Scene from './components/Scene';
+import Card from './components/Card';
+
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col items-center justify-center w-[60%] text-center">
-        <h1 className="text-4xl font-serif tracking-tight">
-          tech.noishey coming soon!
-        </h1>
-      </main>
+      <Scene />
+      <Card />
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
