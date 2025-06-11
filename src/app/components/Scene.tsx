@@ -27,7 +27,7 @@ const Scene = () => {
     const geometry = new THREE.TorusGeometry(250, 75, 16, 100);
     const material = new THREE.MeshBasicMaterial({
       wireframe: true,
-      color: 0x4180fe,
+      color: 0x35b321,
       transparent: true,
       opacity: 0.5
     });
