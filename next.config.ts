@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Removed CSP headers since we're no longer using iframe for Substack
 };
 
 export default nextConfig;

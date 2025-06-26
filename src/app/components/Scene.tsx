@@ -9,6 +9,8 @@ const Scene = () => {
   useEffect(() => {
     if (!mountRef.current) return;
 
+    const mountElement = mountRef.current;
+
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -21,7 +23,7 @@ const Scene = () => {
     
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
-    mountRef.current.appendChild(renderer.domElement);
+    mountElement.appendChild(renderer.domElement);
 
     // Create wireframe toroid
     const geometry = new THREE.TorusGeometry(250, 75, 16, 100);
@@ -58,7 +60,7 @@ const Scene = () => {
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      mountRef.current?.removeChild(renderer.domElement);
+      mountElement?.removeChild(renderer.domElement);
       scene.remove(torus);
       geometry.dispose();
       material.dispose();
