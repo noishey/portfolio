@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "noishey.tech Portfolio",
   description: "reduce the noise and tune in",
   openGraph: {
-    title: "noishey.tech Portfolio",
+    title: "noishey.tech portfolio",
     description: "reduce the noise and tune in",
     url: "https://noishey.tech",
     siteName: "noishey.tech",
@@ -60,6 +60,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

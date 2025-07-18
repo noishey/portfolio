@@ -1,8 +1,16 @@
+'use client';
+
 import Scene from './components/Scene';
 import Image from 'next/image';
 import SubstackWidget from './components/SubstackWidget';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [showSubstack, setShowSubstack] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setShowSubstack(true), 300);
+  }, []);
   return (
     <div className="min-h-screen">
       {/* Main content section */}
@@ -57,41 +65,89 @@ export default function Home() {
           href="https://bento.me/noishey"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: '#1f36b4' }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
             className="h-10 w-10"
-            style={{ color: '#1f36b4' }}
           >
-            <circle cx="12" cy="12" r="10" fill="#1f36b4" />
-            <text x="12" y="16" textAnchor="middle" fontSize="10" fill="white">b</text>
+            <circle cx="12" cy="12" r="10" fill="#181818" />
+            <text x="12" y="18" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#fff" dominantBaseline="middle">b</text>
           </svg>
         </a>
+        <a
+          className="flex items-center justify-center hover:underline hover:underline-offset-4"
+          href="https://www.goodreads.com/user/show/191334744-arjun-shenoy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="h-10 w-10"
+          >
+            <rect x="4" y="4" width="16" height="16" rx="3" fill="#181818" />
+            <text x="12" y="18" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#fff" dominantBaseline="middle">G</text>
+          </svg>
+        </a>
+        {/* Music section moved to bottom for mystery */}
+      </div>
+      {/* Music section at the bottom center with liquidy circled edge rectangle */}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
+        <div className="px-6 py-3 rounded-full bg-white/10 border border-white/30 shadow-lg backdrop-blur-md flex flex-col items-center gap-2 animate-pulse-slow" style={{ boxShadow: '0 4px 32px 0 rgba(31,48,108,0.15)', borderRadius: '2rem 2.5rem 2rem 2.5rem / 2.5rem 2rem 2.5rem 2rem' }}>
+          <span className="text-sm font-semibold text-white mb-1 font-mono block">listen to my music,</span>
+          <span className="text-sm font-semibold text-yellow-300 italic font-mono block">🎷�� jazzindica</span>
+          <a
+            className="flex items-center justify-center hover:underline hover:underline-offset-4"
+            href="https://instagram.com/noisheymusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#E1306C' }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-8 w-8"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" fill="#E1306C" />
+              <circle cx="12" cy="12" r="5" fill="white" />
+              <circle cx="17" cy="7" r="1.2" fill="white" />
+            </svg>
+          </a>
+        </div>
       </div>
       <div className="fixed top-4 left-4 z-50 flex flex-col items-center w-32">
           <Image src="/avatar.png" alt="Avatar" width={128} height={128} className="w-32 h-32 rounded" />
-          <div className="mt-4 w-full flex flex-col items-center">
-            <h1
-              className="text-xl md:text-2xl font-mono text-gray-400 text-center tracking-widest leading-tight"
-              style={{
-                fontFamily: 'var(--font-geist-mono), monospace',
-                textShadow: '0 0 1px #222, 0 0 2px #222',
-                imageRendering: 'pixelated',
-                filter: 'contrast(180%)',
-              }}
-            >
-              reduce the noise<br />and tune in
-            </h1>
-          </div>
+      </div>
+      {/* Centered heading overlay */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-40">
+        <h1
+          className="text-2xl md:text-3xl font-mono text-center tracking-widest leading-tight flex items-center gap-2"
+          style={{
+            fontFamily: 'var(--font-geist-mono), monospace',
+            color: '#181818', // matte black
+            textShadow: '0 0 8px #fff, 0 0 2px #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff',
+            WebkitTextStroke: '1px #fff',
+            imageRendering: 'pixelated',
+            filter: 'contrast(180%)',
+          }}
+        >
+          <span className="text-4xl md:text-5xl font-serif text-white drop-shadow-lg select-none" style={{marginRight: '0.25em'}}>&ldquo;</span>
+          reduce the noise and tune in
+          <span className="text-4xl md:text-5xl font-serif text-white drop-shadow-lg select-none" style={{marginLeft: '0.25em'}}>&rdquo;</span>
+        </h1>
       </div>
       <Scene />
       {/* Newsletter subscribe section below 3D object */}
-      <div className="flex flex-col items-center justify-center mt-16 z-30">
+      <div
+        className={`flex flex-col items-center justify-center mt-16 z-30 transition-all duration-700 ease-out ${showSubstack ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}
+        style={{ transitionProperty: 'opacity, transform' }}
+      >
         <h2 className="text-lg md:text-2xl font-mono text-gray-300 mb-4 tracking-wide" style={{ fontFamily: 'var(--font-geist-mono), monospace' }}>
-          Subscribe to my Newsletter
+          Subscribe to my newsletter
         </h2>
         <div className="w-full max-w-md">
           <SubstackWidget />
@@ -116,10 +172,10 @@ export default function Home() {
           </svg>
         </a>
       </div>
-      </div>
-      
       {/* Diagonal scroll section */}
       {/* <DiagonalScroll /> */}
-    </div>
+      </div> {/* Close grid container */}
+    </div> 
   );
 }
+
