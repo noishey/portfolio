@@ -6,11 +6,6 @@ import SubstackWidget from './components/SubstackWidget';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [showSubstack, setShowSubstack] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => setShowSubstack(true), 300);
-  }, []);
   return (
     <div className="min-h-screen">
       {/* Main content section */}
