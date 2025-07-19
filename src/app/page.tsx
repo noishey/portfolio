@@ -3,7 +3,6 @@
 import Scene from './components/Scene';
 import Image from 'next/image';
 import SubstackWidget from './components/SubstackWidget';
-import { useEffect, useState } from 'react';
 
 export default function Home() {
   return (
