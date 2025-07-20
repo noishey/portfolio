@@ -45,13 +45,11 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            className="h-8 w-8 fill-white dark:fill-white"
-          >
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-          </svg>
+          <span className="flex items-center justify-center w-12 h-12">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="h-8 w-8">
+              <path d="M437.5 0h-363C33.6 0 0 33.6 0 75v362c0 41.4 33.6 75 75 75h362c41.4 0 75-33.6 75-75v-362C512 33.6 478.4 0 437.5 0zM160 437.5H82.5V202.5H160v235zm-38.8-267.5c-25.1 0-45.5-20.4-45.5-45.5s20.4-45.5 45.5-45.5 45.5 20.4 45.5 45.5-20.4 45.5-45.5 45.5zm316.3 267.5h-77.5V320c0-28-10-47-35-47-19.1 0-30.5 12.9-35.5 25.4-1.8 4.3-2.3 10.3-2.3 16.3v123.8h-77.5s1-200.8 0-235h77.5v33.3c10.3-15.9 28.7-38.6 69.8-38.6 51 0 89.2 33.3 89.2 104.7v135.6z" fill="#000"/>
+            </svg>
+          </span>
         </a>
         {/* Bento link below socials */}
         <a
@@ -79,14 +77,28 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <span className="flex items-center justify-center w-12 h-12">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="h-10 w-10"
-            >
-              <rect x="3" y="6" width="18" height="12" rx="6" fill="#181818" />
-              <text x="12" y="18" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#fff" dominantBaseline="middle">G</text>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="h-10 w-10">
+              <g>
+                <circle cx="24" cy="24" r="24" fill="#fff"/>
+                <path d="M24 10c-5.523 0-10 4.477-10 10s4.477 10 10 10c2.485 0 4.735-0.91 6.5-2.414V34a1 1 0 1 0 2 0V14a1 1 0 1 0-2 0v2.414C28.735 10.91 26.485 10 24 10zm0 2c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8z" fill="#6D4C3D"/>
+              </g>
+            </svg>
+          </span>
+        </a>
+        {/* LeetCode icon below Goodreads */}
+        <a
+          className="flex items-center justify-center hover:underline hover:underline-offset-4 hover:ring-4 hover:ring-yellow-300/40 hover:bg-yellow-100/10 rounded-full transition-all duration-200"
+          href="https://leetcode.com/noishey"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="flex items-center justify-center w-12 h-12">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="h-10 w-10">
+              <g>
+                <path fill="#fff" d="M36.7 34.7c-1.1-1.1-2.2-2.2-3.3-3.3c-0.6-0.6-0.6-1.1 0-1.7c0.6-0.6 1.1-0.6 1.7 0c1.2 1.2 2.4 2.4 3.6 3.6c1.1 1.1 1.1 2.2 0 3.3c-2.7 2.7-5.4 5.4-8.1 8.1c-1.1 1.1-2.2 1.1-3.3 0c-2.7-2.7-5.4-5.4-8.1-8.1c-1.1-1.1-1.1-2.2 0-3.3c1.2-1.2 2.4-2.4 3.6-3.6c0.6-0.6 1.1-0.6 1.7 0c0.6 0.6 0.6 1.1 0 1.7c-1.1 1.1-2.2 2.2-3.3 3.3c-0.6 0.6-0.6 1.1 0 1.7c2.7 2.7 5.4 5.4 8.1 8.1c0.6 0.6 1.1 0.6 1.7 0c2.7-2.7 5.4-5.4 8.1-8.1C37.3 35.8 37.3 35.3 36.7 34.7z"/>
+                <path fill="#fff" d="M24 0C10.7 0 0 10.7 0 24c0 13.3 10.7 24 24 24c13.3 0 24-10.7 24-24C48 10.7 37.3 0 24 0zM24 46C11.8 46 2 36.2 2 24C2 11.8 11.8 2 24 2c12.2 0 22 9.8 22 22C46 36.2 36.2 46 24 46z"/>
+                <path fill="#fff" d="M34.7 13.3c-1.1-1.1-2.2-2.2-3.3-3.3c-0.6-0.6-1.1-0.6-1.7 0c-0.6 0.6-0.6 1.1 0 1.7c1.1 1.1 2.2 2.2 3.3 3.3c0.6 0.6 0.6 1.1 0 1.7c-2.7 2.7-5.4 5.4-8.1 8.1c-0.6 0.6-1.1 0.6-1.7 0c-2.7-2.7-5.4-5.4-8.1-8.1c-0.6-0.6-0.6-1.1 0-1.7c1.2-1.2 2.4-2.4 3.6-3.6c0.6-0.6 1.1-0.6 1.7 0c0.6 0.6 0.6 1.1 0 1.7c-1.1 1.1-2.2 2.2-3.3 3.3c-0.6 0.6-0.6 1.1 0 1.7c2.7 2.7 5.4 5.4 8.1 8.1c0.6 0.6 1.1 0.6 1.7 0c2.7-2.7 5.4-5.4 8.1-8.1C35.3 14.4 35.3 13.9 34.7 13.3z"/>
+              </g>
             </svg>
           </span>
         </a>
