@@ -3,13 +3,10 @@
 import Scene from './components/Scene';
 import Image from 'next/image';
 import SubstackWidget from './components/SubstackWidget';
-import { useState } from 'react';
-import Spline from '@splinetool/react-spline/next';
 import Card from './components/Card';
 import DiagonalScroll from './components/DiagonalScroll';
 
 export default function Home() {
-  const [showSocials, setShowSocials] = useState(false);
 
   return (
     <div className="min-h-screen">
