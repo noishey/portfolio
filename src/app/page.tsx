@@ -5,6 +5,7 @@ import Image from 'next/image';
 import SubstackWidget from './components/SubstackWidget';
 import Card from './components/Card';
 import DiagonalScroll from './components/DiagonalScroll';
+import Cal from './components/Cal';
 
 export default function Home() {
 
@@ -25,8 +26,7 @@ export default function Home() {
               filter: 'contrast(180%)',
             }}
           >
-            <span className="text-4xl md:text-5xl font-serif text-white drop-shadow-lg select-none" style={{marginRight: '0.25em'}}>&ldquo;</span>
-            reduce the noise and tune in
+            
             <span className="text-4xl md:text-5xl font-serif text-white drop-shadow-lg select-none" style={{marginLeft: '0.25em'}}>&rdquo;</span>
           </h1>
           {/* Newsletter subscribe section below tagline */}
@@ -49,46 +49,6 @@ export default function Home() {
 
         {/* Diagonal scroll section */}
         <DiagonalScroll />
-
-        {/* Floating Contact Widget */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-full max-w-md p-6 rounded-xl bg-white/10 border border-white/20 shadow-md backdrop-blur-md flex flex-col items-center z-20">
-          <h3 className="text-lg font-mono text-gray-200 mb-4 text-center" style={{ fontFamily: 'var(--font-geist-mono), monospace' }}>
-            Contact Me
-          </h3>
-          <p className="text-xs text-gray-400 mb-4 text-center">Your message will be sent to <span className="text-yellow-300">tech.noishey@gmail.com</span></p>
-          <form className="w-full flex flex-col gap-3">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300 text-white placeholder-white/70"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300 text-white placeholder-white/70"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows={4}
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300 text-white placeholder-white/70"
-              required
-            />
-            <button
-              type="submit"
-              className="mt-2 px-4 py-2 rounded-lg font-semibold transition-colors"
-              style={{ backgroundColor: '#b49d1f', color: 'white' }}
-              onMouseOver={e => (e.currentTarget.style.backgroundColor = '#a0881a')}
-              onMouseOut={e => (e.currentTarget.style.backgroundColor = '#b49d1f')}
-            >
-              Send
-            </button>
-          </form>
-        </div>
 
         {/* Other fixed elements can remain as they are */}
         {/* Socials with Spline above */}
@@ -188,7 +148,7 @@ export default function Home() {
       {/* Music section at the bottom center with liquidy circled edge rectangle */}
       <div className="fixed top-4 right-4 z-50 flex flex-col items-center">
         <div className="px-6 py-3 rounded-full bg-white/10 border border-white/30 shadow-lg backdrop-blur-md flex flex-col items-center gap-2 animate-pulse-slow" style={{ boxShadow: '0 4px 32px 0 rgba(31,48,108,0.15)', borderRadius: '2rem 2.5rem 2rem 2.5rem / 2.5rem 2rem 2.5rem 2rem' }}>
-          <span className="text-lg md:text-xl font-semibold text-yellow-300 italic font-mono block">🎷🍃 jazzindica</span>
+          <span className="text-lg md:text-xl font-semibold text-grey-300 font-mono block">🎷🍃 Stream On</span>
           <div className="flex flex-row items-center gap-5 mt-2">
             <a
               className="flex items-center justify-center hover:underline hover:underline-offset-4"
@@ -219,24 +179,25 @@ export default function Home() {
           <span className="mt-1 text-sm text-gray-300 text-center">i build and ship iOS mobile first web apps</span>
       </div>
       {/* Buy Me a Coffee floating button */}
-      <div className="fixed bottom-4 right-4 z-50">
+      <div className="fixed bottom-8 right-8 z-50 background-color: transparent">
         <a
           href="https://buymeacoffee.com/noishey"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 px-2 py-1 rounded-xl bg-white/10 border border-white/20 shadow-md backdrop-blur-md hover:bg-white/20 transition-colors text-xs font-medium"
+          className="flex items-center gap-1 px-3 py-3 rounded-xl bg-white/10 border border-white/20 shadow-md backdrop-blur-md hover:bg-white/20 transition-colors text-xs font-medium"
         >
-          <span className="mr-1 font-semibold text-white">buy me a coffee</span>
+          <span className="mr-1 font-bold text-yellow">Buy Me A Coffee</span>
           <svg viewBox="0 0 24 24" fill="none" className="h-9 w-9" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="3" width="12" height="2" fill="currentColor"/>
+            <rect x="6" y="3" width="12" height="2" fill="#ffffff"/>
             <polygon points="7,5 17,5 15.5,19 8.5,19" fill="currentColor"/>
-            <rect x="7" y="9" width="10" height="3" fill="#fff"/>
+            <rect x="7" y="9" width="10" height="3" fill="#ffd300"/>
           </svg>
         </a>
       </div>
       {/* Diagonal scroll section */}
       <DiagonalScroll />
       </div> {/* Close grid container */}
+      <Cal />
     </div> 
   );
 }
