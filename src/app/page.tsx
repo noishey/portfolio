@@ -1,11 +1,12 @@
 'use client';
 
 import Scene from './components/Scene';
-import Image from 'next/image';
 import SubstackWidget from './components/SubstackWidget';
 import Card from './components/Card';
 import DiagonalScroll from './components/DiagonalScroll';
 import Cal from './components/Cal';
+import Avatar from './components/AvatarFlip';
+
 
 export default function Home() {
 
@@ -174,9 +175,15 @@ export default function Home() {
         </div>
       </div>
       <div className="fixed top-4 left-4 z-50 flex flex-col items-center w-32">
-          <Image src="/avatar.png" alt="Avatar" width={128} height={128} className="w-32 h-32 rounded" />
+      <Avatar 
+        defaultImage="/avatar.png"
+        hoverImage="/headshot.jpeg"
+        alt="Arjun Shenoy"
+        size={120}
+      />
           <span className="mt-2 text-lg font-bold text-white tracking-wide text-center">noishey</span>
-          <span className="mt-1 text-sm text-gray-300 text-center">i build and ship iOS mobile first web apps</span>
+          <span>Arjun Shenoy</span>
+          <span className="mt-1 text-sm text-gray-300 text-center">mobile first web app builder</span>
       </div>
       {/* Buy Me a Coffee floating button */}
       <div className="fixed bottom-8 right-8 z-50 background-color: transparent">
@@ -194,8 +201,6 @@ export default function Home() {
           </svg>
         </a>
       </div>
-      {/* Diagonal scroll section */}
-      <DiagonalScroll />
       </div> {/* Close grid container */}
       <Cal />
     </div> 
