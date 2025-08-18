@@ -1,13 +1,10 @@
 'use client';
 
 const SubstackWidget = () => (
+  
   <div className="w-full max-w-md mx-auto">
-    <form
-      action="https://noishey.substack.com/subscribe"
-      method="post"
-      target="_blank"
-      className="w-full flex"
-    >
+    <div className="substack-post-embed">
+        <p lang="en">Musicians Who Waited. by arjun shenoy</p><p>Late Bloomers and their real life struggles.</p><a data-post-link href="https://noishdreams.substack.com/p/musicians-who-waited">Read on Substack</a></div><script async src="https://substack.com/embedjs/embed.js"></script>
       <input
         type="email"
         name="email"
@@ -24,8 +21,8 @@ const SubstackWidget = () => (
       >
         Subscribe
       </button>
-    </form>
-  </div>
+    </div>
+
 );
 
 export default SubstackWidget; 

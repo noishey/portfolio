@@ -6,6 +6,7 @@ import Card from './components/Card';
 import DiagonalScroll from './components/DiagonalScroll';
 import Cal from './components/Cal';
 import Avatar from './components/AvatarFlip';
+import HireMe from './components/HireMe';
 
 
 export default function Home() {

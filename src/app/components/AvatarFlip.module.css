@@ -1,0 +1,7 @@
+/* Responsive styles for mobile screen */
+@media (max-width: 600px) {
+    .avatar-container {
+        width: 80px;
+        height: 80px;
+    }
+}
