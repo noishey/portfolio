@@ -7,6 +7,9 @@ import DiagonalScroll from './components/DiagonalScroll';
 import Cal from './components/Cal';
 import Avatar from './components/AvatarFlip';
 import HireMe from './components/HireMe';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { ThemeProvider } from './components/ThemeProvider';
+import ScrollLinked from './components/ScrollMotion';
 
 
 export default function Home() {
@@ -50,7 +53,7 @@ export default function Home() {
         </div>
 
         {/* Diagonal scroll section */}
-        <DiagonalScroll />
+        {/* <DiagonalScroll /> */}
 
         {/* Other fixed elements can remain as they are */}
         {/* Socials with Spline above */}
@@ -187,6 +190,7 @@ export default function Home() {
           <span className="mt-1 text-sm text-gray-300 text-center">mobile first web app builder</span>
       </div>
       {/* Buy Me a Coffee floating button */}
+      <ThemeProvider />
       <div className="fixed bottom-8 right-8 z-50 background-color: transparent">
         <a
           href="https://buymeacoffee.com/noishey"
@@ -205,6 +209,7 @@ export default function Home() {
       </div> {/* Close grid container */}
       <div><HireMe /></div>
       <Cal />
+      <ScrollLinked />
     </div> 
   );
 }
