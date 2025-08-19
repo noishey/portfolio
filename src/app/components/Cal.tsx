@@ -9,7 +9,7 @@ export default function MyApp() {
   }, [])
   return <Cal namespace="30min"
     calLink="noishey/30min"
-    style={{width:"100%",height:"100%",overflow:"scroll"}}
+    style={{width:"70%",height:"70%",overflow:"scroll"}}
     config={{"layout":"month_view","theme":"auto"}}
   />;
 };
