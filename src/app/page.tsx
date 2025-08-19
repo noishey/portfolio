@@ -203,6 +203,7 @@ export default function Home() {
         </a>
       </div>
       </div> {/* Close grid container */}
+      <div><HireMe /></div>
       <Cal />
     </div> 
   );
