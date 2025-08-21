@@ -352,6 +352,20 @@ export default function Home() {
     className="h-10 w-10"
   />
     </a>
+  <div className="fixed bottom-8 right-8 z-50 background-color: transparent">
+  <a href="https://buymeacoffee.com/noishey"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-1 px-3 py-3 rounded-xl bg-white/10 border border-white/20 shadow-md backdrop-blur-md hover:bg-white/20 transition-colors text-xs font-medium"
+>
+  <span className="mr-1 font-bold text-yellow">Buy Me A Coffee</span>
+  <svg viewBox="0 0 24 24" fill="none" className="h-9 w-9" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="3" width="12" height="2" fill="#ffffff"/>
+    <polygon points="7,5 17,5 15.5,19 8.5,19" fill="currentColor"/>
+    <rect x="7" y="9" width="10" height="3" fill="#ffd300"/>
+  </svg>
+</a>
+</div>
   </div>
 ) : (
   // Default fallback for hero, etc.
