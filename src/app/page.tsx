@@ -1,46 +1,64 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Cal from './components/Cal';
 import Avatar from './components/AvatarFlip';
 
 const sections = [
   { 
     id: "hero", 
-    bg: "bg-gradient-to-br from-[#010101] to-black",
+    bg: "bg-white/10 backdrop-blur-md",
   },
   { 
     id: "hire", 
-    bg: "bg-gradient-to-br from-[#010101] to-black", 
+    bg: "bg-white/10 backdrop-blur-md", 
     title: "Cal + Hire Me" 
   },
   { 
     id: "projects", 
-    bg: "bg-gradient-to-br from-[#010101] to-black", 
+    bg: "bg-white/10 backdrop-blur-md", 
     title: "Projects" 
   },
   { 
     id: "substack", 
-    bg: "bg-gradient-to-br from-[#010101] to-black", 
+    bg: "bg-white/10 backdrop-blur-md", 
     title: "" 
   },
   { 
     id: "music", 
-    bg: "bg-gradient-to-br from-[#010101] to-black", 
+    bg: "bg-white/10 backdrop-blur-md", 
     title: "noisheymusic" 
   },
 ];
 
 
 export default function Home() {
+  const { scrollY } = useScroll();
+  const bgYSlow = useTransform(scrollY, [0, 1000], [0, -150]);
+  const bgYFast = useTransform(scrollY, [0, 1000], [0, -300]);
   return (
     <main className="relative flex">
+      {/* Parallax background layers */}
+      <motion.div
+        className="pointer-events-none fixed inset-0 -z-10"
+        style={{ y: bgYSlow }}
+      >
+        <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-purple-500/20 blur-3xl" />
+        <div className="absolute top-1/3 right-0 h-80 w-80 rounded-full bg-indigo-500/20 blur-3xl" />
+      </motion.div>
+      <motion.div
+        className="pointer-events-none fixed inset-0 -z-20"
+        style={{ y: bgYFast }}
+      >
+        <div className="absolute bottom-0 left-1/4 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute -bottom-20 right-1/4 h-72 w-72 rounded-full bg-fuchsia-500/10 blur-3xl" />
+      </motion.div>
       {/* Main Scroll Area */}
-      <div className="snap-y snap-mandatory h-screen w-full overflow-scroll scroll-smooth">
+      <div className="h-screen w-full overflow-auto scroll-smooth">
         {sections.map((section, i) => (
-          <motion.section
+        <motion.section
             key={section.id}
-            className={`snap-start h-screen flex items-center justify-center text-white ${section.bg}`}
+            className={`h-screen flex items-center justify-center text-white ${section.bg}`}
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: i * 0.2 }}
@@ -49,40 +67,35 @@ export default function Home() {
               clipPath: "polygon(0 0, 100% 5%, 100% 100%, 0 95%)",
             }}
   >
-{section.id === "hero" ? (
-  <Avatar 
-        defaultImage="/avatar.png"
-        hoverImage="/headshot.jpeg"
-        alt="Arjun Shenoy"
-        size={120}
-      />
-) : 
- section.id === "hire" ? (
-  // Hire Me split layout
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full h-full px-10">
-    {/* Left: Cal booking */}
-    <div className="flex flex-col items-center justify-center h-full">
-      <h2 className="text-3xl font-bold mb-6">{section.title}</h2>
+      {section.id === "hero" ? (
+        <Avatar 
+              defaultImage="/avatar.png"
+              hoverImage="/headshot.jpeg"
+              alt="Arjun Shenoy"
+              size={120}
+            />
+      ) : 
+      section.id === "hire" ? (
+    // Hire Me split layout
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full h-full px-10">
+      {/* Left: Cal booking */}
+      <div className="flex flex-col items-center justify-center h-full">
       <Cal />
+      <div>Book a Call</div>
     </div>
   </div>
 ) : section.id === "projects" ? (
   // Projects grid
   <div className="w-full h-full px-10 flex flex-col items-center">
-    <h2 className="text-3xl font-bold mb-6">Coming Soon</h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
-      {[1, 2, 3].map((p) => (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
         <motion.div
-          key={p}
-          whileHover={{ scale: 1.05, rotate: -1 }}
           className="bg-white/10 rounded-2xl p-6 shadow-lg cursor-pointer backdrop-blur-md"
         >
-          <h2 className="text-xl font-bold mb-2">Project {p}</h2>
+          <h2 className="text-xl font-bold mb-2">Rortal</h2>
           <p className="text-sm opacity-80">
-            Short description about project {p}.
+            X.
           </p>
         </motion.div>
-      ))}
     </div>
   </div>
 ) : section.id === "substack" ? (
@@ -114,7 +127,7 @@ export default function Home() {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-10 w-10">
+      <svg viewBox="0 0 24 24" fill="black" className="h-10 w-10">
         <path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5zm0 1.5h8.5A4.25 4.25 0 0 1 20.5 7.75v8.5A4.25 4.25 0 0 1 16.25 20.5h-8.5A4.25 4.25 0 0 1 3.5 16.25v-8.5A4.25 4.25 0 0 1 7.75 3.5zm8.25 2.25a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-5.25 2A4.25 4.25 0 1 0 15 12a4.25 4.25 0 0 0-4.25-4.25zm0 1.5A2.75 2.75 0 1 1 8.75 12a2.75 2.75 0 0 1 2.75-2.75z" />
       </svg>
     </a>
@@ -156,7 +169,7 @@ export default function Home() {
       </div>
 
       {/* Social Sidebar (fixed on the right) */}
-      <aside className="hidden md:flex flex-col gap-6 fixed right-6 top-1/3 text-white z-50">
+      <aside className="hidden md:flex flex-col gap-8 fixed right-6 top-1/3 text-white z-50">
   {/* Twitter/X */}
   <motion.a
   href="https://x.com/butn0tshy"
