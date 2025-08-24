@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
@@ -41,13 +43,32 @@ export default function Page() {
               </div>
               <div>
                 {/* Wordmark */}
-                {/* Wordmark */}
                 <div className="mb-8 flex items-center gap-2">
                   <div className="text-2xl font-extrabold tracking-tight">noishey</div>
                   <div className="h-2 w-2 rounded-full bg-white/60" aria-hidden="true" />
                   <div className="text-2xl font-extrabold tracking-tight">arjun</div>
+                  <div className="h-2 w-2 rounded-full bg-white/60" aria-hidden="true" />
+                  <div className="flex items-center gap-3 ml-2">
+                    <div className="relative">
+                      <Image
+                        src="/images/avatar.png"
+                        alt="Avatar"
+                        width={56}
+                        height={56}
+                        className="rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg ring-1 ring-white/10"
+                      />
+                    </div>
+                    <div className="relative">
+                      <Image
+                        src="/images/headshot.jpeg"
+                        alt="Headshot"
+                        width={56}
+                        height={56}
+                        className="rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg ring-1 ring-white/10"
+                      />
+                    </div>
+                  </div>
                 </div>
-
                 {/* Headline with intro blur effect */}
                 <AnimatedHeading
                   className="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl"
@@ -72,24 +93,6 @@ export default function Page() {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                  <div className="flex items-center gap-3">
-                    <div className="relative">
-                      <Image
-                        src="/images/avatar.png"
-                        alt="Avatar"
-                        width={56}
-                        height={56}
-                        className="rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg ring-1 ring-white/10"
-                      />
-                      <Image
-                        src="/images/headshot.jpeg"
-                        alt="Headshot"
-                        width={56}
-                        height={56}
-                        className="rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg ring-1 ring-white/10"
-                      />
-                    </div>
-                  </div>
                 </div>
               </div>
             </RevealOnView>
@@ -117,5 +120,6 @@ export default function Page() {
         </div>
       </section>
     </main>
+
   )
 }

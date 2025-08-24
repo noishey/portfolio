@@ -1,5 +1,5 @@
 "use client"
-import { DotGrid } from "../paper-design/shaders-react"
+import { DotGrid } from "@paper-design/shaders-react"
 
 type DotGridShaderProps = React.ComponentProps<typeof DotGrid>
 
