@@ -81,8 +81,6 @@ export default function Page() {
                         height={56}
                         className="rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg ring-1 ring-white/10"
                       />
-                    </div>
-                    <div className="relative">
                       <Image
                         src="/images/headshot.jpeg"
                         alt="Headshot"
