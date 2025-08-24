@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "../components/ui/button"
 import DotGridShader from "@/components/DotGridShader"
 import ScrollCard from "@/components/scroll-card"
 import AnimatedHeading from "@/components/animated-heading"
