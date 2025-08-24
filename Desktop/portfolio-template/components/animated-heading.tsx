@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 
 type AnimatedHeadingProps = {
   className?: string
+  style?: React.CSSProperties
   /** Lines of text. Each string will be rendered on its own line. */
   lines: string[]
   /** Delay before the streaming effect starts */
@@ -24,6 +25,7 @@ type AnimatedHeadingProps = {
 
 export default function AnimatedHeading({
   className,
+  style,
   lines,
   startDelay = 0,
   durationPerWord = 0.9,
@@ -78,7 +80,7 @@ export default function AnimatedHeading({
   }, [startDelay])
 
   return (
-    <h1 ref={headingRef} className={cn(className)} aria-label={lines.join(" ")}> 
+    <h1 ref={headingRef} className={cn(className)} style={style} aria-label={lines.join(" ")}> 
       {/* Visual characters for animation; hidden from screen readers */}
       <span aria-hidden>
         {tokensPerLine.map((tokens, lineIdx) => (

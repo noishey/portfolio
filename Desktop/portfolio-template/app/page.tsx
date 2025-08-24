@@ -72,6 +72,7 @@ export default function Page() {
                 {/* Headline with intro blur effect */}
                 <AnimatedHeading
                   className="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl"
+                  style={{ color: '#B3B41F' }}
                   lines={["reduce the noise", "& tune in"]}
                 />
 
