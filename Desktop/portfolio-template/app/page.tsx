@@ -2,11 +2,11 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 
-import { Button } from "../components/ui/button"
-import DotGridShader from "../components/DotGridShader"
-import ScrollCard from "../components/scroll-card"
-import AnimatedHeading from "../components/animated-heading"
-import RevealOnView from "../components/reveal-on-view"
+import { Button } from "@/components/ui/button"
+import DotGridShader from "@/components/DotGridShader"
+import ScrollCard from "@/components/scroll-card"
+import AnimatedHeading from "@/components/animated-heading"
+import RevealOnView from "@/components/reveal-on-view"
 
 export default function Page() {
   const sections = [
