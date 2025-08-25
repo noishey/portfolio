@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: 'Arjun Shenoy | Portfolio',
   description: 'Created with v0',
   generator: 'v0.dev',
+  icons: {
+    icon: '/images/avatar.png',
+    shortcut: '/images/avatar.png',
+    apple: '/images/avatar.png',
+  },
 }
 
 export default function RootLayout({
