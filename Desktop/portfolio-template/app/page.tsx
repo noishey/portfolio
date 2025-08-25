@@ -4,11 +4,12 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 
-import { Button } from "@/components/ui/button"
+import { button } from "@/components/ui/button"
 import DotGridShader from "@/components/DotGridShader"
 import ScrollCard from "@/components/scroll-card"
 import AnimatedHeading from "@/components/animated-heading"
 import RevealOnView from "@/components/reveal-on-view"
+import { Button } from "react-day-picker"
 
 export default function Page() {
   const sections = [
@@ -82,18 +83,18 @@ export default function Page() {
 
                 {/* CTAs */}
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <Button asChild size="lg" className="rounded-full">
+                  <button asChild size="lg" className="rounded-full">
                     <Link href="mailto:brandon@portfolio.dev">
                       Hire me
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
-                  </Button>
-                  <Button asChild size="lg" className="rounded-full">
+                  </button>
+                  <button asChild size="lg" className="rounded-full">
                     <Link href="/Resume.pdf" download="Resume.pdf">
                       Resume
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
-                  </Button>
+                  </button>
                 </div>
               </div>
             </RevealOnView>
