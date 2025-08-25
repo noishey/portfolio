@@ -78,7 +78,7 @@ export default function Page() {
                 />
 
                 <p className="mt-4 max-w-[42ch] text-lg text-green/70">
-                  noishey is an creative, engineer, designer and an artist
+                  noishey is a <span className="bg-yellow-200 text-black px-1 rounded">creative</span>, engineer, designer and an artist
                 </p>
 
                 {/* CTAs */}
