@@ -78,7 +78,7 @@ export default function Page() {
                 />
 
                 <p className="mt-4 max-w-[42ch] text-lg text-green/70">
-                  noishey is a <span className="bg-yellow-200 text-black px-1 rounded">creative</span>, engineer, designer and an artist
+                  noishey is a <span className="bg-yellow-200 text-black px-1 rounded">creative</span> <span className="bg-blue-200 text-black px-1 rounded">programmer</span> <span className="bg-white text-black px-1 rounded border border-gray-300">designer</span> and an <span className="bg-orange-200 text-black px-1 rounded">artist</span>
                 </p>
 
                 {/* CTAs */}
@@ -101,7 +101,6 @@ export default function Page() {
                 <div className="mt-8">
                   {/* Socials Section */}
                   <div>
-                    <h3 className="text-sm font-medium text-white/70 mb-3">Socials</h3>
                     <div className="flex flex-wrap items-center gap-4">
                       <Link href="https://github.com/noishey" className="group">
                         <div className="p-2 bg-white rounded-lg shadow-sm transition-all duration-200 group-hover:shadow-md group-hover:scale-105">

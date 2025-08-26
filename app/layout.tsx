@@ -10,6 +10,18 @@ export const metadata: Metadata = {
     shortcut: '/images/avatar.png',
     apple: '/images/avatar.png',
   },
+  openGraph: {
+    title: 'Arjun Shenoy | Portfolio',
+    description: 'creative, engineer, designer and artist',
+    images: ['/images/avatar.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Arjun Shenoy | Portfolio',
+    description: 'Creative, engineer, designer and artist',
+    images: ['/images/avatar.png'],
+  },
 }
 
 export default function RootLayout({
