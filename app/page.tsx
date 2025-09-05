@@ -4,26 +4,55 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 
-import { button } from "@/components/ui/button"
+
 import DotGridShader from "@/components/DotGridShader"
 import ScrollCard from "@/components/scroll-card"
 import AnimatedHeading from "@/components/animated-heading"
 import RevealOnView from "@/components/reveal-on-view"
-import { Button } from "react-day-picker"
 
 export default function Page() {
   const sections = [
     {
-      title: "Coming Soon",
-      subtitle: "",
-      imageSrc: "images/grainy-grad.jpg",
-      tags: [],
-      href: "https://cal.com/noishey/15min?overlayCalendar=true",
+      title: "Rortal",
+      subtitle: "A portal for AI generated NFT's",
+      imageSrc: "/rortal-ss.png",
+      tags: ["React", "Next.js", "Typescript"],
+      href: "https://rortal.vercel.app",
       priority: true,
       gradientFrom: "#0f172a",
       gradientTo: "#36B41F",
-    },  
-  ]
+    },
+    {
+        title: "",
+        subtitle: "",
+        imageSrc: "/images/grainy-grad.jpg",
+        tags: [],
+        href: "https://cal.com/noishey/15min?overlayCalendar=true",
+        priority: false,
+        gradientFrom: "#0f172a",
+        gradientTo: "#3B82F6",
+      },
+      {
+        title: "",
+        subtitle: "",
+        imageSrc: "/images/grainy-grad.jpg",
+        tags: [],
+        href: "https://cal.com/noishey/15min?overlayCalendar=true",
+        priority: false,
+        gradientFrom: "#0f172a",
+        gradientTo: "#8B5CF6",
+      },
+      {
+        title: "",
+        subtitle: "",
+        imageSrc: "/images/grainy-grad.jpg",
+        tags: [],
+        href: "https://cal.com/noishey/15min?overlayCalendar=true",
+        priority: false,
+        gradientFrom: "#0f172a",
+        gradientTo: "#EF4444",
+      },
+    ]
 
   return (
     <main className="bg-neutral-950 text-white">
@@ -83,13 +112,13 @@ export default function Page() {
 
                 {/* CTAs */}
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <button aschild="true" size="lg" className="rounded-full">
+                  <button className="rounded-full">
                     <Link href="mailto:brandon@portfolio.dev">
                       Hire me
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </button>
-                  <button aschild="true" size="lg" className="rounded-full">
+                  <button className="rounded-full">
                     <Link href="/Resume.pdf" download="Resume.pdf">
                       Resume
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -162,7 +191,17 @@ export default function Page() {
 
                   {/* Stream Music Section */}
                   <div className="mt-6">
-                    <h3 className="text-sm font-medium text-white/70 mb-3">Stream Music</h3>
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-sm font-medium text-white/70">Stream Music</h3>
+                      <Link
+                        href="https://cal.com/noishey/15min?overlayCalendar=true"
+                        className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-sm font-medium text-black backdrop-blur transition-all duration-200 hover:scale-105 hover:shadow-lg border border-gray-200"
+                        aria-label="Connect with Noishey"
+                      >
+                        Book a Call
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
                     <div className="flex flex-wrap items-center gap-4">
                       <Link href="https://instagram.com/noisheymusic" className="group">
                         <div className="p-2 bg-white rounded-lg shadow-sm transition-all duration-200 group-hover:shadow-md group-hover:scale-105">
@@ -193,24 +232,28 @@ export default function Page() {
             </RevealOnView>
           </aside>
 
-          {/* RIGHT: simplified, no internal card or horizontal carousel */}
-          <div className="space-y-4">
-            {sections.map((p, idx) => (
-              <ScrollCard
-                key={p.title}
-                title={p.title}
-                subtitle={p.subtitle}
-                imageSrc={p.imageSrc}
-                tags={p.tags}
-                href={p.href}
-                priority={p.priority}
-                gradientFrom={p.gradientFrom}
-                gradientTo={p.gradientTo}
-                imageContainerClassName="lg:h-full"
-                containerClassName="lg:h-[calc(100svh-2rem)]"
-                revealDelay={idx * 0.06}
-              />
-            ))}
+          {/* RIGHT: 2x2 grid layout for single page */}
+          <div className="space-y-6">
+            <div className="grid grid-cols-2 gap-4 h-[calc(100vh-8rem)] min-h-[600px]">
+              {sections.map((p, idx) => (
+                <ScrollCard
+                  key={p.title}
+                  title={p.title}
+                  subtitle={p.subtitle}
+                  imageSrc={p.imageSrc}
+                  tags={p.tags}
+                  href={p.href}
+                  priority={p.priority}
+                  gradientFrom={p.gradientFrom}
+                  gradientTo={p.gradientTo}
+                  imageContainerClassName="h-full"
+                  containerClassName="h-full w-full"
+                  revealDelay={idx * 0.06}
+                />
+              ))}
+            </div>
+            
+            {/* Remove this entire Connect section */}
           </div>
         </div>
       </section>
