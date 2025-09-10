@@ -13,24 +13,24 @@ import RevealOnView from "@/components/reveal-on-view"
 export default function Page() {
   const sections = [
     {
-      title: "Rortal",
-      subtitle: "A portal for AI generated NFT's",
-      imageSrc: "/rortal-ss.png",
-      tags: ["React", "Next.js", "Typescript"],
-      href: "https://rortal.vercel.app",
+      title: "nuke",
+      subtitle: "a synthesizer with chord analysis",
+      imageSrc: "/nuke.png",
+      tags: ["Tone.js", "Tonal.js", "WebAudio API"],
+      href: "nuke-git-master-noisheys-projects.vercel.app",
       priority: true,
       gradientFrom: "#0f172a",
       gradientTo: "#36B41F",
     },
     {
-        title: "",
-        subtitle: "",
-        imageSrc: "/images/grainy-grad.jpg",
-        tags: [],
-        href: "https://cal.com/noishey/15min?overlayCalendar=true",
-        priority: false,
-        gradientFrom: "#0f172a",
-        gradientTo: "#3B82F6",
+      title: "",
+      subtitle: "",
+      imageSrc: "/images/grainy-grad.jpg",
+      tags: [],
+      href: "https://cal.com/noishey/15min?overlayCalendar=true",
+      priority: false,
+      gradientFrom: "#0f172a",
+      gradientTo: "#3B82F6",
       },
       {
         title: "",
@@ -107,7 +107,7 @@ export default function Page() {
                 />
 
                 <p className="mt-4 max-w-[42ch] text-lg text-green/70">
-                  noishey is a <span className="bg-yellow-200 text-black px-1 rounded">creative</span> <span className="bg-blue-200 text-black px-1 rounded">programmer</span> <span className="bg-white text-black px-1 rounded border border-gray-300">designer</span> and an <span className="bg-orange-200 text-black px-1 rounded">artist</span>
+                  noishey is a <span className="bg-yellow-200 text-black px-1 rounded">creative</span> <span className="bg-blue-200 text-black px-1 rounded">programmer</span> <span className="bg-white text-black px-1 rounded border border-gray-300">designer</span> and a <span className="bg-orange-200 text-black px-1 rounded">musician/artist</span>
                 </p>
 
                 {/* CTAs */}
@@ -252,6 +252,22 @@ export default function Page() {
                 />
               ))}
             </div>
+            
+            {/* Newsletter Subscription Section */}
+            <RevealOnView>
+                  <Link 
+                    href="https://noishdreams.substack.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 transform scale-75"
+                    style={{ backgroundColor: '#b3b41e' }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#9a9c1a'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#b3b41e'}
+                  >
+                    Subscribe To My Newsletter
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+            </RevealOnView>
             
             {/* Remove this entire Connect section */}
           </div>

@@ -12,14 +12,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Arjun Shenoy | Portfolio',
-    description: 'creative, engineer, designer and artist',
+    description: 'creative, engineer, designer and a musician/artist',
     images: ['/images/avatar.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary',
     title: 'Arjun Shenoy | Portfolio',
-    description: 'Creative, engineer, designer and artist',
+    description: 'creative, engineer, designer and a musician/artist',
     images: ['/images/avatar.png'],
   },
 }
