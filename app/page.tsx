@@ -15,7 +15,7 @@ export default function Page() {
     {
       title: "nuke",
       subtitle: "a synthesizer with chord analysis",
-      imageSrc: "/nuke.png",
+      imageSrc: "/synth.svg",
       tags: ["Tone.js", "Tonal.js", "WebAudio API"],
       href: "nuke-git-master-noisheys-projects.vercel.app",
       priority: true,
@@ -114,13 +114,13 @@ export default function Page() {
                 <div className="mt-6 flex flex-wrap items-center gap-3">
                   <button className="rounded-full">
                     <Link href="mailto:brandon@portfolio.dev">
-                      Hire me
+                      Mail me
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </button>
                   <button className="rounded-full">
-                    <Link href="/Resume.pdf" download="Resume.pdf">
-                      Resume
+                    <Link href="" download="">
+                      Resume Loading....
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </button>
