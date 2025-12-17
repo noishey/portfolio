@@ -1,27 +1,20 @@
 "use client"
-import { DotGrid } from "@paper-design/shaders-react"
 
-type DotGridShaderProps = React.ComponentProps<typeof DotGrid>
+type DotGridShaderProps = React.ComponentProps<"div">
 
 export default function DotGridShader(props: DotGridShaderProps) {
+  const { style, ...rest } = props
   return (
-    <DotGrid
-      colorFill="#3a3a3a"
-      colorStroke="#000000"
-      colorBack="#000000"
-      size={1.3}
-      gapY={10}
-      gapX={10}
-      strokeWidth={0.5}
-      sizeRange={0.1}
-      opacityRange={0.5}
-      shape="circle"
-      {...props}
+    <div
+      {...rest}
       style={{
         backgroundColor: "#000000",
+        backgroundImage:
+          "radial-gradient(circle, rgba(58,58,58,0.6) 1px, transparent 1.2px)",
+        backgroundSize: "10px 10px",
         width: "100%",
         height: "100%",
-        ...(props?.style || {}),
+        ...(style || {}),
       }}
     />
   )

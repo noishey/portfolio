@@ -4,26 +4,55 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 
-import { button } from "@/components/ui/button"
+
 import DotGridShader from "@/components/DotGridShader"
 import ScrollCard from "@/components/scroll-card"
 import AnimatedHeading from "@/components/animated-heading"
 import RevealOnView from "@/components/reveal-on-view"
-import { Button } from "react-day-picker"
 
 export default function Page() {
   const sections = [
     {
-      title: "Coming Soon",
-      subtitle: "",
-      imageSrc: "images/grainy-grad.jpg",
-      tags: [],
-      href: "https://cal.com/noishey/15min?overlayCalendar=true",
+      title: "NotesApp",
+      subtitle: "A Simple Note Taking App in iOS",
+      imageSrc: "/note.png",
+      tags: ["Swift", "SwiftUI", "MVVM", "Xcode"],
+      href: "/notes",
       priority: true,
       gradientFrom: "#0f172a",
       gradientTo: "#36B41F",
-    },  
-  ]
+    },
+    {
+      title: "RandomMovie",
+      subtitle: "A Simple Movie Randomizer App in iOS",
+      imageSrc: "/film.png",
+      tags: ["Swift", "SwiftUI", "REST-API", "Xcode"],
+      href: "/film",
+      priority: false,
+      gradientFrom: "#0f172a",
+      gradientTo: "#3B82F6",
+      },
+      {
+        title: "",
+        subtitle: "",
+        imageSrc: "/images/grainy-grad.jpg",
+        tags: [],
+        href: "https://cal.com/noishey/15min?overlayCalendar=true",
+        priority: false,
+        gradientFrom: "#0f172a",
+        gradientTo: "#8B5CF6",
+      },
+      {
+        title: "",
+        subtitle: "",
+        imageSrc: "/images/grainy-grad.jpg",
+        tags: [],
+        href: "https://cal.com/noishey/15min?overlayCalendar=true",
+        priority: false,
+        gradientFrom: "#0f172a",
+        gradientTo: "#EF4444",
+      },
+    ]
 
   return (
     <main className="bg-neutral-950 text-white">
@@ -78,20 +107,20 @@ export default function Page() {
                 />
 
                 <p className="mt-4 max-w-[42ch] text-lg text-green/70">
-                  noishey is an creative, engineer, designer and an artist
+                  noishey is an <span className="bg-blue-200 text-black px-1 rounded">iOS</span> <span className="bg-yellow-200 text-black px-1 rounded">developer</span> with an eye for <span className="bg-white text-black px-1 rounded border border-gray-300">sleek design</span>
                 </p>
 
                 {/* CTAs */}
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <button aschild="true" size="lg" className="rounded-full">
+                  <button className="rounded-full">
                     <Link href="mailto:brandon@portfolio.dev">
-                      Hire me
+                      Mail me
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </button>
-                  <button aschild="true" size="lg" className="rounded-full">
-                    <Link href="/Resume.pdf" download="Resume.pdf">
-                      Resume
+                  <button className="rounded-full">
+                    <Link href="" download="">
+                      Resume Loading....
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </button>
@@ -101,7 +130,6 @@ export default function Page() {
                 <div className="mt-8">
                   {/* Socials Section */}
                   <div>
-                    <h3 className="text-sm font-medium text-white/70 mb-3">Socials</h3>
                     <div className="flex flex-wrap items-center gap-4">
                       <Link href="https://github.com/noishey" className="group">
                         <div className="p-2 bg-white rounded-lg shadow-sm transition-all duration-200 group-hover:shadow-md group-hover:scale-105">
@@ -147,23 +175,22 @@ export default function Page() {
                           />
                         </div>
                       </Link>
-                      <Link href="https://goodreads.com/noishey" className="group">
-                        <div className="p-2 bg-white rounded-lg shadow-sm transition-all duration-200 group-hover:shadow-md group-hover:scale-105">
-                          <Image
-                            src="/goodreads.png"
-                            alt="Goodreads"
-                            width={24}
-                            height={24}
-                            className="transition-opacity duration-200 group-hover:opacity-80"
-                          />
-                        </div>
-                      </Link>
+
                     </div>
                   </div>
 
                   {/* Stream Music Section */}
                   <div className="mt-6">
-                    <h3 className="text-sm font-medium text-white/70 mb-3">Stream Music</h3>
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-sm font-medium text-white/70">Stream Music</h3>
+                      <Link
+                        href="https://cal.com/noishey/15min?overlayCalendar=true"
+                        className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-sm font-medium text-black backdrop-blur transition-all duration-200 hover:scale-105 hover:shadow-lg border border-gray-200"
+                        aria-label="Connect with Noishey"
+                      >
+                        Book a Call
+                      </Link>
+                    </div>
                     <div className="flex flex-wrap items-center gap-4">
                       <Link href="https://instagram.com/noisheymusic" className="group">
                         <div className="p-2 bg-white rounded-lg shadow-sm transition-all duration-200 group-hover:shadow-md group-hover:scale-105">
@@ -194,24 +221,44 @@ export default function Page() {
             </RevealOnView>
           </aside>
 
-          {/* RIGHT: simplified, no internal card or horizontal carousel */}
-          <div className="space-y-4">
-            {sections.map((p, idx) => (
-              <ScrollCard
-                key={p.title}
-                title={p.title}
-                subtitle={p.subtitle}
-                imageSrc={p.imageSrc}
-                tags={p.tags}
-                href={p.href}
-                priority={p.priority}
-                gradientFrom={p.gradientFrom}
-                gradientTo={p.gradientTo}
-                imageContainerClassName="lg:h-full"
-                containerClassName="lg:h-[calc(100svh-2rem)]"
-                revealDelay={idx * 0.06}
-              />
-            ))}
+          {/* RIGHT: 2x2 grid layout for single page */}
+          <div className="space-y-6">
+            <div className="grid grid-cols-2 gap-4 h-[calc(100vh-8rem)] min-h-[600px]">
+              {sections.map((p, idx) => (
+                <ScrollCard
+                  key={p.title}
+                  title={p.title}
+                  subtitle={p.subtitle}
+                  imageSrc={p.imageSrc}
+                  tags={p.tags}
+                  href={p.href}
+                  priority={p.priority}
+                  gradientFrom={p.gradientFrom}
+                  gradientTo={p.gradientTo}
+                  imageContainerClassName="h-full"
+                  containerClassName="h-full w-full"
+                  revealDelay={idx * 0.06}
+                />
+              ))}
+            </div>
+            
+            {/* Newsletter Subscription Section */}
+            <RevealOnView>
+                  <Link 
+                    href="https://noishdreams.substack.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 transform scale-75"
+                    style={{ backgroundColor: '#b3b41e' }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#9a9c1a'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#b3b41e'}
+                  >
+                    Subscribe To My Newsletter
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+            </RevealOnView>
+            
+            {/* Remove this entire Connect section */}
           </div>
         </div>
       </section>

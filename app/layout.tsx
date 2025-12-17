@@ -2,9 +2,26 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
+  title: 'Arjun Shenoy | Portfolio',
   description: 'Created with v0',
   generator: 'v0.dev',
+  icons: {
+    icon: '/images/avatar.png',
+    shortcut: '/images/avatar.png',
+    apple: '/images/avatar.png',
+  },
+  openGraph: {
+    title: 'Arjun Shenoy | Portfolio',
+    description: 'creative, engineer, designer and a musician/artist',
+    images: ['/images/avatar.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Arjun Shenoy | Portfolio',
+    description: 'creative, engineer, designer and a musician/artist',
+    images: ['/images/avatar.png'],
+  },
 }
 
 export default function RootLayout({
