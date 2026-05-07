@@ -283,15 +283,26 @@ export default function Page() {
                 Short notes on building, music, and whatever I’m learning.
               </p>
             </div>
-            <Link
-              href="https://noishdreams.substack.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-            >
-              Subscribe
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            <div className="flex flex-wrap items-center gap-2">
+              <Link
+                href="https://noishdreams.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+              >
+                Subscribe
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link
+                href="https://www.goodreads.com/user/show/195686946-noishdreams"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white/90 transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+              >
+                Goodreads
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </RevealOnView>
       </section>
