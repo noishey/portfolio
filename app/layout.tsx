@@ -8,21 +8,21 @@ export const metadata: Metadata = {
   description: 'Created with v0',
   generator: 'v0.dev',
   icons: {
-    icon: '/images/avatar.png',
-    shortcut: '/images/avatar.png',
-    apple: '/images/avatar.png',
+    icon: '/images/avatar.jpg',
+    shortcut: '/images/avatar.jpg',
+    apple: '/images/avatar.jpg',
   },
   openGraph: {
     title: 'Arjun Shenoy | Portfolio',
     description: 'creative, engineer, designer and a musician/artist',
-    images: ['/images/avatar.png'],
+    images: ['/images/avatar.jpg'],
     type: 'website',
   },
   twitter: {
     card: 'summary',
     title: 'Arjun Shenoy | Portfolio',
     description: 'creative, engineer, designer and a musician/artist',
-    images: ['/images/avatar.png'],
+    images: ['/images/avatar.jpg'],
   },
 }
 

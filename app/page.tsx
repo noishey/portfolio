@@ -1,8 +1,11 @@
 "use client"
 
+import { useState } from 'react';
 import Link from "next/link"
 import { ArrowRight, Instagram, Music2, Cloud } from "lucide-react"
 import Image from "next/image"
+import books from '@/data/books.json';
+import { GitHubCalendar } from 'react-github-calendar';
 
 
 import DotGridShader from "@/components/DotGridShader"
@@ -16,6 +19,10 @@ export default function Page() {
   const match = aboutSpringToken.match(/^(\d+ms)\s+(.+)$/)
   const aboutSpringDuration = match?.[1] ?? "450ms"
   const aboutSpringTiming = match?.[2] ?? "linear"
+
+  const years = Array.from(new Set(books.map((b: any) => b.yearRead))).sort((a, b) => b - a);
+  const [selectedYear, setSelectedYear] = useState(years[0] || 2026);
+  const filteredBooks = books.filter((book: any) => book.yearRead === selectedYear);
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4">
@@ -35,7 +42,7 @@ export default function Page() {
             <div className="max-w-2xl">
               <div className="mb-6 flex items-center gap-3">
                 <Image
-                  src="/images/avatar.png"
+                  src="/images/avatar.jpg"
                   alt="Avatar"
                   width={56}
                   height={56}
@@ -43,7 +50,7 @@ export default function Page() {
                 />
                 <div>
                   <div className="text-sm text-white/60">Arjun Shenoy</div>
-                  <div className="text-sm font-medium text-white/80">creative programmer • designer • musician</div>
+                  <div className="text-sm font-medium text-white/80">programmer • designer • musician • writer</div>
                 </div>
               </div>
 
@@ -122,6 +129,41 @@ export default function Page() {
           </div>
         </RevealOnView>
       </section>
+
+      {/* GITHUB GRID SECTION */}
+      <RevealOnView>
+        <div className="mt-6 rounded-3xl border border-white/10 bg-neutral-900/30 p-6 sm:p-10">
+          <div className="mb-6 flex flex-col gap-1">
+            <h3 className="text-lg font-semibold text-white">Contribution Graph</h3>
+            <p className="text-sm text-white/50">My recent activity on GitHub.</p>
+          </div>
+          
+          <div className="flex justify-center overflow-hidden">
+            <GitHubCalendar 
+              username="noishey" 
+              blockSize={12}
+              blockMargin={4}
+              fontSize={12}
+              theme={{
+                light: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+                dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+              }}
+              labels={{
+                totalCount: "{{count}} contributions in the last year",
+              }}
+            />
+          </div>
+          
+          <div className="mt-6 flex justify-center">
+            <Link 
+              href="https://github.com/noishey" 
+              className="text-xs font-medium text-white/40 hover:text-white transition-colors"
+            >
+              View full profile on GitHub →
+            </Link>
+          </div>
+        </div>
+      </RevealOnView>
 
       {/* EXPERIENCE */}
       <section id="experience" className="scroll-mt-24 py-12" aria-label="Work experience">
@@ -271,6 +313,60 @@ export default function Page() {
             </div>
           </Link>
         </div>
+      </section>
+
+      {/* BOOKS */}
+    
+      <section id="books" className="scroll-mt-24 py-12" aria-label="Books">
+        <RevealOnView>
+          <div className="flex flex-col items-start justify-between gap-4 rounded-3xl border border-white/10 bg-neutral-900/30 p-6 sm:flex-row sm:items-center sm:p-10">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Books</h2>
+              <p className="mt-2 text-sm text-white/60">
+                My reading journey and reviews.
+              </p>
+            </div>
+
+            {/* Dropdown Menu */}
+            <div className="relative w-full sm:w-auto">
+              <select 
+                value={selectedYear}
+                onChange={(e) => setSelectedYear(Number(e.target.value))}
+                className="w-full appearance-none rounded-xl border border-white/10 bg-neutral-800 px-4 py-2 text-sm font-medium text-white outline-none ring-primary/50 focus:ring-2 sm:w-32"
+              >
+                {years.map((year: number) => (
+                  <option key={year} value={year}>{year}</option>
+                ))}
+              </select>
+              {/* Custom arrow for the dropdown */}
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-white/40">
+                <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Books Grid */}
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {filteredBooks.length > 0 ? (
+              filteredBooks.map((book: Book) => (
+                <div key={book.id} className="group rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-0 will-change-transform hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10">
+                  <div className="flex items-center gap-3">
+                    <Image src={book.coverImage} alt={book.title} width={56} height={56} className="rounded-lg bg-white/10 ring-1 ring-white/15" />
+                    <div>
+                      <div className="text-sm font-semibold">{book.title}</div>
+                      <div className="text-xs text-white/55">{book.author}</div>
+                    </div>
+                  </div>
+                  <div className="mt-4">
+                    <p className="text-sm text-white/70">{book.review}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-white/40 italic">No books logged for this year yet.</p>
+            )}
+          </div>
+        </RevealOnView>
       </section>
 
       {/* WRITING */}

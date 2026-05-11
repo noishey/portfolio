@@ -16,10 +16,11 @@ type NavItem = {
 }
 
 const navItems: NavItem[] = [
-  { label: "Work", href: "#work" },
+  { label: "Proof of Work", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "About", href: "#about" },
   { label: "Music", href: "#music" },
+  { label: "Books", href: "#books" },
   { label: "Writing", href: "#writing" },
   { label: "Contact", href: "#contact" },
 ]
@@ -40,7 +41,7 @@ export default function Navbar({ className }: { className?: string }) {
         >
           <span className="relative inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/15 transition-colors group-hover:bg-white/15">
             <Image
-              src="/images/avatar.png"
+              src="/images/avatar.jpg"
               alt="Noishey avatar"
               fill
               sizes="32px"

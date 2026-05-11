@@ -1,0 +1,26 @@
+[
+    {
+        "id": "the-zahir",
+        "title": "The Zahir",
+        "author": "Paulo Coelho",
+        "yearRead": 2026,
+        "dateFinished": "2026-04-21",
+        "rating": 4,
+        "status": "read",
+        "review": "I have read Paolo Coelho before and clearly know his style. It was an easy read and a book I’m finishing after a long break. The cover which portrays a beautiful woman vanishing away into the maze gave me the gist of what is about to follow. It is a really philosophical yet adventurous journey from France to Central Asia. The author really knows how to transport the reader into his world. Everyone is in the journey to find their Zahir. Let them succeed.",
+        "coverImage": "/images/books/the-zahir.jpg",
+        "tags": ["Fiction", "Philosophy", "Spirituality", "Literature"]
+    },
+    {
+        "id": "the-grapes-of-wrath",
+        "title": "The Grapes of Wrath",
+        "author": "John Steinbeck",
+        "yearRead": 2026,
+        "dateFinished": "2026-04-21",
+        "rating": 4,
+        "status": "read",
+        "review": "Thinking about this book itself gives me an ache in my chest. It is one of the heaviest literature when it comes to struggle that I have read. The picturesque landscapes of great depression America and the nomadic life paired with the Joad family’s struggle leaves a mark on every reader. I want to return to more of the works of Steinbeck in time and I know how deep his works are. A brilliant writer who knows the soul of the human race. I’m proud to read this and feel it. I still feel it. ",
+        "coverImage": "/images/books/grapes-of-wrath.jpg",
+        "tags": ["Classics", "Fiction", "Historical Fiction", "Literature"]
+    }
+  ]
