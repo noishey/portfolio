@@ -1,26 +1,23 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Navbar from '../components/navbar'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
-  title: 'Arjun Shenoy | Portfolio',
+  title: 'noishey',
   description: 'Created with v0',
   generator: 'v0.dev',
-  icons: {
-    icon: '/images/avatar.png',
-    shortcut: '/images/avatar.png',
-    apple: '/images/avatar.png',
-  },
   openGraph: {
     title: 'Arjun Shenoy | Portfolio',
-    description: 'creative, engineer, designer and a musician/artist',
-    images: ['/images/avatar.png'],
+    description: 'ai engineer',
+    images: [],
     type: 'website',
   },
   twitter: {
     card: 'summary',
     title: 'Arjun Shenoy | Portfolio',
-    description: 'creative, engineer, designer and a musician/artist',
-    images: ['/images/avatar.png'],
+    description: 'ai engineer/open-source',
+    images: [],
   },
 }
 
@@ -30,7 +27,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    // Add className="dark" and suppressHydrationWarning here
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -46,7 +44,12 @@ export default function RootLayout({
 html { font-family: var(--font-sans); }
         `}</style>
       </head>
-      <body>{children}</body>
+      <body className="min-h-dvh bg-neutral-950 text-white antialiased">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
