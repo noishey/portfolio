@@ -9,9 +9,19 @@ import RevealOnView from "@/components/reveal-on-view"
 export default function Page() {
   const articles = [
     {
+      date: "May 21, 2026",
+      title: "Vosk as a Local STT Provider",
+      href: "/articles/vosk-stt-provider",
+    },
+    {
       date: "May 19, 2026",
       title: "Aggregating Anthropic Streams in LangChain.js",
       href: "/articles/aggregating-anthropic-streams",
+    },
+    {
+      date: "May 17, 2026",
+      title: "Streaming Byte Cap to Prevent Resource Exhaustion",
+      href: "/articles/streaming-byte-cap",
     },
   ]
 
