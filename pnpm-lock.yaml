@@ -129,7 +129,7 @@ importers:
         specifier: latest
         version: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       next:
-        specifier: ^16.2.6
+        specifier: 16.2.6
         version: 16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       next-themes:
         specifier: latest
