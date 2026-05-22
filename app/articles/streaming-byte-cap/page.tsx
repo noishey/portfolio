@@ -5,7 +5,7 @@ import RevealOnView from "@/components/reveal-on-view"
 
 export default function ArticlePage() {
     return (
-        <main className="mx-auto w-full max-w-3xl px-6 py-20">
+        <main className="mx-auto w-full max-w-2xl px-4 py-20">
             <article className="prose prose-invert prose-neutral max-w-none">
                 <RevealOnView intensity="soft">
                     <div className="space-y-6">
@@ -54,9 +54,11 @@ export default function ArticlePage() {
                         </p>
 
                         <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <code className="text-sm text-white/90">{`from httpx import HTTPError
-from typing import Annotated, Tuple
-from urllib.parse import urlparse, urlunparse`}</code>
+                            <code className="text-sm font-mono leading-relaxed block">
+                                <span className="text-red-400">from</span> <span className="text-cyan-400">httpx</span> <span className="text-red-400">import</span> <span className="text-orange-400">HTTPError</span>{"\n"}
+                                <span className="text-red-400">from</span> <span className="text-cyan-400">typing</span> <span className="text-red-400">import</span> <span className="text-orange-400">Annotated</span>, <span className="text-orange-400">Tuple</span>{"\n"}
+                                <span className="text-red-400">from</span> <span className="text-cyan-400">urllib.parse</span> <span className="text-red-400">import</span> <span className="text-purple-400">urlparse</span>, <span className="text-purple-400">urlunparse</span>
+                            </code>
                         </pre>
 
                         <p>
@@ -73,14 +75,16 @@ from urllib.parse import urlparse, urlunparse`}</code>
                         </p>
 
                         <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <code className="text-sm text-white/90">{`[tool.pytest.ini_options]
-testpaths = [ "tests" ]
-asyncio_mode = "auto"
-
-[tool.pyright]
-pythonVersion = "3.10"
-typeCheckingMode = "basic"
-include = [ "src", "tests" ]`}</code>
+                            <code className="text-sm font-mono leading-relaxed block">
+                                <span className="text-red-400">[tool.pytest.ini_options]</span>{"\n"}
+                                <span className="text-cyan-400">testpaths</span> = [ <span className="text-green-400">"tests"</span> ]{"\n"}
+                                <span className="text-cyan-400">asyncio_mode</span> = <span className="text-green-400">"auto"</span>{"\n"}
+                                {"\n"}
+                                <span className="text-red-400">[tool.pyright]</span>{"\n"}
+                                <span className="text-cyan-400">pythonVersion</span> = <span className="text-green-400">"3.10"</span>{"\n"}
+                                <span className="text-cyan-400">typeCheckingMode</span> = <span className="text-green-400">"basic"</span>{"\n"}
+                                <span className="text-cyan-400">include</span> = [ <span className="text-green-400">"src"</span>, <span className="text-green-400">"tests"</span> ]
+                            </code>
                         </pre>
 
                         <ul className="list-disc pl-5 space-y-2">
@@ -110,7 +114,7 @@ include = [ "src", "tests" ]`}</code>
                                 href="https://github.com/modelcontextprotocol/servers/pull/4185"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-sm font-mono text-white/50 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+                                className="inline-flex items-center gap-1 text-sm font-mono text-neutral-500 underline decoration-neutral-800 underline-offset-4 transition-colors hover:text-neutral-200 hover:decoration-neutral-400"
                                 aria-label="Link to Pull Request"
                             >
                                 Link To Pull Request ↗
@@ -120,7 +124,7 @@ include = [ "src", "tests" ]`}</code>
                         <div className="pt-8">
                             <Link
                                 href="/"
-                                className="text-sm text-white/50 transition-colors hover:text-white"
+                                className="text-sm text-neutral-500 transition-colors hover:text-neutral-200 font-mono"
                             >
                                 ← Back
                             </Link>

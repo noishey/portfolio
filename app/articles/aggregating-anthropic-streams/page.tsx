@@ -6,7 +6,7 @@ import RevealOnView from "@/components/reveal-on-view"
 
 export default function ArticlePage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-20">
+    <main className="mx-auto w-full max-w-2xl px-4 py-20">
       <article className="prose prose-invert prose-neutral max-w-none">
         <RevealOnView intensity="soft">
           <div className="space-y-6">
@@ -82,17 +82,21 @@ export default function ArticlePage() {
             <p>The initial stream frame emits JSON with:</p>
 
             <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
-              <code className="text-sm text-white/90">{`{
-  "type": "tool_use"
-}`}</code>
+              <code className="text-sm font-mono leading-relaxed block">
+                {"{"}{"\n"}
+                {"  "}<span className="text-cyan-400">"type"</span>: <span className="text-green-400">"tool_use"</span>{"\n"}
+                {"}"}
+              </code>
             </pre>
 
             <p>Subsequent delta frames emit:</p>
 
             <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
-              <code className="text-sm text-white/90">{`{
-  "type": "input_json_delta"
-}`}</code>
+              <code className="text-sm font-mono leading-relaxed block">
+                {"{"}{"\n"}
+                {"  "}<span className="text-cyan-400">"type"</span>: <span className="text-green-400">"input_json_delta"</span>{"\n"}
+                {"}"}
+              </code>
             </pre>
 
             <p>
@@ -106,7 +110,9 @@ export default function ArticlePage() {
             </p>
 
             <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
-              <code className="text-sm text-white/90">{`input_json_delta → input_json`}</code>
+              <code className="text-sm font-mono leading-relaxed block">
+                <span className="text-cyan-400">input_json_delta</span> <span className="text-neutral-500">→</span> <span className="text-cyan-400">input_json</span>
+              </code>
             </pre>
 
             <p>
@@ -126,14 +132,18 @@ export default function ArticlePage() {
             </p>
 
             <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
-              <code className="text-sm text-white/90">{`input_json
-input_json_delta`}</code>
+              <code className="text-sm font-mono leading-relaxed block">
+                <span className="text-cyan-400">input_json</span>{"\n"}
+                <span className="text-cyan-400">input_json_delta</span>
+              </code>
             </pre>
 
             <p>correctly map to:</p>
 
             <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
-              <code className="text-sm text-white/90">{`tool_use`}</code>
+              <code className="text-sm font-mono leading-relaxed block">
+                <span className="text-green-400">"tool_use"</span>
+              </code>
             </pre>
 
             <p>
@@ -172,10 +182,10 @@ input_json_delta`}</code>
               formatting checks passed successfully.
             </p>
             <Link
-              href="https://github.com/langchain-ai/langchainjs/issues/..." // your issue link
+              href="https://github.com/langchain-ai/langchainjs/issues/29688"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-mono text-white/50 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+              className="inline-flex items-center gap-1 text-sm font-mono text-neutral-500 underline decoration-neutral-800 underline-offset-4 transition-colors hover:text-neutral-200 hover:decoration-neutral-400"
               aria-label="Link to GitHub Issue"
             >
               Link To Issue ↗
@@ -184,7 +194,7 @@ input_json_delta`}</code>
             <div className="pt-8">
               <Link
                 href="/"
-                className="text-sm text-white/50 transition-colors hover:text-white"
+                className="text-sm text-neutral-500 transition-colors hover:text-neutral-200 font-mono"
               >
                 ← Back
               </Link>

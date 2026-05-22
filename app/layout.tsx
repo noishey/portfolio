@@ -8,17 +8,11 @@ export const metadata: Metadata = {
   description: 'Created with v0',
   generator: 'v0.dev',
   openGraph: {
-    title: 'Arjun Shenoy | Portfolio',
-    description: 'ai engineer',
+    title: "noishey's tech blog",
+    description: 'ai engineer/oss',
     images: [],
     type: 'website',
-  },
-  twitter: {
-    card: 'summary',
-    title: 'Arjun Shenoy | Portfolio',
-    description: 'ai engineer/open-source',
-    images: [],
-  },
+  }
 }
 
 export default function RootLayout({
@@ -41,10 +35,10 @@ export default function RootLayout({
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-html { font-family: var(--font-sans); }
+html { font-family: var(--font-mono); }
         `}</style>
       </head>
-      <body className="min-h-dvh bg-neutral-950 text-white antialiased">
+      <body className="min-h-dvh bg-black text-white antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           {children}
