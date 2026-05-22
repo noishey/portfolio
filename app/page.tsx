@@ -6,6 +6,12 @@ import RevealOnView from "@/components/reveal-on-view"
 export default function Page() {
   const articles = [
     {
+      date: "May 22, 2026",
+      title: "Historical Profiles for Nuclear Site Layers",
+      href: "/articles/historical-profiles",
+      takeaway: "added rich operational metadata and details accordions inside map tooltips with optimized dismiss timings.",
+    },
+    {
       date: "May 21, 2026",
       title: "Vosk as a Local STT Provider",
       href: "/articles/vosk-stt-provider",
