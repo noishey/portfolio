@@ -6,6 +6,12 @@ import RevealOnView from "@/components/reveal-on-view"
 export default function Page() {
   const articles = [
     {
+      date: "May 23, 2026",
+      title: "Flagging Ingested Duplicates @gbrain",
+      href: "/articles/ingesting-overlapping-duplicates",
+      takeaway: "resolved duplicate page ingestion bugs in gbrain CLI using content hash checks and unique slug validations.",
+    },
+    {
       date: "May 22, 2026",
       title: "Historical Profiles for Nuclear Site Layers",
       href: "/articles/historical-profiles",
@@ -38,7 +44,7 @@ export default function Page() {
         <RevealOnView intensity="soft">
           <div className="space-y-4 text-base leading-relaxed text-neutral-400 font-mono">
             <p>
-              ai engineering/oss
+              ai engineering/oss/web-apps
             </p>
           </div>
         </RevealOnView>
@@ -81,6 +87,14 @@ export default function Page() {
               active contributions
             </h2>
             <div className="grid gap-4 font-mono text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
+                <span className="text-neutral-300">garrytan/gbrain</span>
+                <span className="text-neutral-500">duplicate CLI ingestion checks</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
+                <span className="text-neutral-300">koala73/worldmonitor</span>
+                <span className="text-neutral-500">interactive map layer profiles</span>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
                 <span className="text-neutral-300">NousResearch/hermes-agent</span>
                 <span className="text-neutral-500">stt optimizations & caching</span>
