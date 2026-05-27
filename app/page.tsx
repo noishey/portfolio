@@ -6,6 +6,12 @@ import RevealOnView from "@/components/reveal-on-view"
 export default function Page() {
   const articles = [
     {
+      date: "May 27, 2026",
+      title: "Adding Kimi Code Support to CodeGraph: Deep Dive into Local MCP Semantic Indexing",
+      href: "/articles/kimi-agent",
+      takeaway: "integrated Kimi CLI targets into the CodeGraph MCP server semantic indexing and installer targets.",
+    },
+    {
       date: "May 25, 2026",
       title: "Scoped Agent Isolation @agentmemory",
       href: "/articles/scoped-agent-isolation",
@@ -93,6 +99,10 @@ export default function Page() {
               active contributions
             </h2>
             <div className="grid gap-4 font-mono text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
+                <span className="text-neutral-300">colbymchenry/codegraph</span>
+                <span className="text-neutral-500">kimi CLI target installer registration</span>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
                 <span className="text-neutral-300">rohitg00/agentmemory</span>
                 <span className="text-neutral-500">multi-agent context isolation boundaries</span>
