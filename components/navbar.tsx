@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { Rss } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -24,13 +25,24 @@ export default function Navbar({ className }: { className?: string }) {
     >
       <div className="mx-auto flex h-24 max-w-2xl items-center justify-between px-4">
         <div className="flex items-center gap-9">
-          <Link
-            href="/"
-            className="group inline-flex items-center gap-2 text-2xl font-semibold tracking-tight text-white"
-            aria-label="Home"
-          >
-            <span>noishey</span>
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/"
+              className="group inline-flex items-center gap-2 text-2xl font-semibold tracking-tight text-white"
+              aria-label="Home"
+            >
+              <span>noishey</span>
+            </Link>
+            <Link
+              href="/feed.xml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#f26522] hover:text-[#ff7f41] transition-colors p-1"
+              aria-label="RSS Feed"
+            >
+              <Rss className="h-4 w-4" />
+            </Link>
+          </div>
 
           <nav className="flex items-center gap-2" aria-label="Primary">
             {navItems.map((item) => (
