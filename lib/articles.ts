@@ -7,6 +7,12 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "May 31, 2026",
+    title: "Supporting Big Int Type",
+    href: "/articles/supporting-big-int-type",
+    takeaway: "solved web assembly FFI boundary serialization problem in deepagentjs quickjs provider.",
+  },
+  {
     date: "May 27, 2026",
     title: "Adding Kimi Code Support to CodeGraph: Deep Dive into Local MCP Semantic Indexing",
     href: "/articles/kimi-agent",
