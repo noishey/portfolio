@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Rss } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import ThemeToggle from '@/components/theme-toggle'
 
 type NavItem = {
   label: string
@@ -95,6 +96,8 @@ export default function Navbar({ className }: { className?: string }) {
           >
             coffee
           </Link>
+
+          <ThemeToggle />
         </div>
       </div>
     </header>

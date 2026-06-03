@@ -121,3 +121,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Sepia link utilities for navbar */
+@layer components {
+  .sepia-link {
+    color: #704214;
+  }
+  .sepia-link:hover {
+    color: #8b5a2b;
+  }
+  .sepia-decoration {
+    text-decoration-color: #5a2f17;
+  }
+  .sepia-decoration:hover {
+    text-decoration-color: #8b5a2b;
+  }
+
+  /* Headings should be black */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+  }
+}
