@@ -10,11 +10,11 @@ export default function ArticlePage() {
       <article className="prose prose-invert prose-neutral max-w-none">
         <RevealOnView intensity="soft">
           <div className="space-y-6">
-            <p className="text-sm font-mono text-white/40">
+            <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
               May 19, 2026
             </p>
 
-            <h1 className="text-4xl font-semibold tracking-tight text-white">
+            <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
               Aggregating Anthropic Streams in LangChain.js
             </h1>
 

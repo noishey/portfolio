@@ -69,7 +69,7 @@ export default function AnimatedHeading({
       .forEach(([lineIndex, words]) => {
         animate(
           words,
-          { opacity: 1, filter: "blur(0px)", transform: "translateY(0)" },
+          { opacity: 10, filter: "blur(0px)", transform: "translateY(0)" },
           {
             duration: durationPerWord,
             delay: stagger(staggerPerWord, { start: startDelay + lineIndex * lineDelay }),

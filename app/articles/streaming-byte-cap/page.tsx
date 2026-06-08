@@ -9,11 +9,11 @@ export default function ArticlePage() {
             <article className="prose prose-invert prose-neutral max-w-none">
                 <RevealOnView intensity="soft">
                     <div className="space-y-6">
-                        <p className="text-sm font-mono text-white/40">
+                        <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
                             May 17, 2026
                         </p>
 
-                        <h1 className="text-4xl font-semibold tracking-tight text-white">
+                        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
                             Streaming Byte Cap to Prevent Resource Exhaustion
                         </h1>
 
@@ -34,17 +34,17 @@ export default function ArticlePage() {
                             ) in the <code>modelcontextprotocol/servers</code> repository addresses this vector by refactoring the <code>fetch</code> tool to use async memory-safe streaming combined with a hard byte cap.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">The Core Implementation</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">The Core Implementation</h2>
                         <p>
                             The upgrade shifts from an eager, all-at-once data retrieval model to an incremental chunk-processing model.
                         </p>
 
-                        <h3 className="text-lg font-medium text-white/90">1. Enforcing a Hard Byte Cap</h3>
+                        <h3 className="text-lg font-medium text-neutral-800 dark:text-white/90">1. Enforcing a Hard Byte Cap</h3>
                         <p>
                             The PR introduces a strict safety ceiling of <strong>2MB</strong> (<code>MAX_RESPONSE_BYTES</code>). Instead of relying on the HTTP <code>Content-Length</code> header (which can be easily spoofed or omitted by malicious or misconfigured servers), the cap is enforced programmatically during chunk consumption.
                         </p>
 
-                        <h3 className="text-lg font-medium text-white/90">2. Memory-Safe Streaming with HTTPX</h3>
+                        <h3 className="text-lg font-medium text-neutral-800 dark:text-white/90">2. Memory-Safe Streaming with HTTPX</h3>
                         <p>
                             By moving from standard retrieval to HTTPX's streaming utilities, the server can inspect data as it arrives.
                         </p>
@@ -65,7 +65,7 @@ export default function ArticlePage() {
                             During the stream iteration, the server tracks the cumulative bytes received. If the total exceeds the 2MB threshold, the stream is aborted immediately, preventing the server from allocating excessive memory.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">Configuration & Tooling Updates</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">Configuration & Tooling Updates</h2>
                         <p>
                             Beyond the core server logic, the PR refactors the Python environment configuration to guarantee strict type safety and predictable async testing behavior.
                         </p>
@@ -96,7 +96,7 @@ export default function ArticlePage() {
                             </li>
                         </ul>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">Summary of Benefits</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">Summary of Benefits</h2>
                         <ul className="list-disc pl-5 space-y-2">
                             <li>
                                 <strong>DoS Protection</strong>: Massive payloads are cut off at exactly 2MB before they can saturate memory.

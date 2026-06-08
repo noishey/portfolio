@@ -9,15 +9,15 @@ export default function ArticlePage() {
             <article className="prose prose-invert prose-neutral max-w-none">
                 <RevealOnView intensity="soft">
                     <div className="space-y-6">
-                        <p className="text-sm font-mono text-white/40">
+                        <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
                             May 31, 2026
                         </p>
 
-                        <h1 className="text-4xl font-semibold tracking-tight text-white">
+                        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
                             Supporting Big Int Type
                         </h1>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4 underline underline-offset-8 decoration-white/20">
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">
                             Repository
                         </h2>
 
@@ -33,7 +33,7 @@ export default function ArticlePage() {
                             Running AI generated code in host server is a massive security risk so this repository allows a sandbox called @langchain/quickjs known as the WASM(Web Assembly) Sandbox.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4 underline underline-offset-8 decoration-white/20">
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">
                             Problem Statement
                         </h2>
 
@@ -41,11 +41,11 @@ export default function ArticlePage() {
                             JSON is serialized across environments for supporting across it. Here the environment is Web Assembly which provides a safe environment to run the js code made up by agents. The problem is js serialization json.stringify doesn’t natively support BigInt data types and throws a harsh TypeError.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4 underline underline-offset-8 decoration-white/20">
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">
                             The Fix
                         </h2>
 
-                        <p className="text-neutral-300">
+                        <p className="text-neutral-700 dark:text-neutral-300">
                             The solution involves updates across utility functions, sandbox execution contexts, and TypeScript compilation configurations:
                         </p>
 
@@ -58,7 +58,7 @@ export default function ArticlePage() {
                                         libs/providers/quickjs/src/utils.ts
                                     </span>
                                 </div>
-                                <p className="text-sm text-neutral-400">
+                                <p className="text-sm text-neutral-600 dark:text-neutral-400">
                                     Define a reusable utility function to safely serialize guest values to JSON, converting native <code>BigInt</code> types into strings:
                                 </p>
                                 <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -85,7 +85,7 @@ export default function ArticlePage() {
                                         libs/providers/quickjs/src/session.ts
                                     </span>
                                 </div>
-                                <p className="text-sm text-neutral-400">
+                                <p className="text-sm text-neutral-600 dark:text-neutral-400">
                                     Integrate the utility in the runtime execution context. When processing execution outcomes, format the result and preserve native formats without string quotes when possible:
                                 </p>
                                 <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -103,7 +103,7 @@ export default function ArticlePage() {
                                         {"}"}
                                     </code>
                                 </pre>
-                                <p className="text-sm text-neutral-400">
+                                <p className="text-sm text-neutral-600 dark:text-neutral-400">
                                     The above code ensures the final output is clean of double quotes when presenting the BigInt result.
                                 </p>
 
@@ -111,7 +111,7 @@ export default function ArticlePage() {
                                     <h4 className="text-sm font-semibold text-neutral-200">
                                         Resolving the Web Assembly FFI Boundary Issues
                                     </h4>
-                                    <ul className="list-disc pl-5 space-y-2 text-sm text-neutral-400">
+                                    <ul className="list-disc pl-5 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                                         <li>
                                             <strong>Fallback Detection:</strong> If <code>context.dump</code> encounters an object containing a bigint, it returns <code>&quot;[object Object]&quot;</code> due to internal VM serialization throws. We actively check for and handle this string fallback.
                                         </li>
@@ -136,13 +136,13 @@ export default function ArticlePage() {
                                         libs/deepagents/tsconfig.json
                                     </span>
                                 </div>
-                                <p className="text-sm text-neutral-400">
+                                <p className="text-sm text-neutral-600 dark:text-neutral-400">
                                     Resolves the circular reference compilation error caused by modules referencing types from adjacent packages.
                                 </p>
                             </div>
                         </div>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4 underline underline-offset-8 decoration-white/20">
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">
                             Learnings
                         </h2>
 

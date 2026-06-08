@@ -38,7 +38,7 @@ html { font-family: var(--font-mono); }
         `}</style>
       </head>
       <body className="min-h-dvh bg-white text-black dark:bg-black dark:text-white antialiased">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
         </ThemeProvider>

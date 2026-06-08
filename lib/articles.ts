@@ -7,6 +7,12 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "June 7, 2026",
+    title: "Google Vertex AI Custom Endpoint Fix",
+    href: "/articles/google-param-validation",
+    takeaway: "fixed Google Vertex AI multi-region endpoint resolution logic in langchainjs to prevent connection errors.",
+  },
+  {
     date: "May 31, 2026",
     title: "Supporting Big Int Type",
     href: "/articles/supporting-big-int-type",

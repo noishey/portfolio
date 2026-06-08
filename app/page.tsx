@@ -10,7 +10,7 @@ export default function Page() {
       {/* HERO */}
       <section className="mb-20">
         <RevealOnView intensity="soft">
-          <div className="space-y-4 text-base leading-relaxed text-neutral-400 font-mono">
+          <div className="space-y-4 text-base leading-relaxed text-neutral-600 font-mono">
             <p>
               ai engineering/oss/web-apps
             </p>
@@ -33,7 +33,7 @@ export default function Page() {
                     {article.date}
                   </span>
                   <div className="space-y-1.5">
-                    <span className="text-lg text-neutral-200 group-hover:text-white transition-colors decoration-neutral-800 group-hover:decoration-neutral-400 underline underline-offset-4 block">
+                    <span className="text-lg text-neutral-900 group-hover:text-black transition-colors decoration-neutral-300 group-hover:decoration-neutral-700 underline underline-offset-4 block dark:text-neutral-200 dark:group-hover:text-white dark:decoration-neutral-800 dark:group-hover:decoration-neutral-400">
                       {article.title}
                     </span>
                     <span className="text-sm text-neutral-500 block font-mono">
@@ -56,32 +56,12 @@ export default function Page() {
             </h2>
             <div className="grid gap-4 font-mono text-sm">
               <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-300">colbymchenry/codegraph</span>
-                <span className="text-neutral-500">kimi CLI target installer registration</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-300">rohitg00/agentmemory</span>
-                <span className="text-neutral-500">multi-agent context isolation boundaries</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-300">garrytan/gbrain</span>
-                <span className="text-neutral-500">duplicate CLI ingestion checks</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-300">koala73/worldmonitor</span>
-                <span className="text-neutral-500">interactive map layer profiles</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-300">NousResearch/hermes-agent</span>
-                <span className="text-neutral-500">stt optimizations & caching</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
                 <span className="text-neutral-300">langchain-ai/langchainjs</span>
                 <span className="text-neutral-500">prompt stream type parsing core</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-300">modelcontextprotocol/servers</span>
-                <span className="text-neutral-500">async streaming boundaries</span>
+                <span className="text-neutral-300">rohitg00/agentmemory</span>
+                <span className="text-neutral-500">multi-agent context isolation boundaries</span>
               </div>
             </div>
           </div>
