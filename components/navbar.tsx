@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Rss } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import ThemeToggle from '@/components/theme-toggle'
 
 type NavItem = {
   label: string
@@ -19,7 +20,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full bg-neutral-950/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/50",
+        "sticky top-0 z-20 w-full bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-neutral-950/70 dark:supports-[backdrop-filter]:bg-neutral-950/50",
         className
       )}
     >
@@ -28,7 +29,7 @@ export default function Navbar({ className }: { className?: string }) {
           <div className="flex items-center gap-2">
             <Link
               href="/"
-              className="group inline-flex items-center gap-2 text-2xl font-semibold tracking-tight text-white"
+              className="group inline-flex items-center gap-2 text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white"
               aria-label="Home"
             >
               <span>noishey</span>
@@ -49,7 +50,7 @@ export default function Navbar({ className }: { className?: string }) {
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-md px-4 py-3 text-base text-white/50 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                className="rounded-md px-4 py-3 text-base text-neutral-500 transition-colors hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 dark:text-black/50 dark:hover:text-white dark:focus-visible:ring-white/20"
               >
                 {item.label}
               </a>
@@ -60,7 +61,7 @@ export default function Navbar({ className }: { className?: string }) {
         <div className="flex items-center gap-6 text-sm font-mono">
           <Link
             href="mailto:tech.noishey@gmail.com"
-            className="text-neutral-500 hover:text-neutral-200 transition-colors underline underline-offset-4 decoration-neutral-800 hover:decoration-neutral-400"
+            className="text-neutral-500 hover:text-neutral-900 transition-colors underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-200 dark:decoration-neutral-800 dark:hover:decoration-neutral-400"
             aria-label="Email"
           >
             email
@@ -70,7 +71,7 @@ export default function Navbar({ className }: { className?: string }) {
             href="https://github.com/noishey"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-neutral-200 transition-colors underline underline-offset-4 decoration-neutral-800 hover:decoration-neutral-400"
+            className="text-neutral-500 hover:text-neutral-900 transition-colors underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-200 dark:decoration-neutral-800 dark:hover:decoration-neutral-400"
             aria-label="GitHub"
           >
             github
@@ -80,7 +81,7 @@ export default function Navbar({ className }: { className?: string }) {
             href="https://x.com/butn0tshy"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-neutral-200 transition-colors underline underline-offset-4 decoration-neutral-800 hover:decoration-neutral-400"
+            className="text-neutral-500 hover:text-neutral-900 transition-colors underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-200 dark:decoration-neutral-800 dark:hover:decoration-neutral-400"
             aria-label="X (Twitter)"
           >
             x
@@ -90,11 +91,13 @@ export default function Navbar({ className }: { className?: string }) {
             href="https://buymeacoffee.com/noishey"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-neutral-200 transition-colors underline underline-offset-4 decoration-neutral-800 hover:decoration-neutral-400"
+            className="text-neutral-500 hover:text-neutral-900 transition-colors underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-200 dark:decoration-neutral-800 dark:hover:decoration-neutral-400"
             aria-label="Buy Me a Coffee"
           >
             coffee
           </Link>
+
+          <ThemeToggle />
         </div>
       </div>
     </header>

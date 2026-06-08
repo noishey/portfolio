@@ -10,11 +10,11 @@ export default function ArticlePage() {
             <article className="prose prose-invert prose-neutral max-w-none">
                 <RevealOnView intensity="soft">
                     <div className="space-y-6">
-                        <p className="text-sm font-mono text-white/40">
+                        <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
                             May 23, 2026
                         </p>
 
-                        <h1 className="text-4xl font-semibold tracking-tight text-white">
+                        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
                             Flagging Ingested Duplicates @gbrain                        </h1>
 
                         <p>
@@ -35,7 +35,7 @@ export default function ArticlePage() {
                         </p>
 
                         <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4 my-4">
-                            <code className="text-sm font-mono leading-relaxed block text-neutral-300">
+                            <code className="text-sm font-mono leading-relaxed block text-neutral-700 dark:text-neutral-300">
                                 <span className="text-cyan-400">gbrain</span> ingest / path / to / vault /
                             </code>
                         </pre>
@@ -44,7 +44,7 @@ export default function ArticlePage() {
                             Other than ingestion there are three major actions performed which are retrieval, writing - back and enrichment.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">The system design of Gbrain.</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">The system design of Gbrain.</h2>
 
                         <div className="my-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2 animate-fade-in">
                             <Image
@@ -56,7 +56,7 @@ export default function ArticlePage() {
                             />
                         </div>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">The database design</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">The database design</h2>
 
                         <div className="my-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2 animate-fade-in">
                             <Image
@@ -72,11 +72,11 @@ export default function ArticlePage() {
                             This issue is regarding solving the problem of duplicates which arise due to ingestion of files due to the ambiguity of a directory and its subdirectory as slug value for both of them were same.Now the problem is gbrain solely uses slug value to distinguish between ingested files.Lets say the example of vault and vault / subdir, they will have the same file but will have different slug hence flagging the same file as duplicates.The major problem is the skewing of data inside eg the agent might summarize same content twice.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">The solution</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">The solution</h2>
 
                         <p>The logic of the code is in three steps.</p>
 
-                        <div className="pl-4 space-y-1 font-mono text-sm text-neutral-400">
+                        <div className="pl-4 space-y-1 font-mono text-sm text-neutral-600 dark:text-neutral-400">
                             <p>1.Ask the database if there is a page exist with exact content source ?</p>
                             <p className="pl-4">2.If yes and slug is different then its duplicate</p>
                             <p>3.Warn the user with ‘skipped’ and not adding a second copy</p>

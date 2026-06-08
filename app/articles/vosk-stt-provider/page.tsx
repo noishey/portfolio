@@ -9,11 +9,11 @@ export default function ArticlePage() {
       <article className="prose prose-invert prose-neutral max-w-none">
         <RevealOnView intensity="soft">
           <div className="space-y-6">
-            <p className="text-sm font-mono text-white/40">
+            <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
               May 21, 2026
             </p>
 
-            <h1 className="text-4xl font-semibold tracking-tight text-white">
+            <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
               Vosk as a Local STT Provider
             </h1>
 
@@ -40,21 +40,21 @@ export default function ArticlePage() {
               speech processing pipeline that preserves high video quality and system responsiveness.
             </p>
 
-            <h2 className="text-2xl font-semibold text-white pt-4">Implementation Architecture</h2>
+            <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">Implementation Architecture</h2>
 
             <p>
               The solution introduces native Vosk support into the transcription pipeline through 
               three key architectural areas:
             </p>
 
-            <h3 className="text-lg font-medium text-white/90">1. Configuration Interface</h3>
+            <h3 className="text-lg font-medium text-neutral-800 dark:text-white/90">1. Configuration Interface</h3>
             <p>
               In <code>hermes_cli/config.py</code>, we added dedicated configuration blocks for 
               Vosk under the speech-to-text (<code>stt</code>) block. This allows users to easily customize 
               the model path, download lightweight language packs, and specify Vosk as their active provider.
             </p>
 
-            <h3 className="text-lg font-medium text-white/90">2. Highly Optimized Core Transcription</h3>
+            <h3 className="text-lg font-medium text-neutral-800 dark:text-white/90">2. Highly Optimized Core Transcription</h3>
             <p>
               Inside <code>tools/transcription_tools.py</code>, we implemented the core logic. 
               To prevent heavy disk reads and reload latency on every voice request, we designed a model caching 
@@ -97,7 +97,7 @@ export default function ArticlePage() {
               remote provider is available, the runtime gracefully defaults to Vosk to maintain STT functionality.
             </p>
 
-            <h3 className="text-lg font-medium text-white/90">3. Verification and Unit Tests</h3>
+            <h3 className="text-lg font-medium text-neutral-800 dark:text-white/90">3. Verification and Unit Tests</h3>
             <p>
               To ensure reliability across edge configurations, comprehensive tests were added in 
               <code>tests/tools/test_transcription_tools.py</code>, covering package absence handling, 

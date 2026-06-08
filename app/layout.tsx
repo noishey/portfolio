@@ -21,8 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    // Add className="dark" and suppressHydrationWarning here
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -38,8 +37,8 @@ export default function RootLayout({
 html { font-family: var(--font-mono); }
         `}</style>
       </head>
-      <body className="min-h-dvh bg-black text-white antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <body className="min-h-dvh bg-white text-black dark:bg-black dark:text-white antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
         </ThemeProvider>

@@ -9,11 +9,11 @@ export default function ArticlePage() {
             <article className="prose prose-invert prose-neutral max-w-none">
                 <RevealOnView intensity="soft">
                     <div className="space-y-6">
-                        <p className="text-sm font-mono text-white/40">
+                        <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
                             May 22, 2026
                         </p>
 
-                        <h1 className="text-4xl font-semibold tracking-tight text-white">
+                        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
                             Historical Profiles for Nuclear Site Layers
                         </h1>
 
@@ -34,7 +34,7 @@ export default function ArticlePage() {
                             By integrating these profiles natively into both the 3D globe visualization and 2D flat maps, users can drill down into historical records without losing geographical context.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">Data Structure Extensions</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">Data Structure Extensions</h2>
                         <p>
                             To model these timelines, we extended the core geospatial data structures. The <code>NuclearFacility</code> interface and <code>NuclearSiteMarker</code> type definitions now support a structured <code>historicalProfile</code> block:
                         </p>
@@ -63,12 +63,12 @@ export default function ArticlePage() {
                             We then added comprehensive Manhattan Project history to the primary geo-configurations for key historical sites including <strong>Los Alamos</strong> and <strong>Oak Ridge</strong>.
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">Interactive Details Accordion</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">Interactive Details Accordion</h2>
                         <p>
                             We embedded a custom interactive <code>&lt;details&gt;</code> accordion directly inside both 3D Globe map tooltips (<code>GlobeMap.ts</code>) and 2D flat map popups (<code>MapPopup.ts</code>). This allows dense timeline grids to remain hidden until explicitly requested by the analyst.
                         </p>
 
-                        <h3 className="text-lg font-medium text-white/90">Smooth CSS Arrow Rotation</h3>
+                        <h3 className="text-lg font-medium text-neutral-800 dark:text-white/90">Smooth CSS Arrow Rotation</h3>
                         <p>
                             To replace standard browser disclosure indicators with premium micro-interactions, we added custom animations in <code>main.css</code>. This hides Chrome/Safari triangles and rotates our custom arrow indicator smoothly by <code>180deg</code> upon opening:
                         </p>
@@ -91,7 +91,7 @@ export default function ArticlePage() {
                             </code>
                         </pre>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">Spatial Tooltip Optimizations</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">Spatial Tooltip Optimizations</h2>
                         <p>
                             Exposing timeline layers in tight popups required careful spatial refactoring. We made two critical adjustments to the UX framework:
                         </p>
@@ -105,7 +105,7 @@ export default function ArticlePage() {
                             </li>
                         </ul>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4">Summary of Benefits</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white">Summary of Benefits</h2>
                         <ul className="list-disc pl-5 space-y-2">
                             <li>
                                 <strong>Context Preservation</strong>: Research timelines can be consumed inline without navigating away from the active geospatial layer.

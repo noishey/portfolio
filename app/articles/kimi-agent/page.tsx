@@ -9,11 +9,11 @@ export default function ArticlePage() {
             <article className="prose prose-invert prose-neutral max-w-none">
                 <RevealOnView intensity="soft">
                     <div className="space-y-6">
-                        <p className="text-sm font-mono text-white/40">
+                        <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
                             May 27, 2026
                         </p>
 
-                        <h1 className="text-4xl font-semibold tracking-tight text-white">
+                        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
                             Adding Kimi Code Support to CodeGraph: Local MCP Semantic Indexing
                         </h1>
 
@@ -37,7 +37,7 @@ export default function ArticlePage() {
                             {"Here is a deep dive into how CodeGraph operates under the hood and how I implemented the integration."}
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4 underline underline-offset-8 decoration-white/20">Working</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">Working</h2>
 
                         <p>It is distributed in four steps which are</p>
 
@@ -60,25 +60,25 @@ export default function ArticlePage() {
                             {"Codegraph simplifies the user flow by adding a semantic indexing layer stored 100 % locally through SQLite."}
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4 underline underline-offset-8 decoration-white/20">Problem Statement</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">Problem Statement</h2>
 
                         <p>
                             {"The issue is to integrate Kimi Code along with other agents to reap off the benefits of Codegraph."}
                         </p>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4 underline underline-offset-8 decoration-white/20">Solution</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">Solution</h2>
 
                         <div className="space-y-6 pt-2">
                             <div>
-                                <p className="font-semibold text-white/90">1. Core Target Implementation</p>
+                                <p className="font-semibold text-neutral-800 dark:text-white/90">1. Core Target Implementation</p>
                                 <p className="mt-1">
                                     {"The main change made here is the extension of AgentTarget to create KimiTarget.This allows the integration of Kimi CLI into the Codegraph MCP server."}
                                 </p>
                             </div>
 
                             <div>
-                                <p className="font-semibold text-white/90">2. Target Registration and Type System</p>
-                                <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-300">
+                                <p className="font-semibold text-neutral-800 dark:text-white/90">2. Target Registration and Type System</p>
+                                <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">src/installer/targets/types.ts</code>
                                         <p className="mt-1.5 text-xs text-neutral-400 pl-4">
@@ -95,8 +95,8 @@ export default function ArticlePage() {
                             </div>
 
                             <div>
-                                <p className="font-semibold text-white/90">3. Installer and Uninstaller CLI Updates</p>
-                                <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-300">
+                                <p className="font-semibold text-neutral-800 dark:text-white/90">3. Installer and Uninstaller CLI Updates</p>
+                                <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">src/installer/index.ts</code>
                                         <ul className="list-circle pl-5 mt-1.5 space-y-1.5 text-xs text-neutral-400">
@@ -108,8 +108,8 @@ export default function ArticlePage() {
                             </div>
 
                             <div>
-                                <p className="font-semibold text-white/90">4. Testing</p>
-                                <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-300">
+                                <p className="font-semibold text-neutral-800 dark:text-white/90">4. Testing</p>
+                                <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">__tests__/installer-targets.test.ts</code>
                                         <p className="mt-1.5 text-xs text-neutral-400 pl-4">
@@ -120,8 +120,8 @@ export default function ArticlePage() {
                             </div>
 
                             <div>
-                                <p className="font-semibold text-white/90">5. Housekeeping</p>
-                                <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-300">
+                                <p className="font-semibold text-neutral-800 dark:text-white/90">5. Housekeeping</p>
+                                <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">package-lock.json</code>
                                         <p className="mt-1.5 text-xs text-neutral-400 pl-4">
@@ -132,7 +132,7 @@ export default function ArticlePage() {
                             </div>
                         </div>
 
-                        <h2 className="text-2xl font-semibold text-white pt-4 underline underline-offset-8 decoration-white/20">Learnings</h2>
+                        <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">Learnings</h2>
 
                         <p>
                             {"This repository exposed me to learn about the concepts of semantic indexing and how more CLI tools like Codegraph could be created to automate and streamline agentic workflows for maximal engineering."}
