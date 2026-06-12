@@ -17,6 +17,10 @@ export default function ArticlePage() {
                             Streaming Byte Cap to Prevent Resource Exhaustion
                         </h1>
 
+                        <p className="text-sm font-mono text-neutral-500 uppercase tracking-wider font-bold pt-2">
+                            MCP Servers
+                        </p>
+
                         <p>
                             When building tools that fetch arbitrary external web content—such as Model Context Protocol (MCP) servers—unbounded response sizes are a critical vulnerability. Without strict limits, a server can easily be brought down by a resource exhaustion attack (e.g., fetching a multi-gigabyte file that floods system memory).
                         </p>

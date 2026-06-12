@@ -17,6 +17,10 @@ export default function ArticlePage() {
                             Supporting Big Int Type
                         </h1>
 
+                        <p className="text-sm font-mono text-neutral-500 uppercase tracking-wider font-bold pt-2">
+                            QuickJS
+                        </p>
+
                         <h2 className="text-2xl font-semibold text-neutral-900 pt-4 dark:text-white underline underline-offset-8 decoration-white/20">
                             Repository
                         </h2>
@@ -54,7 +58,7 @@ export default function ArticlePage() {
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2">
                                     <span className="h-2 w-2 rounded-full bg-cyan-400"></span>
-                                    <span className="font-mono text-xs text-neutral-300 bg-white/5 border border-white/10 px-2 py-0.5 rounded">
+                                    <span className="font-mono text-xs text-neutral-800 bg-neutral-100 border border-neutral-200 dark:text-neutral-300 dark:bg-white/5 dark:border-white/10 px-2 py-0.5 rounded">
                                         libs/providers/quickjs/src/utils.ts
                                     </span>
                                 </div>
@@ -81,7 +85,7 @@ export default function ArticlePage() {
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2">
                                     <span className="h-2 w-2 rounded-full bg-purple-400"></span>
-                                    <span className="font-mono text-xs text-neutral-300 bg-white/5 border border-white/10 px-2 py-0.5 rounded">
+                                    <span className="font-mono text-xs text-neutral-800 bg-neutral-100 border border-neutral-200 dark:text-neutral-300 dark:bg-white/5 dark:border-white/10 px-2 py-0.5 rounded">
                                         libs/providers/quickjs/src/session.ts
                                     </span>
                                 </div>
@@ -107,8 +111,8 @@ export default function ArticlePage() {
                                     The above code ensures the final output is clean of double quotes when presenting the BigInt result.
                                 </p>
 
-                                <div className="mt-4 p-5 rounded-2xl border border-white/10 bg-white/5 space-y-3">
-                                    <h4 className="text-sm font-semibold text-neutral-200">
+                                <div className="mt-4 p-5 rounded-2xl border border-neutral-200 bg-neutral-50 dark:border-white/10 dark:bg-white/5 space-y-3">
+                                    <h4 className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
                                         Resolving the Web Assembly FFI Boundary Issues
                                     </h4>
                                     <ul className="list-disc pl-5 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
@@ -132,7 +136,7 @@ export default function ArticlePage() {
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2">
                                     <span className="h-2 w-2 rounded-full bg-orange-400"></span>
-                                    <span className="font-mono text-xs text-neutral-300 bg-white/5 border border-white/10 px-2 py-0.5 rounded">
+                                    <span className="font-mono text-xs text-neutral-800 bg-neutral-100 border border-neutral-200 dark:text-neutral-300 dark:bg-white/5 dark:border-white/10 px-2 py-0.5 rounded">
                                         libs/deepagents/tsconfig.json
                                     </span>
                                 </div>

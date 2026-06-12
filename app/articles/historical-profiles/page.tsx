@@ -17,6 +17,10 @@ export default function ArticlePage() {
                             Historical Profiles for Nuclear Site Layers
                         </h1>
 
+                        <p className="text-sm font-mono text-neutral-500 uppercase tracking-wider font-bold pt-2">
+                            Map Tooltips
+                        </p>
+
                         <p>
                             Analyzing geopolitical infrastructures requires more than raw coordinates and status flags. To provide analysts with deep contextual intelligence, a recent enhancement ({" "}
                             <a

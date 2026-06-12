@@ -10,7 +10,7 @@ export default function Page() {
       {/* HERO */}
       <section className="mb-20">
         <RevealOnView intensity="soft">
-          <div className="space-y-4 text-base leading-relaxed text-neutral-600 font-mono">
+          <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
             <p>
               ai engineering/oss/web-apps
             </p>
@@ -56,11 +56,11 @@ export default function Page() {
             </h2>
             <div className="grid gap-4 font-mono text-sm">
               <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-300">langchain-ai/langchainjs</span>
+                <span className="text-neutral-700 dark:text-neutral-300">langchain-ai/langchainjs</span>
                 <span className="text-neutral-500">prompt stream type parsing core</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-300">rohitg00/agentmemory</span>
+                <span className="text-neutral-700 dark:text-neutral-300">rohitg00/agentmemory</span>
                 <span className="text-neutral-500">multi-agent context isolation boundaries</span>
               </div>
             </div>

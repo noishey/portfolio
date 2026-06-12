@@ -17,6 +17,10 @@ export default function ArticlePage() {
               Vosk as a Local STT Provider
             </h1>
 
+            <p className="text-sm font-mono text-neutral-500 uppercase tracking-wider font-bold pt-2">
+              Speech to Text
+            </p>
+
             <p>
               When running agentic speech-to-text systems on edge devices like a 
               Raspberry Pi (4GB RAM), resource constraints quickly become a major bottleneck. 
