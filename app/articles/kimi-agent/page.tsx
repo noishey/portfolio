@@ -17,6 +17,10 @@ export default function ArticlePage() {
                             Adding Kimi Code Support to CodeGraph: Local MCP Semantic Indexing
                         </h1>
 
+                        <p className="text-sm font-mono text-neutral-500 uppercase tracking-wider font-bold pt-2">
+                            CodeGraph
+                        </p>
+
                         <p>
                             {"The developer tool ecosystem is experiencing a massive shift away from rigid, monolithic plugins toward dynamic, agentic workflows. Central to this evolution is the Model Context Protocol (MCP)—an open standard that enables AI models to safely and securely interact with local data sources and tools."}
                         </p>
@@ -81,13 +85,13 @@ export default function ArticlePage() {
                                 <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">src/installer/targets/types.ts</code>
-                                        <p className="mt-1.5 text-xs text-neutral-400 pl-4">
+                                        <p className="mt-1.5 text-sm text-neutral-600 dark:text-neutral-400 pl-4">
                                             {"Added 'kimi' to the TargetId union type('claude' | 'cursor' | 'codex' | 'opencode' | 'hermes' | 'kimi')."}
                                         </p>
                                     </li>
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">src/installer/targets/registry.ts</code>
-                                        <p className="mt-1.5 text-xs text-neutral-400 pl-4">
+                                        <p className="mt-1.5 text-sm text-neutral-600 dark:text-neutral-400 pl-4">
                                             {"Imported and registered kimiTarget in ALL_TARGETS so the CLI automatically lists, installs, and manages Kimi Code along with the other agents."}
                                         </p>
                                     </li>
@@ -99,7 +103,7 @@ export default function ArticlePage() {
                                 <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">src/installer/index.ts</code>
-                                        <ul className="list-circle pl-5 mt-1.5 space-y-1.5 text-xs text-neutral-400">
+                                        <ul className="list-circle pl-5 mt-1.5 space-y-1.5 text-sm text-neutral-600 dark:text-neutral-400">
                                             <li>{"Updated the installer module 's header docs to reflect Kimi Code support."}</li>
                                             <li>{"Updated runUninstaller global / local target selection hints to show where Kimi Code configs live(~/.kimi-code and ./.kimi - code) so users know exactly what files will be removed."}</li>
                                         </ul>
@@ -112,7 +116,7 @@ export default function ArticlePage() {
                                 <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">__tests__/installer-targets.test.ts</code>
-                                        <p className="mt-1.5 text-xs text-neutral-400 pl-4">
+                                        <p className="mt-1.5 text-sm text-neutral-600 dark:text-neutral-400 pl-4">
                                             {"Added an integration test assertion to ensure getTarget('kimi') resolves successfully and yields the correct ID."}
                                         </p>
                                     </li>
@@ -124,7 +128,7 @@ export default function ArticlePage() {
                                 <ul className="list-disc pl-5 space-y-3 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
                                     <li>
                                         <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-200">package-lock.json</code>
-                                        <p className="mt-1.5 text-xs text-neutral-400 pl-4">
+                                        <p className="mt-1.5 text-sm text-neutral-600 dark:text-neutral-400 pl-4">
                                             {"A minor lockfile dependency update(removed \"peer\": true under an esbuild / postcss sub - dependency)."}
                                         </p>
                                     </li>

@@ -1,89 +1,70 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* --- Codegraph Inspired Light Mode ("Paper & Ink") --- */
-  --background: #ffffff;              /* Pure white page background */
-  --foreground: oklch(0.18 0.003 80); /* Deep charcoal ink (#16150f) */
-  
+  --background: oklch(0.975 0.003 80);
+  --foreground: oklch(0.18 0.003 80);
   --card: var(--background);
   --card-foreground: var(--foreground);
   --popover: var(--background);
   --popover-foreground: var(--foreground);
-  
-  --primary: var(--foreground);       /* Solid ink fill for primary elements */
+  --primary: var(--foreground);
   --primary-foreground: var(--background);
-  
-  --secondary: oklch(0.95 0.003 80);   /* Slightly darker paper press tone */
+  --secondary: oklch(0.94 0.003 80);
   --secondary-foreground: var(--foreground);
-  
-  --muted: oklch(0.95 0.003 80);
+  --muted: oklch(0.94 0.003 80);
   --muted-foreground: oklch(0.55 0.003 80);
-  
-  --accent: oklch(0.95 0.003 80);
+  --accent: oklch(0.94 0.003 80);
   --accent-foreground: var(--foreground);
-  
   --destructive: oklch(0.55 0.2 25);
   --destructive-foreground: oklch(0.98 0 0);
-  
-  /* Hairline rules use the primary ink color, just thin */
   --border: var(--foreground);
   --input: var(--foreground);
   --ring: var(--foreground);
+  --radius: 0.75rem;
 
-  /* --- Strict Flat Setup --- */
-  --radius: 0rem; /* Banish all rounded corners */
-
-  /* Sidebar styling to match content */
-  --sidebar: var(--background);
-  --sidebar-foreground: var(--foreground);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--primary-foreground);
-  --sidebar-accent: var(--accent);
-  --sidebar-accent-foreground: var(--accent-foreground);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
+  /* Modern light mode coding scheme (cohesive slate-blue tone base) */
+  --code-bg: oklch(0.97 0.005 240);
+  --code-border: oklch(0.91 0.01 240);
+  --code-text: oklch(0.25 0.015 240);
+  --code-keyword: oklch(0.52 0.16 340);
+  --code-entity: oklch(0.48 0.15 240);
+  --code-type: oklch(0.55 0.13 190);
+  --code-string: oklch(0.46 0.12 140);
+  --code-literal: oklch(0.52 0.16 300);
+  --code-comment: oklch(0.62 0.01 240);
 }
 
 .dark {
-  /* --- CodeGraph Inspired Dark Mode ("Inverted Ink") --- */
-  --background: oklch(39.479% 0.0021 67.283);  /* Deep gray base */
-  --foreground: oklch(0.96 0.003 80);  /* Soft paper white text */
-  
+  --background: oklch(0.18 0.003 80);
+  --foreground: oklch(0.96 0.003 80);
   --card: var(--background);
   --card-foreground: var(--foreground);
   --popover: var(--background);
   --popover-foreground: var(--foreground);
-  
   --primary: var(--foreground);
   --primary-foreground: var(--background);
-  
-  --secondary: oklch(0.24 0.003 80);   /* Deep ink press tone */
+  --secondary: oklch(0.24 0.003 80);
   --secondary-foreground: var(--foreground);
-  
   --muted: oklch(0.24 0.003 80);
   --muted-foreground: oklch(0.65 0.003 80);
-  
   --accent: oklch(0.24 0.003 80);
   --accent-foreground: var(--foreground);
-  
-  --destructive: oklch(0.4 0.15 25);
-  --destructive-foreground: var(--foreground);
-  
   --border: var(--foreground);
   --input: var(--foreground);
   --ring: var(--foreground);
 
-  --sidebar: var(--background);
-  --sidebar-foreground: var(--foreground);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--primary-foreground);
-  --sidebar-accent: var(--accent);
-  --sidebar-accent-foreground: var(--accent-foreground);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
+  /* Modern dark mode coding scheme */
+  --code-bg: oklch(0.2 0.01 240);
+  --code-border: oklch(0.26 0.015 240);
+  --code-text: oklch(0.92 0.01 240);
+  --code-keyword: oklch(0.74 0.11 340);
+  --code-entity: oklch(0.74 0.1 240);
+  --code-type: oklch(0.78 0.09 190);
+  --code-string: oklch(0.76 0.1 140);
+  --code-literal: oklch(0.76 0.11 300);
+  --code-comment: oklch(0.55 0.01 240);
 }
 
 @theme inline {
@@ -110,39 +91,98 @@
   --radius-md: var(--radius);
   --radius-lg: var(--radius);
   --radius-xl: var(--radius);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
   
-  /* Override default Tailwind typography families */
   --font-sans: 'Archivo Variable', -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 }
 
+/* Hard reset values to break through component styles */
 @layer base {
-  * {
-    /* Map directly to your theme variables using standard CSS */
-    border-color: var(--border);
-    outline-color: color-mix(in oklch, var(--ring) 50%, transparent);
+  *, *::before, *::after {
+    box-shadow: none !important;
+  }
+  body {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
   }
   
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  /* Unified Coding Color Scheme overrides */
+  pre, code {
+    background-color: var(--code-bg) !important;
+    border-color: var(--code-border) !important;
+    color: var(--code-text) !important;
   }
 
-  /* Structural Editorial Headings */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  pre {
+    border-radius: 0.75rem !important;
+  }
+
+  code {
+    border-width: 1px;
+    border-style: solid;
+    padding: 0.125rem 0.375rem;
+    font-size: 0.875em;
+    border-radius: 0.25rem !important;
+  }
+
+  pre code {
+    border-width: 0px !important;
+    padding: 0px !important;
+    font-size: inherit;
+    border-radius: 0px !important;
+  }
+  
+  /* Override syntax highlight classes within code contexts */
+  pre span.text-red-400,
+  code span.text-red-400,
+  pre .text-red-400,
+  code .text-red-400 {
+    color: var(--code-keyword) !important;
+  }
+  
+  pre span.text-cyan-400,
+  code span.text-cyan-400,
+  pre .text-cyan-400,
+  code .text-cyan-400 {
+    color: var(--code-entity) !important;
+  }
+  
+  pre span.text-orange-400,
+  code span.text-orange-400,
+  pre .text-orange-400,
+  code .text-orange-400 {
+    color: var(--code-type) !important;
+  }
+  
+  pre span.text-green-400,
+  code span.text-green-400,
+  pre .text-green-400,
+  code .text-green-400 {
+    color: var(--code-string) !important;
+  }
+  
+  pre span.text-purple-400,
+  code span.text-purple-400,
+  pre .text-purple-400,
+  code .text-purple-400 {
+    color: var(--code-literal) !important;
+  }
+  
+  pre span.text-neutral-500,
+  code span.text-neutral-500,
+  pre .text-neutral-500,
+  code .text-neutral-500 {
+    color: var(--code-comment) !important;
+  }
+  
+  pre span.text-neutral-200,
+  code span.text-neutral-200,
+  pre .text-neutral-200,
+  code .text-neutral-200,
+  pre span.text-neutral-700,
+  code span.text-neutral-700,
+  pre .text-neutral-700,
+  code .text-neutral-700 {
+    color: var(--code-text) !important;
   }
 }

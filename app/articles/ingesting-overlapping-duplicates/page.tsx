@@ -15,7 +15,12 @@ export default function ArticlePage() {
                         </p>
 
                         <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
-                            Flagging Ingested Duplicates @gbrain                        </h1>
+                            Flagging Ingested Duplicates @gbrain
+                        </h1>
+
+                        <p className="text-sm font-mono text-neutral-500 uppercase tracking-wider font-bold pt-2">
+                            gbrain
+                        </p>
 
                         <p>
                             Firstly,{" "}

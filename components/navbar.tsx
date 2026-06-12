@@ -20,7 +20,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-20 w-full bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-neutral-950/70 dark:supports-[backdrop-filter]:bg-neutral-950/50",
+        "sticky top-0 z-20 w-full bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60",
         className
       )}
     >

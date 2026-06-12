@@ -18,6 +18,10 @@ export default function ArticlePage() {
               Aggregating Anthropic Streams in LangChain.js
             </h1>
 
+            <p className="text-sm font-mono text-neutral-500 uppercase tracking-wider font-bold pt-2">
+              LangChain
+            </p>
+
             <p>
               This happens to be my first contribution to{" "}
               <a
