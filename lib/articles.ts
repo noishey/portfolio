@@ -3,6 +3,7 @@ export interface Article {
   title: string
   href: string
   takeaway: string
+  tags?: string[]
 }
 
 export const articles: Article[] = [
@@ -11,30 +12,35 @@ export const articles: Article[] = [
     title: "Google Vertex AI Custom Endpoint Fix",
     href: "/articles/google-param-validation",
     takeaway: "fixed Google Vertex AI multi-region endpoint resolution logic in langchainjs to prevent connection errors.",
+    tags: ["open-source"],
   },
   {
     date: "May 31, 2026",
     title: "Supporting Big Int Type",
     href: "/articles/supporting-big-int-type",
     takeaway: "solved web assembly FFI boundary serialization problem in deepagentjs quickjs provider.",
+    tags: ["open-source"],
   },
   {
     date: "May 27, 2026",
     title: "Adding Kimi Code Support to CodeGraph: Deep Dive into Local MCP Semantic Indexing",
     href: "/articles/kimi-agent",
     takeaway: "integrated Kimi CLI targets into the CodeGraph MCP server semantic indexing and installer targets.",
+    tags: ["open-source"],
   },
   {
     date: "May 25, 2026",
     title: "Scoped Agent Isolation @agentmemory",
     href: "/articles/scoped-agent-isolation",
     takeaway: "implemented dual-pass search filtering and agent state isolation boundaries to mitigate contextual token pollution.",
+    tags: ["open-source"],
   },
   {
     date: "May 23, 2026",
     title: "Flagging Ingested Duplicates @gbrain",
     href: "/articles/ingesting-overlapping-duplicates",
     takeaway: "resolved duplicate page ingestion bugs in gbrain CLI using content hash checks and unique slug validations.",
+    tags: ["open-source"],
   },
   {
     date: "May 22, 2026",
@@ -53,6 +59,7 @@ export const articles: Article[] = [
     title: "Aggregating Anthropic Streams in LangChain.js",
     href: "/articles/aggregating-anthropic-streams",
     takeaway: "resolved streaming frame type validation errors by standardizing mergeable base delta mappings in core.",
+    tags: ["open-source"],
   },
   {
     date: "May 17, 2026",
@@ -61,3 +68,4 @@ export const articles: Article[] = [
     takeaway: "implemented programmatic chunk-size boundaries on HTTPX streams to mitigate Node.js heap exhaustion vectors.",
   },
 ]
+
