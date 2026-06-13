@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Rss } from "lucide-react"
+import { Rss, Mail, Github, Coffee } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import ThemeToggle from '@/components/theme-toggle'
@@ -58,43 +58,49 @@ export default function Navbar({ className }: { className?: string }) {
           </nav>
         </div>
 
-        <div className="flex items-center gap-6 text-sm font-mono">
+        <div className="flex items-center gap-2">
           <Link
             href="mailto:tech.noishey@gmail.com"
-            className="text-neutral-500 hover:text-neutral-900 transition-colors underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-200 dark:decoration-neutral-800 dark:hover:decoration-neutral-400"
+            className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
             aria-label="Email"
+            title="Email"
           >
-            email
+            <Mail className="h-4 w-4" />
           </Link>
 
           <Link
             href="https://github.com/noishey"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-neutral-900 transition-colors underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-200 dark:decoration-neutral-800 dark:hover:decoration-neutral-400"
+            className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
             aria-label="GitHub"
+            title="GitHub"
           >
-            github
+            <Github className="h-4 w-4" />
           </Link>
 
           <Link
             href="https://x.com/butn0tshy"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-neutral-900 transition-colors underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-200 dark:decoration-neutral-800 dark:hover:decoration-neutral-400"
+            className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
             aria-label="X (Twitter)"
+            title="X (Twitter)"
           >
-            x
+            <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
           </Link>
 
           <Link
             href="https://buymeacoffee.com/noishey"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-neutral-900 transition-colors underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-200 dark:decoration-neutral-800 dark:hover:decoration-neutral-400"
+            className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
             aria-label="Buy Me a Coffee"
+            title="Buy Me a Coffee"
           >
-            coffee
+            <Coffee className="h-4 w-4" />
           </Link>
 
           <ThemeToggle />
