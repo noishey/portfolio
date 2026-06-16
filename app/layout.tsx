@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '../components/navbar'
+import Footer from '@/components/footer'
+import SearchMenu from '@/components/search-menu'
 import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
@@ -41,6 +43,8 @@ html { font-family: var(--font-mono); }
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
+          <Footer />
+          <SearchMenu />
         </ThemeProvider>
       </body>
     </html>
