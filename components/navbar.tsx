@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Rss, Mail, Github, Coffee } from "lucide-react"
+import { Rss, Mail, Github, Coffee, Search, History } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import ThemeToggle from '@/components/theme-toggle'
@@ -102,6 +102,24 @@ export default function Navbar({ className }: { className?: string }) {
           >
             <Coffee className="h-4 w-4" />
           </Link>
+
+          <Link
+            href="/changes"
+            className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
+            aria-label="Changelog"
+            title="Changelog"
+          >
+            <History className="h-4 w-4" />
+          </Link>
+
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("toggle-search"))}
+            className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors cursor-pointer"
+            aria-label="Search"
+            title="Search (Cmd+K)"
+          >
+            <Search className="h-4 w-4" />
+          </button>
 
           <ThemeToggle />
         </div>
