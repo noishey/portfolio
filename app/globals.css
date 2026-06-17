@@ -106,6 +106,11 @@
     color: var(--foreground) !important;
   }
   
+  /* Widen the whole UI container by 30% (from 42rem / 672px to 54.6rem / 874px) */
+  .max-w-2xl {
+    max-width: 54.6rem !important;
+  }
+  
   /* Unified Coding Color Scheme overrides */
   pre, code {
     background-color: var(--code-bg) !important;
