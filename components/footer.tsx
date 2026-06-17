@@ -3,8 +3,11 @@
 import * as React from "react"
 import Link from "next/link"
 import { articles } from "@/lib/articles"
+import { useHoverFlip } from "@/hooks/use-sanskrit"
+import { cn } from "@/lib/utils"
 
 export default function Footer() {
+  const { isSanskrit, hoverProps } = useHoverFlip(1000)
   const allTags = React.useMemo(() => {
     const tagsSet = new Set<string>()
     articles.forEach((article) => {
@@ -40,7 +43,18 @@ export default function Footer() {
         </div>
         
         <div className="flex justify-between items-center text-[10px] text-neutral-400 dark:text-neutral-600 pt-4 border-t border-neutral-100/50 dark:border-neutral-900/50">
-          <span>&copy; {new Date().getFullYear()} noishey</span>
+          <span className="flex items-center gap-1.5">
+            <span>&copy; {new Date().getFullYear()}</span>
+            <span
+              className={cn(
+                isSanskrit ? "font-sanskrit text-sm font-semibold" : "font-mono text-[10px] font-semibold",
+                "cursor-pointer"
+              )}
+              {...hoverProps}
+            >
+              {isSanskrit ? "नोइशे" : "noishey"}
+            </span>
+          </span>
           <Link href="/changes" className="hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors">
             site changelog
           </Link>

@@ -7,6 +7,8 @@ import { Rss, Mail, Github, Coffee, Search, History } from "lucide-react"
 import { cn } from "@/lib/utils"
 import ThemeToggle from '@/components/theme-toggle'
 
+import { useHoverFlip } from "@/hooks/use-sanskrit"
+
 type NavItem = {
   label: string
   href: string
@@ -17,6 +19,8 @@ const navItems: NavItem[] = [
 ]
 
 export default function Navbar({ className }: { className?: string }) {
+  const { isSanskrit, hoverProps } = useHoverFlip(1000)
+
   return (
     <header
       className={cn(
@@ -29,10 +33,14 @@ export default function Navbar({ className }: { className?: string }) {
           <div className="flex items-center gap-2">
             <Link
               href="/"
-              className="group inline-flex items-center gap-2 text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white"
+              className={cn(
+                "group inline-flex items-center gap-2 tracking-tight text-neutral-900 dark:text-white",
+                isSanskrit ? "font-sanskrit text-3xl" : "font-mono text-2xl font-semibold"
+              )}
               aria-label="Home"
+              {...hoverProps}
             >
-              <span>noishey</span>
+              <span>{isSanskrit ? "नोइशे" : "noishey"}</span>
             </Link>
             <Link
               href="/feed.xml"
