@@ -111,6 +111,11 @@
     max-width: 54.6rem !important;
   }
   
+  /* Rozha One Sanskrit font styling */
+  .font-sanskrit {
+    font-family: 'Rozha One', serif;
+  }
+  
   /* Unified Coding Color Scheme overrides */
   pre, code {
     background-color: var(--code-bg) !important;
