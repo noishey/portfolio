@@ -4,6 +4,7 @@ import Navbar from '../components/navbar'
 import Footer from '@/components/footer'
 import SearchMenu from '@/components/search-menu'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: 'noishey',
@@ -46,6 +47,7 @@ html { font-family: var(--font-mono); }
           <Footer />
           <SearchMenu />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
