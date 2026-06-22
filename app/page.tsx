@@ -100,7 +100,7 @@ export default function Page() {
         <RevealOnView intensity="soft">
           <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
             <p>
-              ai engineering/oss/web-apps
+              engineering/oss/saas/research
             </p>
           </div>
         </RevealOnView>

@@ -8,11 +8,11 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    date: "June 16, 2026",
-    title: "5-Day AI Agents: Intensive Vibe Coding Course With Google - Notes",
-    href: "/articles/kaggle-google-vibecode-workshop",
-    takeaway: "key takeaways and resources from the Kaggle & Google 5-Day AI Agents Intensive.",
-    tags: ["open-source", "agents", "mcp", "google-adk"],
+    date: "June 22, 2026",
+    title: "AI is a Buzzword: Why?",
+    href: "/articles/ai-buzzword-why",
+    takeaway: "An exploration of AI as a dystopian sales gimmick and the shift to agent-driven computing.",
+    tags: ["open-source", "futurism", "philosophy", "ethics", "socio-economic"],
   },
   {
     date: "June 7, 2026",
