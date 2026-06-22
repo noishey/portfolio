@@ -98,6 +98,9 @@
 
 /* Hard reset values to break through component styles */
 @layer base {
+  html {
+    font-size: 115% !important;
+  }
   *, *::before, *::after {
     box-shadow: none !important;
   }
