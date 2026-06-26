@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import RevealOnView from "@/components/reveal-on-view"
+import ArticleTags from "@/components/article-tags"
 
 export default function ArticlePage() {
     return (
@@ -161,6 +162,8 @@ export default function ArticlePage() {
                                 Link To Repository ↗
                             </Link>
                         </div>
+
+                        <ArticleTags />
 
                         <div className="pt-8">
                             <Link

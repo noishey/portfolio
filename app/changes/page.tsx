@@ -4,7 +4,7 @@ import { siteChanges } from "@/lib/changes"
 
 export default function ChangesPage() {
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 py-20">
+    <main className="mx-auto w-full max-w-2xl px-4 pt-20 pb-8">
       <RevealOnView intensity="soft">
         {/* HEADER */}
         <section className="mb-12">

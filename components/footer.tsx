@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="space-y-6">
         <div>
           <span className="block font-bold text-neutral-600 dark:text-neutral-400 uppercase tracking-wider mb-3">
-            Tags / Taxonomy
+            Taxonomy
           </span>
           <div className="flex flex-wrap gap-2">
             {allTags.map((tag) => {
@@ -42,12 +42,12 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="flex justify-between items-center text-[10px] text-neutral-400 dark:text-neutral-600 pt-4 border-t border-neutral-100/50 dark:border-neutral-900/50">
+        <div className="flex justify-between items-center text-xs text-neutral-400 dark:text-neutral-600 pt-4 border-t border-neutral-100/50 dark:border-neutral-900/50">
           <span className="flex items-center gap-1.5">
             <span>&copy; {new Date().getFullYear()}</span>
             <span
               className={cn(
-                isSanskrit ? "font-sanskrit text-sm font-semibold" : "font-mono text-[10px] font-semibold",
+                isSanskrit ? "font-sanskrit text-sm font-semibold" : "font-mono text-xs font-semibold",
                 "cursor-pointer"
               )}
               {...hoverProps}

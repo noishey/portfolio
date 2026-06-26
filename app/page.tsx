@@ -7,20 +7,23 @@ import RevealOnView from "@/components/reveal-on-view"
 import { articles } from "@/lib/articles"
 import { cn } from "@/lib/utils"
 
-function ArticlesList() {
+function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"open-source" | "all">("open-source")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "tech">("tech")
+
+  // If a tag is active in the URL, show the articles view filtered by that tag
+  const displayView = urlTag ? "articles" : activeTab
 
   const filteredArticles = React.useMemo(() => {
     if (urlTag) {
       return articles.filter((article) => article.tags?.includes(urlTag))
     }
-    if (activeTab === "open-source") {
-      return articles.filter((article) => article.tags?.includes("open-source"))
+    if (activeTab === "tech") {
+      return articles.filter((article) => article.tags?.includes("tech"))
     }
-    return articles
+    return []
   }, [activeTab, urlTag])
 
   return (
@@ -40,99 +43,170 @@ function ArticlesList() {
         ) : (
           <div className="flex gap-6">
             <button
-              onClick={() => setActiveTab("open-source")}
+              onClick={() => setActiveTab("tech")}
               className={cn(
                 "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "open-source"
+                activeTab === "tech"
                   ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
                   : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
               )}
             >
-              open-source
+              tech
             </button>
             <button
-              onClick={() => setActiveTab("all")}
+              onClick={() => setActiveTab("about-me")}
               className={cn(
                 "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "all"
+                activeTab === "about-me"
                   ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
                   : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
               )}
             >
-              all
+              about me
             </button>
           </div>
         )}
       </div>
 
-      <div className="space-y-8">
-        {filteredArticles.map((article, i) => (
-          <Link
-            key={i}
-            href={article.href}
-            className="group block"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
-              <span className="text-sm font-mono text-neutral-600 shrink-0 min-w-[110px]">
-                {article.date}
-              </span>
-              <div className="space-y-1.5">
-                <span className="text-lg text-neutral-900 group-hover:text-black transition-colors decoration-neutral-300 group-hover:decoration-neutral-700 underline underline-offset-4 block dark:text-neutral-200 dark:group-hover:text-white dark:decoration-neutral-800 dark:group-hover:decoration-neutral-400">
-                  {article.title}
-                </span>
-                <span className="text-sm text-neutral-500 block font-mono">
-                  {article.takeaway}
-                </span>
+      {/* CONTENT */}
+      {displayView === "about-me" ? (
+        <div className="space-y-12">
+          {/* HERO / BIO */}
+          <section>
+            <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+              <p>Namaste 🙏</p>
+              <p>I&apos;m Arjun, 26 (he/him).</p> 
+              <p>Currently in <a href="https://en.wikipedia.org/wiki/Kochi" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Kochi</a>, India.</p>
+              <p>An Aspiring AI Engineer!!</p>
+              <p>I&apos;m a morning bird and a strong reader.</p>
+              <p>I&apos;m a <a href="https://en.wikipedia.org/wiki/First_principle" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">first principles thinker</a>. I want to <a href="https://nav.al/sell" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">sell the truth</a> in the market. My engineering motto is to use my reasoning and technical skills for the advancement of human species through innovation and problem solving. By contributing to the economy, I&apos;m actively <a href="https://www.youtube.com/watch?v=M-ZH3psUbfU" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">growing the economic pie</a> which cures scarcity mindset. Mathematics has all the answers about nature to a larger extent. My interest in technology lies in the intersection of web, deep learning, agentic engineering and speech/audio.</p>
+              <p>Skipping steps in learning and understanding would result in debt and I&apos;m happily paying all my technical debts :&#41;</p>
+              <p>My philosophical anchor in life is the <a href="https://en.wikipedia.org/wiki/Yoga_Sutras_of_Patanjali" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Path of Yoga</a>.</p><p>Politically leaning right.</p>
+            </div>
+          </section>
+
+          {/* QUOTES THAT I LIVE BY */}
+          <section className="space-y-4">
+            <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+              quotes that i live by
+            </h2>
+            <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+              <p className="italic">
+                &quot;Without music, life would be a mistake&quot; &mdash; <a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Nietzsche</a>
+              </p>
+              <p className="italic">
+                &quot;If you want to find the secrets of the universe, think in terms of energy, frequency and vibration&quot; &mdash; <a href="https://en.wikipedia.org/wiki/Nikola_Tesla" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Tesla</a>
+              </p>
+            </div>
+          </section>
+
+          {/* FORMAL EDUCATION */}
+          <section className="space-y-4">
+            <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+              formal education
+            </h2>
+            <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+              <div className="flex flex-col sm:flex-row sm:justify-between border-b border-neutral-200 dark:border-neutral-800 pb-2 gap-1">
+                <div>
+                  <span className="font-semibold text-neutral-900 dark:text-neutral-100 block">
+                    Computer Science and Engineering
+                  </span>
+                  <span className="text-sm text-neutral-500 dark:text-neutral-400 block mt-1">
+                    <a href="https://en.wikipedia.org/wiki/APJ_Abdul_Kalam_Technological_University" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">
+                      APJ Abdul Kalam Technological University
+                    </a>
+                  </span>
+                </div>
+                <div className="flex sm:flex-col sm:items-end text-sm text-neutral-500 dark:text-neutral-400 gap-2 sm:gap-0 shrink-0">
+                  <span>2018 &mdash; 2022</span>
+                  <span>7.95 CGPA</span>
+                </div>
               </div>
             </div>
-          </Link>
-        ))}
-      </div>
+          </section>
+
+          {/* NATURAL LANGUAGE */}
+          <section className="space-y-4">
+            <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+              natural language
+            </h2>
+            <div className="text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+              <div className="flex justify-between max-w-xs border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                <span>English</span>
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold">8/10 (<a href="https://drive.google.com/file/d/1LEPz41yJ3vUFL_huUh73JZIY93YNpuaF/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 px-1 py-0.5 rounded-sm hover:bg-blue-100 dark:hover:bg-blue-950/70 transition-colors">IELTS</a>)</span>
+              </div>
+            </div>
+          </section>
+
+          {/* PROGRAMMING LANGUAGE */}
+          <section className="space-y-4">
+            <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+              programming language
+            </h2>
+            <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono max-w-xs">
+              <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                <span>Python</span>
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold">3/10</span>
+              </div>
+              <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                <span>JavaScript</span>
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold">3/10</span>
+              </div>
+              <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                <span>TypeScript</span>
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
+              </div>
+            </div>
+          </section>
+
+          {/* READING STACK */}
+          <section className="space-y-4">
+            <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+              my reading stack
+            </h2>
+            <div className="text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+              <p>
+                &bull; <a href="https://en.wikipedia.org/wiki/Sapiens:_A_Brief_History_of_Humankind" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Sapiens: A Brief History of Humankind</a>
+              </p>
+            </div>
+          </section>
+        </div>
+      ) : (
+        /* ARTICLES LIST */
+        <div className="space-y-8">
+          {filteredArticles.map((article, i) => (
+            <Link
+              key={i}
+              href={article.href}
+              className="group block"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-10">
+                <span className="text-sm font-mono text-neutral-600 shrink-0 min-w-[140px]">
+                  {article.date}
+                </span>
+                <div className="space-y-1.5">
+                  <span className="text-lg text-neutral-900 group-hover:text-black transition-colors decoration-neutral-300 group-hover:decoration-neutral-700 underline underline-offset-4 block dark:text-neutral-200 dark:group-hover:text-white dark:decoration-neutral-800 dark:group-hover:decoration-neutral-400">
+                    {article.title}
+                  </span>
+                  <span className="text-sm text-neutral-500 block font-mono">
+                    {article.takeaway}
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </RevealOnView>
   )
 }
 
 export default function Page() {
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 py-20">
-      {/* HERO */}
-      <section className="mb-20">
-        <RevealOnView intensity="soft">
-          <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
-            <p>
-              engineering/oss/saas/research
-            </p>
-          </div>
-        </RevealOnView>
-      </section>
-
-      {/* ARTICLES */}
-      <section id="articles" className="mb-20 scroll-mt-24">
-        <React.Suspense fallback={<div className="font-mono text-sm text-neutral-500">Loading articles...</div>}>
-          <ArticlesList />
-        </React.Suspense>
-      </section>
-
-      {/* OSS CONTRIBUTIONS */}
-      <section className="mb-20">
-        <RevealOnView intensity="soft">
-          <div className="space-y-6">
-            <h2 className="text-sm font-bold tracking-wider text-neutral-600 uppercase font-mono">
-              active contributions
-            </h2>
-            <div className="grid gap-4 font-mono text-sm">
-              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-700 dark:text-neutral-300">langchain-ai/langchainjs</span>
-                <span className="text-neutral-500">prompt stream type parsing core</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr] border-b border-white/5 pb-2 gap-1 sm:gap-6">
-                <span className="text-neutral-700 dark:text-neutral-300">rohitg00/agentmemory</span>
-                <span className="text-neutral-500">multi-agent context isolation boundaries</span>
-              </div>
-            </div>
-          </div>
-        </RevealOnView>
-      </section>
+    <main className="mx-auto w-full max-w-2xl px-4 pt-6 pb-8">
+      <React.Suspense fallback={<div className="font-mono text-sm text-neutral-500">Loading...</div>}>
+        <PortfolioContent />
+      </React.Suspense>
     </main>
   )
 }
