@@ -81,7 +81,59 @@ function PortfolioContent() {
               <p>I&apos;m a morning bird and a strong reader.</p>
               <p>I&apos;m a <a href="https://en.wikipedia.org/wiki/First_principle" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">first principles thinker</a>. I want to <a href="https://nav.al/sell" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">sell the truth</a> in the market. My engineering motto is to use my reasoning and technical skills for the advancement of human species through innovation and problem solving. By contributing to the economy, I&apos;m actively <a href="https://www.youtube.com/watch?v=M-ZH3psUbfU" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">growing the economic pie</a> which cures scarcity mindset. Mathematics has all the answers about nature to a larger extent. My interest in technology lies in the intersection of web, deep learning, agentic engineering and speech/audio.</p>
               <p>Skipping steps in learning and understanding would result in debt and I&apos;m happily paying all my technical debts :&#41;</p>
-              <p>My philosophical anchor in life is the <a href="https://en.wikipedia.org/wiki/Yoga_Sutras_of_Patanjali" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Path of Yoga</a>.</p><p>Politically leaning right.</p>
+              <p>My philosophical anchor in life is the <a href="https://en.wikipedia.org/wiki/Yoga_Sutras_of_Patanjali" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Path of Yoga</a>.</p>
+              <p>Politically social conservative (2.46) & economically centrist (0.0)</p>
+              
+              {/* POLITICAL COMPASS CHART */}
+              <div className="flex flex-col items-center justify-center p-6 bg-neutral-50 dark:bg-neutral-900/30 rounded-2xl border border-neutral-200 dark:border-neutral-800 max-w-[280px] font-mono my-6">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mb-6">
+                  Political Compass
+                </span>
+                
+                <div className="relative w-36 h-36 border border-neutral-300 dark:border-neutral-700">
+                  {/* Quadrants */}
+                  <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-red-500/10 dark:bg-red-500/15" />
+                  <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-500/10 dark:bg-blue-500/15" />
+                  <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-emerald-500/10 dark:bg-emerald-500/15" />
+                  <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-yellow-500/10 dark:bg-yellow-500/15" />
+
+                  {/* Axis Lines */}
+                  <div className="absolute top-0 bottom-0 left-1/2 w-px bg-neutral-300 dark:bg-neutral-700" />
+                  <div className="absolute left-0 right-0 top-1/2 h-px bg-neutral-300 dark:bg-neutral-700" />
+
+                  {/* Labels on Axes */}
+                  <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[8px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">
+                    Authoritarian
+                  </span>
+                  <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[8px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">
+                    Libertarian
+                  </span>
+                  <span className="absolute top-1/2 -left-6 -translate-y-1/2 text-[8px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">
+                    Left
+                  </span>
+                  <span className="absolute top-1/2 -right-8 -translate-y-1/2 text-[8px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">
+                    Right
+                  </span>
+
+                  {/* Coordinate Dot (0.0, 2.46) */}
+                  <div 
+                    className="absolute w-2.5 h-2.5 bg-red-600 dark:bg-red-500 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg shadow-red-600/50 border border-white dark:border-neutral-900"
+                    style={{ left: "50%", top: "37.7%" }}
+                  >
+                    {/* Pulse effect */}
+                    <div className="absolute -inset-1 bg-red-600 dark:bg-red-500 rounded-full animate-ping opacity-75" />
+                  </div>
+                </div>
+                
+                <div className="mt-6 text-[10px] text-neutral-500 dark:text-neutral-400 text-center space-y-1">
+                  <p>
+                    Economic Left/Right: <span className="text-neutral-900 dark:text-neutral-100 font-bold">0.00</span>
+                  </p>
+                  <p>
+                    Social Conservative/Libertarian: <span className="text-neutral-900 dark:text-neutral-100 font-bold">+2.46</span>
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
