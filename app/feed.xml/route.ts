@@ -25,7 +25,7 @@ export async function GET() {
   <channel>
     <title>noishey</title>
     <link>${siteUrl}</link>
-    <description>ai engineering/oss/web-apps</description>
+    <description>ai/web-apps</description>
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
 ${rssItems}

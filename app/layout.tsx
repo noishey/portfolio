@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   generator: 'v0.dev',
   openGraph: {
     title: "noishey's tech blog",
-    description: 'ai engineer/oss/web-apps',
+    description: 'ai/web-apps',
     images: [],
     type: 'website',
   }

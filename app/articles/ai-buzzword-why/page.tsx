@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import RevealOnView from "@/components/reveal-on-view"
+import ArticleTags from "@/components/article-tags"
 
 export default function ArticlePage() {
   return (
@@ -41,6 +42,8 @@ export default function ArticlePage() {
                 The scarcity now is deep technical mastery in a craft. LLM's are probabilistic engines and not deterministic functions.
               </p>
             </div>
+
+            <ArticleTags />
 
             <div className="pt-12 border-t border-neutral-200 dark:border-neutral-800">
               <Link

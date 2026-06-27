@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
-
 import RevealOnView from "@/components/reveal-on-view"
+import ArticleTags from "@/components/article-tags"
 
 export default function ArticlePage() {
     return (
@@ -109,6 +109,8 @@ export default function ArticlePage() {
                         <p>
                             JavaScript/TypeScript concepts - Structural Typing, Object References and Asynchronous Execution
                         </p>
+
+                        <ArticleTags />
 
                         <div className="pt-8">
                             <Link
