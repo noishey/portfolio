@@ -119,10 +119,7 @@ function PortfolioContent() {
                   <div 
                     className="absolute w-2.5 h-2.5 bg-red-600 dark:bg-red-500 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg shadow-red-600/50 border border-white dark:border-neutral-900"
                     style={{ left: "50%", top: "37.7%" }}
-                  >
-                    {/* Pulse effect */}
-                    <div className="absolute -inset-1 bg-red-600 dark:bg-red-500 rounded-full animate-ping opacity-75" />
-                  </div>
+                  />
                 </div>
                 
                 <div className="mt-6 text-[10px] text-neutral-500 dark:text-neutral-400 text-center space-y-1">
