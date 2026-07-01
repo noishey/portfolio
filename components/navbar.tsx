@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Rss, Mail, Github, Coffee, Search, History } from "lucide-react"
+import Image from "next/image"
+import { Rss, Mail, Github, Coffee, Search, History, Linkedin } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import ThemeToggle from '@/components/theme-toggle'
@@ -34,12 +35,22 @@ export default function Navbar({ className }: { className?: string }) {
             <Link
               href="/"
               className={cn(
-                "group inline-flex items-center gap-2 tracking-tight text-neutral-900 dark:text-white",
+                "group inline-flex items-center gap-3 tracking-tight text-neutral-900 dark:text-white",
                 isSanskrit ? "font-sanskrit text-3xl" : "font-mono text-2xl font-semibold"
               )}
               aria-label="Home"
               {...hoverProps}
             >
+              <div className="relative h-9 w-9 overflow-hidden rounded-full border border-neutral-200 dark:border-neutral-800 shrink-0">
+                <Image
+                  src="/dp.png"
+                  alt="noishey avatar"
+                  fill
+                  className="object-cover"
+                  sizes="36px"
+                  priority
+                />
+              </div>
               <span>{isSanskrit ? "नोइशे" : "noishey"}</span>
             </Link>
             <Link
@@ -85,6 +96,17 @@ export default function Navbar({ className }: { className?: string }) {
             title="GitHub"
           >
             <Github className="h-4 w-4" />
+          </Link>
+
+          <Link
+            href="https://linkedin.com/in/noishey"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <Linkedin className="h-4 w-4" />
           </Link>
 
           <Link
