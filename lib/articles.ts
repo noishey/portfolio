@@ -8,6 +8,13 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 2, 2026",
+    title: "Deep Learning (for Audio) with Python Course Notes",
+    href: "/articles/dl-audio-py",
+    takeaway: "Notes and implementation of a basic Multilayer Perceptron from scratch using NumPy.",
+    tags: ["audio-tech", "deep-learning", "python", "neural-networks"],
+  },
+  {
     date: "June 22, 2026",
     title: "AI is a Buzzword: Why?",
     href: "/articles/ai-buzzword-why",
@@ -61,7 +68,7 @@ export const articles: Article[] = [
     title: "Vosk as a Local STT Provider",
     href: "/articles/vosk-stt-provider",
     takeaway: "built an offline, lightweight speech-to-text pipeline utilizing Kaldi stream processing to preserve edge memory footprints.",
-    tags: ["speech-to-text", "kaldi", "edge-computing"],
+    tags: ["audio-tech", "speech-to-text", "kaldi", "edge-computing"],
   },
   {
     date: "May 19, 2026",

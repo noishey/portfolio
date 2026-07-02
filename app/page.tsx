@@ -11,7 +11,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives">("archives")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "audio-tech">("audio-tech")
 
   // If a tag is active in the URL, show the articles view filtered by that tag
   const displayView = urlTag ? "articles" : activeTab
@@ -23,13 +23,16 @@ function PortfolioContent() {
     if (activeTab === "archives") {
       return articles.filter((article) => article.tags?.includes("archives"))
     }
+    if (activeTab === "audio-tech") {
+      return articles.filter((article) => article.tags?.includes("audio-tech"))
+    }
     return []
   }, [activeTab, urlTag])
 
   return (
     <RevealOnView intensity="soft">
-      <div className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono mb-8">
-        Learning, Blogging & Building towards AI in Audio, Speech and Music | Guitarist & Vocalist
+      <div className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono mb-8 italic">
+        Learning, Blogging & Building towards AI in Audio, Speech and Music | Guitarist, Vocalist & Music Production Interest
       </div>
       {/* TAB BAR */}
       <div className="flex border-b border-neutral-200 dark:border-neutral-800 mb-8 font-mono text-sm">
@@ -46,15 +49,15 @@ function PortfolioContent() {
         ) : (
           <div className="flex gap-6">
             <button
-              onClick={() => setActiveTab("archives")}
+              onClick={() => setActiveTab("audio-tech")}
               className={cn(
                 "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "archives"
+                activeTab === "audio-tech"
                   ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
                   : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
               )}
             >
-              archives
+              audio tech
             </button>
             <button
               onClick={() => setActiveTab("about-me")}
@@ -66,6 +69,17 @@ function PortfolioContent() {
               )}
             >
               about me
+            </button>
+            <button
+              onClick={() => setActiveTab("archives")}
+              className={cn(
+                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
+                activeTab === "archives"
+                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
+                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+              )}
+            >
+              (archives)
             </button>
           </div>
         )}
