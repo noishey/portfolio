@@ -12,7 +12,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "audio-tech">("audio-tech")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "audio-tech" | "tech-philosophy">("audio-tech")
 
   // If a tag is active in the URL, show the articles view filtered by that tag
   const displayView = urlTag ? "articles" : activeTab
@@ -26,6 +26,9 @@ function PortfolioContent() {
     }
     if (activeTab === "audio-tech") {
       return articles.filter((article) => article.tags?.includes("audio-tech"))
+    }
+    if (activeTab === "tech-philosophy") {
+      return articles.filter((article) => article.tags?.includes("philosophy"))
     }
     return []
   }, [activeTab, urlTag])
@@ -59,6 +62,17 @@ function PortfolioContent() {
               )}
             >
               audio tech
+            </button>
+            <button
+              onClick={() => setActiveTab("tech-philosophy")}
+              className={cn(
+                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
+                activeTab === "tech-philosophy"
+                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
+                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+              )}
+            >
+              tech philosophy
             </button>
             <button
               onClick={() => setActiveTab("about-me")}
