@@ -8,6 +8,13 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 4, 2026",
+    title: "Post-Meta Effect",
+    href: "/articles/leaving-meta",
+    takeaway: "A month or two ago I decided to permanently remove myself from Meta. The results of this exit are staggering.",
+    tags: ["philosophy", "ethics", "social-media", "focus"],
+  },
+  {
     date: "July 2, 2026",
     title: "Deep Learning (for Audio) with Python Course Notes",
     href: "/articles/dl-audio-py",
