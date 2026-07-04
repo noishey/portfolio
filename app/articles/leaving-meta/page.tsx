@@ -69,7 +69,7 @@ export default function ArticlePage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-neutral-900 hover:text-black underline dark:text-neutral-200 dark:hover:text-white"
                 >
-                  Watch: YouTube Reference
+                  Watch: Quit social media | Dr. Cal Newport | TEDxTysons
                 </a>
               </div>
             </div>
