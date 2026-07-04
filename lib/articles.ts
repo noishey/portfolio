@@ -12,7 +12,7 @@ export const articles: Article[] = [
     title: "Post-Meta Effect",
     href: "/articles/leaving-meta",
     takeaway: "A month or two ago I decided to permanently remove myself from Meta. The results of this exit are staggering.",
-    tags: ["philosophy", "ethics", "social-media", "focus"],
+    tags: ["philosophy", "ethics", "focus", "quit-social-media"],
   },
   {
     date: "July 2, 2026",
