@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'noishey'
+export const alt = 'neuralmanacle'
 export const size = {
   width: 1200,
   height: 630,

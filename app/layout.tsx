@@ -6,11 +6,11 @@ import SearchMenu from '@/components/search-menu'
 import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
-  title: 'noishey',
+  title: 'neuralmanacle',
   description: 'Created with v0',
   generator: 'v0.dev',
   openGraph: {
-    title: "noishey's tech blog",
+    title: "neuralmanacle's tech blog",
     description: 'ai/web-apps',
     images: [],
     type: 'website',

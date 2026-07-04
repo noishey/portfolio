@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Rss, Mail, Github, Coffee, Search, History, Linkedin } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -41,17 +40,7 @@ export default function Navbar({ className }: { className?: string }) {
               aria-label="Home"
               {...hoverProps}
             >
-              <div className="relative h-9 w-9 overflow-hidden rounded-full border border-neutral-200 dark:border-neutral-800 shrink-0">
-                <Image
-                  src="/dp.png"
-                  alt="noishey avatar"
-                  fill
-                  className="object-cover"
-                  sizes="36px"
-                  priority
-                />
-              </div>
-              <span>{isSanskrit ? "नोइशे" : "noishey"}</span>
+              <span>{isSanskrit ? "न्यूरलमैनकल" : "neuralmanacle"}</span>
             </Link>
             <Link
               href="/feed.xml"
@@ -79,7 +68,7 @@ export default function Navbar({ className }: { className?: string }) {
 
         <div className="flex items-center gap-2">
           <Link
-            href="mailto:tech.noishey@gmail.com"
+            href="mailto:tech.neuralmanacle@gmail.com"
             className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
             aria-label="Email"
             title="Email"
@@ -88,7 +77,7 @@ export default function Navbar({ className }: { className?: string }) {
           </Link>
 
           <Link
-            href="https://github.com/noishey"
+            href="https://github.com/neuralmanacle"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
@@ -99,7 +88,7 @@ export default function Navbar({ className }: { className?: string }) {
           </Link>
 
           <Link
-            href="https://linkedin.com/in/noishey"
+            href="https://linkedin.com/in/neuralmanacle"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"
@@ -123,7 +112,7 @@ export default function Navbar({ className }: { className?: string }) {
           </Link>
 
           <Link
-            href="https://buymeacoffee.com/noishey"
+            href="https://razorpay.me/@arjunkshenoy"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:text-white transition-colors"

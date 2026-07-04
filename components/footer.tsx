@@ -52,7 +52,7 @@ export default function Footer() {
               )}
               {...hoverProps}
             >
-              {isSanskrit ? "नोइशे" : "noishey"}
+              {isSanskrit ? "न्यूरलमैनकल" : "neuralmanacle"}
             </span>
           </span>
           <Link href="/changes" className="hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors">

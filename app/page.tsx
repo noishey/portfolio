@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 import RevealOnView from "@/components/reveal-on-view"
 import { articles } from "@/lib/articles"
@@ -89,8 +90,18 @@ function PortfolioContent() {
       {displayView === "about-me" ? (
         <div className="space-y-12">
           {/* HERO / BIO */}
-          <section>
-            <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+          <section className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+            <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 relative overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 self-center md:self-start">
+              <Image
+                src="/arjun.jpg"
+                alt="Arjun"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 128px, 160px"
+                priority
+              />
+            </div>
+            <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono text-justify flex-1">
               <p>Namaste 🙏</p>
               <p>I&apos;m Arjun, 26 (he/him).</p> 
               <p>Currently in <a href="https://en.wikipedia.org/wiki/Kochi" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Kochi</a>, India.</p>
@@ -107,7 +118,7 @@ function PortfolioContent() {
             <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
               quotes that i live by
             </h2>
-            <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+            <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono text-justify">
               <p className="italic">
                 &quot;Without music, life would be a mistake&quot; &mdash; <a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Nietzsche</a>
               </p>

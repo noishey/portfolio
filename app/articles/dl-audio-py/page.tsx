@@ -73,69 +73,19 @@ export default function ArticlePage() {
                             </div>
                         </div>
 
-                        <h3 className="text-xl font-semibold text-neutral-900 pt-6 dark:text-white">Mathematical Foundation: Sigmoidal Functions</h3>
+                        <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
                         <p>
-                            A <strong>sigmoid function</strong> refers to any mathematical function that produces a characteristic "S"-shaped curve. In neural networks, sigmoidal functions act as activation functions to introduce non-linearity into the model, allowing it to learn complex patterns.
+                            The output of the MLP is a list of two elements which are in the range of 0 to 1. The reason for this is the sigmoid function. A sigmoid function is any function that has a mathematical curve of "S" shape. 
                         </p>
 
-                        <p>
-                            The general mathematical equation for the most common type of sigmoid—the <strong>logistic function</strong>—is:
-                        </p>
-
-                        <div className="flex justify-center py-4 bg-neutral-100/50 dark:bg-white/5 rounded-xl border border-neutral-200 dark:border-white/10 my-4">
-                            <math display="block" className="text-lg">
-                                <mi>f</mi>
-                                <mo stretchy="false">(</mo>
+                        <div className="flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl my-6">
+                            <span className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wider">Sigmoidal Function</span>
+                            <math className="text-2xl text-neutral-900 dark:text-white font-serif" display="block">
+                                <mi>S</mi>
+                                <mo>(</mo>
                                 <mi>x</mi>
-                                <mo stretchy="false">)</mo>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mi>L</mi>
-                                    <mrow>
-                                        <mn>1</mn>
-                                        <mo>+</mo>
-                                        <msup>
-                                            <mi>e</mi>
-                                            <mrow>
-                                                <mo>&minus;</mo>
-                                                <mi>k</mi>
-                                                <mo stretchy="false">(</mo>
-                                                <mi>x</mi>
-                                                <mo>&minus;</mo>
-                                                <msub>
-                                                    <mi>x</mi>
-                                                    <mn>0</mn>
-                                                </msub>
-                                                <mo stretchy="false">)</mo>
-                                            </mrow>
-                                        </msup>
-                                    </mrow>
-                                </mfrac>
-                            </math>
-                        </div>
-
-                        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                            Where:
-                        </p>
-                        <ul className="list-disc pl-5 space-y-1 text-sm text-neutral-600 dark:text-neutral-400">
-                            <li><strong>L</strong>: The curve&apos;s maximum value (upper asymptote).</li>
-                            <li><strong>k</strong>: The steepness or logistic growth rate of the curve.</li>
-                            <li><strong>x&apos;0</strong>: The midpoint value along the x-axis.</li>
-                            <li><strong>e</strong>: Euler&apos;s number (&approx; 2.71828).</li>
-                        </ul>
-
-                        <h4 className="text-lg font-semibold text-neutral-900 pt-4 dark:text-white">The Standard Sigmoid Function</h4>
-                        <p>
-                            In standard feedforward networks, we typically use the simplified form of this equation where <code className="text-xs px-1 bg-white/5 border border-white/10 rounded">L = 1</code>, <code className="text-xs px-1 bg-white/5 border border-white/10 rounded">k = 1</code>, and <code className="text-xs px-1 bg-white/5 border border-white/10 rounded">x&apos;0 = 0</code>:
-                        </p>
-
-                        <div className="flex justify-center py-4 bg-neutral-100/50 dark:bg-white/5 rounded-xl border border-neutral-200 dark:border-white/10 my-4">
-                            <math display="block" className="text-lg">
-                                <mi>&sigma;</mi>
-                                <mo stretchy="false">(</mo>
-                                <mi>x</mi>
-                                <mo stretchy="false">)</mo>
+                                <mo>)</mo>
                                 <mo>=</mo>
                                 <mfrac>
                                     <mn>1</mn>
@@ -145,7 +95,7 @@ export default function ArticlePage() {
                                         <msup>
                                             <mi>e</mi>
                                             <mrow>
-                                                <mo>&minus;</mo>
+                                                <mo>-</mo>
                                                 <mi>x</mi>
                                             </mrow>
                                         </msup>
@@ -155,74 +105,36 @@ export default function ArticlePage() {
                         </div>
 
                         <p>
-                            This function maps any input value to a bounded activation level between <strong>0</strong> (completely inactive) and <strong>1</strong> (fully active).
+                            Sigmoidal functions enable the model to perform non-linear classification of data that couldn't be classified by a simple straight line:
                         </p>
 
-                        <h4 className="text-lg font-semibold text-neutral-900 pt-4 dark:text-white">Other Sigmoidal Curves</h4>
+                        <div className="flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl my-6">
+                            <span className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wider">Linear Equation</span>
+                            <math className="text-2xl text-neutral-900 dark:text-white font-serif" display="block">
+                                <mi>y</mi>
+                                <mo>=</mo>
+                                <mi>m</mi>
+                                <mi>x</mi>
+                                <mo>+</mo>
+                                <mi>c</mi>
+                            </math>
+                        </div>
+
                         <p>
-                            There are other mathematical functions that share this same S-shape but map to different ranges:
+                            Since the exponential term <math className="font-serif"><msup><mi>e</mi><mrow><mo>-</mo><mi>x</mi></mrow></msup></math> is always positive, the denominator <math className="font-serif"><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>-</mo><mi>x</mi></mrow></msup></math> is always greater than 1, ensuring that the output <math className="font-serif"><mi>S</mi><mo>(</mo><mi>x</mi><mo>)</mo></math> always stays between 0 and 1.
                         </p>
 
-                        <ul className="space-y-4">
-                            <li className="space-y-2">
-                                <strong>1. Hyperbolic Tangent (tanh)</strong> - Maps inputs to a range between <strong>-1</strong> and <strong>1</strong>:
-                                <div className="flex justify-center py-3 bg-neutral-100/50 dark:bg-white/5 rounded-xl border border-neutral-200 dark:border-white/10">
-                                    <math display="block">
-                                        <mi>tanh</mi>
-                                        <mo stretchy="false">(</mo>
-                                        <mi>x</mi>
-                                        <mo stretchy="false">)</mo>
-                                        <mo>=</mo>
-                                        <mfrac>
-                                            <mrow>
-                                                <msup>
-                                                    <mi>e</mi>
-                                                    <mi>x</mi>
-                                                </msup>
-                                                <mo>&minus;</mo>
-                                                <msup>
-                                                    <mi>e</mi>
-                                                    <mrow>
-                                                        <mo>&minus;</mo>
-                                                        <mi>x</mi>
-                                                    </mrow>
-                                                </msup>
-                                            </mrow>
-                                            <mrow>
-                                                <msup>
-                                                    <mi>e</mi>
-                                                    <mi>x</mi>
-                                                </msup>
-                                                <mo>+</mo>
-                                                <msup>
-                                                    <mi>e</mi>
-                                                    <mrow>
-                                                        <mo>&minus;</mo>
-                                                        <mi>x</mi>
-                                                    </mrow>
-                                                </msup>
-                                            </mrow>
-                                        </mfrac>
-                                    </math>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <strong>2. Arctangent (arctan)</strong> - Maps inputs to a range between <strong>-&pi;/2</strong> and <strong>&pi;/2</strong>:
-                                <div className="flex justify-center py-3 bg-neutral-100/50 dark:bg-white/5 rounded-xl border border-neutral-200 dark:border-white/10">
-                                    <math display="block">
-                                        <mi>f</mi>
-                                        <mo stretchy="false">(</mo>
-                                        <mi>x</mi>
-                                        <mo stretchy="false">)</mo>
-                                        <mo>=</mo>
-                                        <mi>arctan</mi>
-                                        <mo stretchy="false">(</mo>
-                                        <mi>x</mi>
-                                        <mo stretchy="false">)</mo>
-                                    </math>
-                                </div>
-                            </li>
-                        </ul>
+                        <h3 className="text-xl font-semibold text-neutral-900 pt-2 dark:text-white">
+                            What does the output signify here if the data is audio?
+                        </h3>
+
+                        <p>
+                            One simplistic yet practical application of the above code is: three inputs do signify three features of an audio and the two output maps if the audio is Speech or Music.
+                        </p>
+
+                        <p>
+                            This is a classic example of Supervised Learning.
+                        </p>
 
                         <ArticleTags />
 
