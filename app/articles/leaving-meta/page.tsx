@@ -10,6 +10,13 @@ export default function ArticlePage() {
       <article className="prose prose-neutral dark:prose-invert max-w-none">
         <RevealOnView intensity="soft">
           <div className="space-y-6">
+            <Link
+              href="/"
+              className="text-xs text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors font-mono"
+            >
+              ← Back
+            </Link>
+
             <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
               July 4, 2026
             </p>
