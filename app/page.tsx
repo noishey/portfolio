@@ -12,7 +12,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "audio-tech" | "tech-philosophy">("audio-tech")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "audio-tech" | "tech-philosophy" | "men-in-tech">("audio-tech")
 
   // If a tag is active in the URL, show the articles view filtered by that tag
   const displayView = urlTag ? "articles" : activeTab
@@ -26,6 +26,9 @@ function PortfolioContent() {
     }
     if (activeTab === "audio-tech") {
       return articles.filter((article) => article.tags?.includes("audio-tech"))
+    }
+    if (activeTab === "men-in-tech") {
+      return articles.filter((article) => article.tags?.includes("men-in-tech"))
     }
     if (activeTab === "tech-philosophy") {
       return articles.filter((article) => article.tags?.includes("philosophy"))
@@ -62,6 +65,17 @@ function PortfolioContent() {
               )}
             >
               audio tech
+            </button>
+            <button
+              onClick={() => setActiveTab("men-in-tech")}
+              className={cn(
+                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
+                activeTab === "men-in-tech"
+                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
+                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+              )}
+            >
+              men in tech<sup className="text-[10px] text-neutral-400 dark:text-neutral-500 ml-0.5">*</sup>
             </button>
             <button
               onClick={() => setActiveTab("tech-philosophy")}
@@ -237,6 +251,11 @@ function PortfolioContent() {
               </div>
             </Link>
           ))}
+        </div>
+      )}
+      {activeTab === "men-in-tech" && (
+        <div className="mt-8 pt-4 border-t border-neutral-200 dark:border-neutral-800 text-xs text-neutral-400 dark:text-neutral-500 font-mono">
+          * my body is that of a man.
         </div>
       )}
     </RevealOnView>
