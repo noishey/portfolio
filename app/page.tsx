@@ -131,28 +131,15 @@ function PortfolioContent() {
             </div>
             <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono text-justify flex-1">
               <p>Namaste 🙏</p>
-              <p>I&apos;m Arjun, 26 (he/him).</p> 
-              <p>Currently in <a href="https://en.wikipedia.org/wiki/Kochi" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Kochi</a>, India.</p>
-              <p>I&apos;m a morning bird and a strong reader.</p>
-              <p>I&apos;m a <a href="https://en.wikipedia.org/wiki/First_principle" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">first principles thinker</a>. I want to <a href="https://nav.al/sell" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">sell the truth</a> in the market. My engineering motto is to use my reasoning and technical skills for the advancement of human species through innovation and problem solving. By contributing to the economy, I&apos;m actively <a href="https://www.youtube.com/watch?v=M-ZH3psUbfU" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">growing the economic pie</a> which cures scarcity mindset. Mathematics has all the answers about nature to a larger extent. My interest in technology lies in the intersection of web, deep learning, agentic engineering and speech/audio.</p>
-              <p>Skipping steps in learning and understanding would result in debt and I&apos;m happily paying all my technical debts :&#41;</p>
-              <p>My philosophical anchor in life is the <a href="https://en.wikipedia.org/wiki/Yoga_Sutras_of_Patanjali" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Path of Yoga</a>.</p>
-              <p>I stay in the surface web by saying no to piracy. Permanently away from social media for the love of long-form content.</p>
-            </div>
-          </section>
-
-          {/* QUOTES THAT I LIVE BY */}
-          <section className="space-y-4">
-            <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
-              quotes that i live by
-            </h2>
-            <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono text-justify">
-              <p className="italic">
-                &quot;Without music, life would be a mistake&quot; &mdash; <a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Nietzsche</a>
-              </p>
-              <p className="italic">
-                &quot;If you want to find the secrets of the universe, think in terms of energy, frequency and vibration&quot; &mdash; <a href="https://en.wikipedia.org/wiki/Nikola_Tesla" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">Tesla</a>
-              </p>
+              <p>I&apos;m Arjun. a.k.a Neural Manacle</p> 
+              Who is Neural Manacle?
+              The formation of the name comes from the division of syllables 'Neu' and 'Ma' from the greek word symbolizing the vital spirit, 'Pneuma'.
+              I filled the gap with Neural Manacle as it symbolizes my neurodivergence and the fact that humans are bound to the capabilities of their cognition.
+              Neural Manacle is also a rebirth to my birth identity. It is my adopted persona. I'm a musical artist and a computer engineer. 
+              My Ikigai is working in audio tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
+              I've adopted Shiva Yoga as my primary philosophical framework to curb my chronophobia. This yogic, musical and tech journey is what Neural Manacle
+              has to offer to humanity. I'm a strong advocate for masculinity and male mental health.
+              I'm primarily availabe on mail: neuralmanacle@gmail.com
             </div>
           </section>
 
