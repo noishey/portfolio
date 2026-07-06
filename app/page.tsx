@@ -75,7 +75,7 @@ function PortfolioContent() {
                   : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
               )}
             >
-              men in tech<sup className="text-[10px] text-neutral-400 dark:text-neutral-500 ml-0.5">*</sup>
+              men in tech
             </button>
             <button
               onClick={() => setActiveTab("tech-philosophy")}
