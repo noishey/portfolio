@@ -8,6 +8,13 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 11, 2026",
+    title: "Destroy Patriarchy, Not The Planet.",
+    href: "/articles/destory-patriarchy",
+    takeaway: "What are man and woman? What are Shiva and Shakti? What are feminine and masculine?",
+    tags: ["philosophy", "ethics", "focus", "men-in-tech", "spirituality", "yoga"],
+  },
+  {
     date: "July 5, 2026",
     title: "Aren't you tired of this night cardio?",
     href: "/articles/quit-porn",
