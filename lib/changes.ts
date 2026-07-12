@@ -7,6 +7,12 @@ export interface SiteChange {
 
 export const siteChanges: SiteChange[] = [
   {
+    date: "July 12, 2026",
+    changed: [
+      "Switched primary social communication channel from X (Twitter) to Bluesky (@neuralmanacle.bsky.social)."
+    ]
+  },
+  {
     date: "June 16, 2026",
     added: [
       "In-site command search palette (accessible via Cmd+K or navigation trigger).",
