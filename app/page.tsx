@@ -47,7 +47,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "manhood" | "philosophy" | "photography">("tech")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "manhood" | "writing" | "photography">("tech")
 
   // If a tag is active in the URL, show the articles view filtered by that tag
   const displayView = urlTag ? "articles" : activeTab
@@ -65,8 +65,8 @@ function PortfolioContent() {
     if (activeTab === "manhood") {
       return articles.filter((article) => article.tags?.includes("manhood"))
     }
-    if (activeTab === "philosophy") {
-      return articles.filter((article) => article.tags?.includes("philosophy"))
+    if (activeTab === "writing") {
+      return articles.filter((article) => article.tags?.includes("writing"))
     }
     if (activeTab === "photography") {
       return articles.filter((article) => article.tags?.includes("photography"))
@@ -116,15 +116,15 @@ function PortfolioContent() {
               manhood
             </button>
             <button
-              onClick={() => setActiveTab("philosophy")}
+              onClick={() => setActiveTab("writing")}
               className={cn(
                 "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "philosophy"
+                activeTab === "writing"
                   ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
                   : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
               )}
             >
-              philosophy
+              writing
             </button>
             <button
               onClick={() => setActiveTab("photography")}
