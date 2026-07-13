@@ -12,7 +12,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "manhood" | "philosophy">("tech")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "manhood" | "philosophy" | "photography">("tech")
 
   // If a tag is active in the URL, show the articles view filtered by that tag
   const displayView = urlTag ? "articles" : activeTab
@@ -33,6 +33,9 @@ function PortfolioContent() {
     if (activeTab === "philosophy") {
       return articles.filter((article) => article.tags?.includes("philosophy"))
     }
+    if (activeTab === "photography") {
+      return articles.filter((article) => article.tags?.includes("photography"))
+    }
     return []
   }, [activeTab, urlTag])
 
@@ -42,7 +45,7 @@ function PortfolioContent() {
         Learning, Blogging & Building towards AI in Audio, Speech and Music | Guitarist, Vocalist & Music Production Interest
       </div>
       {/* TAB BAR */}
-      <div className="flex border-b border-neutral-200 dark:border-neutral-800 mb-8 font-mono text-sm">
+      <div className="flex border-b border-neutral-200 dark:border-neutral-800 mb-8 font-mono text-sm overflow-x-auto scrollbar-none whitespace-nowrap">
         {urlTag ? (
           <div className="flex items-center gap-2 pb-2 -mb-px">
             <span className="text-neutral-500">tag:</span>
@@ -87,6 +90,17 @@ function PortfolioContent() {
               )}
             >
               philosophy
+            </button>
+            <button
+              onClick={() => setActiveTab("photography")}
+              className={cn(
+                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
+                activeTab === "photography"
+                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
+                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+              )}
+            >
+              photography
             </button>
             <button
               onClick={() => setActiveTab("about-me")}
