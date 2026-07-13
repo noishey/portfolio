@@ -8,6 +8,13 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 13, 2026",
+    title: "Ego Dissolution Through Carnatic Vocal Training",
+    href: "/articles/ego-dissolution",
+    takeaway: "At the age of near 26, I crushed my ego by starting Carnatic vocal training.",
+    tags: ["philosophy", "spirituality", "yoga", "focus"],
+  },
+  {
     date: "July 11, 2026",
     title: "Destroy Patriarchy, Not The Planet.",
     href: "/articles/destory-patriarchy",
