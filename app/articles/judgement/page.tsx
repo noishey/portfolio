@@ -33,10 +33,10 @@ export default function ArticlePage() {
 
             <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
               <p>
-                The people who you think is judging you is a voice inside your head.
+                The people whom you think are judging you are voices inside your head.
               </p>
               <p>
-                Your reaction to the judgement is a fear based response. Nobody is judging you. It is an illusion. If the fear dissolves, the universe understands it. For the fear to dissolve, the ego should go away. A rebirth should occur. These trance like states could be achieved not just through imbibing psychedelics but also through breathing techniques, music, dance or any other meditative activity. The point is to tune into that frequency and let it reflect in the 3D. All the negative energy in the universe shows as you aren't connected with yourself fully. It is hard. Tough. We are humans and rarely gods but we could be gods for sometime.
+                Your reaction to the judgment is a fear-based response. Nobody is judging you. It is an illusion. If the fear dissolves, the universe understands it. For the fear to dissolve, the ego should go away. A rebirth should occur. These trance-like states could be achieved not just through imbibing psychedelics but also through breathing techniques, music, dance, or any other meditative activity. The point is to tune into that frequency and let it reflect in the 3D. All the negative energy in the universe shows as if you aren't connected with yourself fully. It is hard. Tough. We are humans and rarely gods, but we could be gods for some time.
               </p>
             </div>
 
