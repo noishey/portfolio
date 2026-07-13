@@ -3,43 +3,45 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+const KERALA_DIR = path.join(PUBLIC_DIR, 'gallery', 'kerala');
 const LIB_DIR = path.join(__dirname, '..', 'lib');
 const OUTPUT_TS = path.join(LIB_DIR, 'photography.ts');
 
 function processImages() {
-  console.log('Scanning public directory for HEIC images...');
+  console.log('Scanning kerala gallery directory for HEIC images...');
   
-  if (!fs.existsSync(PUBLIC_DIR)) {
-    console.error(`Public directory does not exist at ${PUBLIC_DIR}`);
+  if (!fs.existsSync(KERALA_DIR)) {
+    console.error(`Kerala gallery directory does not exist at ${KERALA_DIR}`);
     process.exit(1);
   }
 
-  // Clean up any previously generated IMG_*.jpg files to keep the directory clean
-  const existingFiles = fs.readdirSync(PUBLIC_DIR);
-  existingFiles.forEach(file => {
-    if (file.startsWith('IMG_') && file.toLowerCase().endsWith('.jpg')) {
+  // Clean up the old photo_*.jpg files in the root public directory
+  const rootFiles = fs.readdirSync(PUBLIC_DIR);
+  rootFiles.forEach(file => {
+    if (file.startsWith('photo_') && file.toLowerCase().endsWith('.jpg')) {
       const filePath = path.join(PUBLIC_DIR, file);
-      console.log(`Cleaning up old file: ${file}`);
+      console.log(`Cleaning up old root photo: ${file}`);
       fs.unlinkSync(filePath);
     }
   });
 
+  const existingFiles = fs.readdirSync(KERALA_DIR);
   const heicFiles = existingFiles.filter(f => f.startsWith('IMG_') && f.toLowerCase().endsWith('.heic'));
   
   // Sort HEIC files numerically/alphabetically so they get consistent sequential numbers
   heicFiles.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
   
-  console.log(`Found ${heicFiles.length} HEIC files to process.`);
+  console.log(`Found ${heicFiles.length} HEIC files in gallery/kerala/ to process.`);
   
   const photoList = [];
 
   heicFiles.forEach((file, index) => {
-    const srcPath = path.join(PUBLIC_DIR, file);
+    const srcPath = path.join(KERALA_DIR, file);
     const sequenceNumber = index + 1;
     const normalizedName = `photo_${sequenceNumber}.jpg`;
-    const destPath = path.join(PUBLIC_DIR, normalizedName);
+    const destPath = path.join(KERALA_DIR, normalizedName);
     
-    // Convert HEIC to the new sequential JPG name
+    // Convert HEIC to the new sequential JPG name inside gallery/kerala/
     if (!fs.existsSync(destPath)) {
       console.log(`Converting ${file} -> ${normalizedName}...`);
       try {
@@ -57,7 +59,7 @@ function processImages() {
 
     if (fs.existsSync(destPath)) {
       photoList.push({
-        src: `/${normalizedName}`,
+        src: `/gallery/kerala/${normalizedName}`,
         alt: `Photo ${sequenceNumber}`,
         name: normalizedName
       });
