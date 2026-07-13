@@ -9,6 +9,20 @@ export interface Article {
 export const articles: Article[] = [
   {
     date: "July 13, 2026",
+    title: "All The Judgement is Inside You Baby.",
+    href: "/articles/judgement",
+    takeaway: "Oh come on!! ft Chandler.",
+    tags: ["philosophy", "spirituality", "yoga"],
+  },
+  {
+    date: "July 13, 2026",
+    title: "I live in India but I'm English.",
+    href: "/articles/on-being-english",
+    takeaway: "This is the post colonial cognitive dissonance.",
+    tags: ["philosophy", "spirituality", "ethics"],
+  },
+  {
+    date: "July 13, 2026",
     title: "Ego Dissolution Through Carnatic Vocal Training",
     href: "/articles/ego-dissolution",
     takeaway: "At the age of near 26, I crushed my ego by starting Carnatic vocal training.",
