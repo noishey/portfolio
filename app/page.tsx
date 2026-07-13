@@ -7,6 +7,30 @@ import { useSearchParams } from "next/navigation"
 import RevealOnView from "@/components/reveal-on-view"
 import { articles } from "@/lib/articles"
 import { cn } from "@/lib/utils"
+import { photos } from "@/lib/photography"
+function PhotographySection() {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        {photos.map((photo, i) => (
+          <div
+            key={i}
+            className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 640px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 function PortfolioContent() {
   const searchParams = useSearchParams()
@@ -42,7 +66,7 @@ function PortfolioContent() {
   return (
     <RevealOnView intensity="soft">
       <div className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono mb-8 italic">
-        Learning, Blogging & Building towards AI in Audio, Speech and Music | Guitarist, Vocalist & Music Production Interest
+        in a synthetic dream. love. peace. enlightenment.
       </div>
       {/* TAB BAR */}
       <div className="flex border-b border-neutral-200 dark:border-neutral-800 mb-8 font-mono text-sm overflow-x-auto scrollbar-none whitespace-nowrap">
@@ -228,6 +252,8 @@ function PortfolioContent() {
             </div>
           </section>
         </div>
+      ) : displayView === "photography" ? (
+        <PhotographySection />
       ) : (
         /* ARTICLES LIST */
         <div className="space-y-8">
