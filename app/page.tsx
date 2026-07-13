@@ -8,26 +8,37 @@ import RevealOnView from "@/components/reveal-on-view"
 import { articles } from "@/lib/articles"
 import { cn } from "@/lib/utils"
 import { photos } from "@/lib/photography"
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
+
 function PhotographySection() {
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        {photos.map((photo, i) => (
-          <div
-            key={i}
-            className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              sizes="(max-width: 640px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </div>
+      <Accordion type="single" collapsible defaultValue="kerala">
+        <AccordionItem value="kerala" className="border-none">
+          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
+            Kerala
+          </AccordionTrigger>
+          <AccordionContent className="pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {photos.map((photo, i) => (
+                <div
+                  key={i}
+                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   )
 }
