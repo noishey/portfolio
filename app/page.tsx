@@ -47,7 +47,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "manhood" | "writing" | "photography">("tech")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "writing" | "photography">("tech")
 
   // If a tag is active in the URL, show the articles view filtered by that tag
   const displayView = urlTag ? "articles" : activeTab
@@ -61,9 +61,6 @@ function PortfolioContent() {
     }
     if (activeTab === "tech") {
       return articles.filter((article) => article.tags?.includes("tech"))
-    }
-    if (activeTab === "manhood") {
-      return articles.filter((article) => article.tags?.includes("manhood"))
     }
     if (activeTab === "writing") {
       return articles.filter((article) => article.tags?.includes("writing"))
@@ -104,17 +101,7 @@ function PortfolioContent() {
             >
               tech
             </button>
-            <button
-              onClick={() => setActiveTab("manhood")}
-              className={cn(
-                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "manhood"
-                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
-                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-              )}
-            >
-              manhood
-            </button>
+
             <button
               onClick={() => setActiveTab("writing")}
               className={cn(
@@ -291,11 +278,7 @@ function PortfolioContent() {
           ))}
         </div>
       )}
-      {activeTab === "manhood" && (
-        <div className="mt-8 pt-4 border-t border-neutral-200 dark:border-neutral-800 text-xs text-neutral-400 dark:text-neutral-500 font-mono">
-          * my body is that of a man.
-        </div>
-      )}
+
     </RevealOnView>
   )
 }
