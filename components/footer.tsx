@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
         
         <div className="flex justify-between items-center text-xs text-neutral-400 dark:text-neutral-600 pt-4 border-t border-neutral-100/50 dark:border-neutral-900/50">
-          <span className="flex items-center gap-1.5">
+          <span className="inline-flex items-center gap-1.5 animate-rainbow">
             <span>&copy; {new Date().getFullYear()}</span>
             <span
               className={cn(
@@ -55,7 +55,7 @@ export default function Footer() {
               {isSanskrit ? "न्यूरलमैनकल" : "neuralmanacle"}
             </span>
           </span>
-          <Link href="/changes" className="hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors">
+          <Link href="/changes" className="transition-colors animate-rainbow">
             site changelog
           </Link>
         </div>
