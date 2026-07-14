@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "neural manacle's tech blog",
     description: 'ai/web-apps',
-    images: [],
     type: 'website',
   }
 }

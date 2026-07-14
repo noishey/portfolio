@@ -4,9 +4,47 @@ export interface Article {
   href: string
   takeaway: string
   tags?: string[]
+  content?: string
 }
 
 export const articles: Article[] = [
+  {
+    date: "July 14, 2026",
+    title: "These Are The Times",
+    href: "",
+    takeaway: "These are the times of struggle, periods of estrangement.",
+    tags: ["poetry"],
+    content: `These are the times.
+the times of struggle
+periods of estrangement
+strangled by strings
+the strings woven by fate
+the keen and the meek
+the wise and the miser
+streets of rebellion
+coated with stains of time
+These are the times
+These are the times`,
+  },
+  {
+    date: "July 14, 2026",
+    title: "Churned Are The Masses",
+    href: "",
+    takeaway: "Oblique are the upcoming times, maybe now is the precursor to a war.",
+    tags: ["poetry"],
+    content: `churned are the masses
+into objects and machines
+only to have a fate of ending soon.
+for they have already been dead,
+when they decided to not think,
+when they were denied
+from their own freedom of thought.
+oblique are the upcoming times
+maybe now is the precursor to a war
+the power has been misused
+by those who are powerless
+to their own selves`,
+  },
   {
     date: "July 13, 2026",
     title: "All The Judgement is Inside You Baby.",

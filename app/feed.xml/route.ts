@@ -4,6 +4,7 @@ export async function GET() {
   const siteUrl = "https://neuralmanacle.blog"
 
   const rssItems = articles
+    .filter((article) => article.href)
     .map((article) => {
       // Ensure date parsing is safe (e.g. "May 27, 2026")
       const parsedDate = new Date(article.date)

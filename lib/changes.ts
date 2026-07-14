@@ -9,7 +9,11 @@ export const siteChanges: SiteChange[] = [
   {
     date: "July 14, 2026",
     added: [
-      "Collapsible photography section titled 'Kerala, India' displaying a grid of 19 optimized photos.",
+      "Collapsible photography section titled 'North Goa, India' displaying a personal note, a featured photo, and a grid of 53 other optimized photos.",
+      "Collapsible photography section titled 'Rishikesh, Uttarakhand, India' displaying a grid of 21 optimized photos.",
+      "Collapsible photography section titled 'Dharamkot & Mcledoganj, Himachal Pradesh, India' displaying a grid of 38 optimized photos.",
+      "Published two new poems: 'These Are The Times' and 'Churned Are The Masses'.",
+      "Collapsible photography section titled 'Kochi, Kerala, India' displaying a grid of 19 optimized photos.",
       "Published two new articles: 'All The Judgement is Inside You Baby.' and 'I live in India but I'm English.'.",
       "Added a new 'poetry' tab to showcase articles tagged with 'poetry'."
     ],
