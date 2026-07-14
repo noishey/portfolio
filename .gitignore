@@ -62,3 +62,6 @@ next-env.d.ts
 
 # Local drafts
 /drafts/
+
+# Ignore raw HEIC photos
+**/*.heic

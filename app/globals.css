@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.975 0.003 80);
+  --background: #FFFFE3;
   --foreground: oklch(0.18 0.003 80);
   --card: var(--background);
   --card-foreground: var(--foreground);
@@ -34,37 +34,53 @@
   --code-string: oklch(0.46 0.12 140);
   --code-literal: oklch(0.52 0.16 300);
   --code-comment: oklch(0.62 0.01 240);
+
+  /* Rainbow flow animation colors (vibrant for light mode) */
+  --rainbow-1: #e82c2c;
+  --rainbow-2: #e88d2c;
+  --rainbow-3: #98cd2e;
+  --rainbow-4: #2ec1c1;
+  --rainbow-5: #a94dd3;
+  --rainbow-6: #d6338b;
 }
 
 .dark {
-  --background: oklch(0.18 0.003 80);
-  --foreground: oklch(0.96 0.003 80);
+  --background: #2C321E;
+  --foreground: #EEF2E6;
   --card: var(--background);
   --card-foreground: var(--foreground);
   --popover: var(--background);
   --popover-foreground: var(--foreground);
   --primary: var(--foreground);
   --primary-foreground: var(--background);
-  --secondary: oklch(0.24 0.003 80);
+  --secondary: #353C24;
   --secondary-foreground: var(--foreground);
-  --muted: oklch(0.24 0.003 80);
-  --muted-foreground: oklch(0.65 0.003 80);
-  --accent: oklch(0.24 0.003 80);
+  --muted: #353C24;
+  --muted-foreground: #A1B38C;
+  --accent: #3E472A;
   --accent-foreground: var(--foreground);
-  --border: var(--foreground);
-  --input: var(--foreground);
+  --border: #4D5638;
+  --input: #4D5638;
   --ring: var(--foreground);
 
-  /* Modern dark mode coding scheme */
-  --code-bg: oklch(0.2 0.01 240);
-  --code-border: oklch(0.26 0.015 240);
-  --code-text: oklch(0.92 0.01 240);
-  --code-keyword: oklch(0.74 0.11 340);
-  --code-entity: oklch(0.74 0.1 240);
-  --code-type: oklch(0.78 0.09 190);
-  --code-string: oklch(0.76 0.1 140);
-  --code-literal: oklch(0.76 0.11 300);
-  --code-comment: oklch(0.55 0.01 240);
+  /* Modern dark mode coding scheme (curated dark sage-olive tint) */
+  --code-bg: #212616;
+  --code-border: #333C22;
+  --code-text: #EAF0DF;
+  --code-keyword: #DE6B9E;
+  --code-entity: #5DB5DF;
+  --code-type: #61C5C7;
+  --code-string: #95D169;
+  --code-literal: #B98BE3;
+  --code-comment: #829272;
+
+  /* Rainbow flow animation colors (original pastel for dark mode) */
+  --rainbow-1: #df8080;
+  --rainbow-2: #dfb380;
+  --rainbow-3: #b8df80;
+  --rainbow-4: #80dfdf;
+  --rainbow-5: #be80df;
+  --rainbow-6: #df80b8;
 }
 
 @theme inline {
@@ -198,4 +214,29 @@
   code .text-neutral-700 {
     color: var(--code-text) !important;
   }
+}
+
+@keyframes rainbow-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-rainbow {
+  background: linear-gradient(
+    to right,
+    var(--rainbow-1),
+    var(--rainbow-2),
+    var(--rainbow-3),
+    var(--rainbow-4),
+    var(--rainbow-5),
+    var(--rainbow-6),
+    var(--rainbow-1)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow-flow 8s linear infinite;
+  display: inline-block;
 }

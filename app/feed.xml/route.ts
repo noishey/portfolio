@@ -1,9 +1,10 @@
 import { articles } from "@/lib/articles"
 
 export async function GET() {
-  const siteUrl = "https://noishey.blog"
+  const siteUrl = "https://neuralmanacle.blog"
 
   const rssItems = articles
+    .filter((article) => article.href)
     .map((article) => {
       // Ensure date parsing is safe (e.g. "May 27, 2026")
       const parsedDate = new Date(article.date)
@@ -23,7 +24,7 @@ export async function GET() {
   const rss = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>noishey</title>
+    <title>neural manacle</title>
     <link>${siteUrl}</link>
     <description>ai/web-apps</description>
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />

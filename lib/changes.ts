@@ -7,6 +7,29 @@ export interface SiteChange {
 
 export const siteChanges: SiteChange[] = [
   {
+    date: "July 14, 2026",
+    added: [
+      "Collapsible photography section titled 'North Goa, India' displaying a personal note, a featured photo, and a grid of 53 other optimized photos.",
+      "Collapsible photography section titled 'Rishikesh, Uttarakhand, India' displaying a grid of 21 optimized photos.",
+      "Collapsible photography section titled 'Dharamkot & Mcledoganj, Himachal Pradesh, India' displaying a grid of 38 optimized photos.",
+      "Published two new poems: 'These Are The Times' and 'Churned Are The Masses'.",
+      "Collapsible photography section titled 'Kochi, Kerala, India' displaying a grid of 19 optimized photos.",
+      "Published two new articles: 'All The Judgement is Inside You Baby.' and 'I live in India but I'm English.'.",
+      "Added a new 'poetry' tab to showcase articles tagged with 'poetry'."
+    ],
+    changed: [
+      "Renamed the 'philosophy' tab, state, and related tags to 'writing'.",
+      "Removed the 'manhood' tab, articles filter, and footnote from the homepage.",
+      "Updated homepage subtitle to 'walking back the hippie trail' with a flowing pastel rainbow text animation."
+    ]
+  },
+  {
+    date: "July 12, 2026",
+    changed: [
+      "Switched primary social communication channel from X (Twitter) to Bluesky (@neuralmanacle.bsky.social)."
+    ]
+  },
+  {
     date: "June 16, 2026",
     added: [
       "In-site command search palette (accessible via Cmd+K or navigation trigger).",
