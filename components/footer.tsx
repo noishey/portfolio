@@ -52,7 +52,7 @@ export default function Footer() {
               )}
               {...hoverProps}
             >
-              {isSanskrit ? "न्यूरलमैनकल" : "neuralmanacle"}
+              {isSanskrit ? "न्यूरलमैनकल" : "neural manacle"}
             </span>
           </span>
           <Link href="/changes" className="transition-colors animate-rainbow">

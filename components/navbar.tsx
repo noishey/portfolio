@@ -40,7 +40,7 @@ export default function Navbar({ className }: { className?: string }) {
               aria-label="Home"
               {...hoverProps}
             >
-              <span>{isSanskrit ? "न्यूरलमैनकल" : "neuralmanacle"}</span>
+              <span>{isSanskrit ? "न्यूरलमैनकल" : "neural manacle"}</span>
             </Link>
             <Link
               href="/feed.xml"
