@@ -73,7 +73,7 @@ function PortfolioContent() {
 
   return (
     <RevealOnView intensity="soft">
-      <div className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono mb-8 italic">
+      <div className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono mb-8 italic animate-rainbow">
         walking back the hippie trail
       </div>
       {/* TAB BAR */}
