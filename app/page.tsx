@@ -16,7 +16,7 @@ function PhotographySection() {
       <Accordion type="single" collapsible defaultValue="kerala">
         <AccordionItem value="kerala" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
-            Kerala
+            Kerala, India
           </AccordionTrigger>
           <AccordionContent className="pt-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
