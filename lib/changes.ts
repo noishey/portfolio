@@ -7,6 +7,18 @@ export interface SiteChange {
 
 export const siteChanges: SiteChange[] = [
   {
+    date: "July 14, 2026",
+    added: [
+      "Collapsible photography section titled 'Kerala, India' displaying a grid of 19 optimized photos.",
+      "Published two new articles: 'All The Judgement is Inside You Baby.' and 'I live in India but I'm English.'."
+    ],
+    changed: [
+      "Renamed the 'philosophy' tab, state, and related tags to 'writing'.",
+      "Removed the 'manhood' tab, articles filter, and footnote from the homepage.",
+      "Updated homepage subtitle to 'walking back the hippie trail' with a flowing pastel rainbow text animation."
+    ]
+  },
+  {
     date: "July 12, 2026",
     changed: [
       "Switched primary social communication channel from X (Twitter) to Bluesky (@neuralmanacle.bsky.social)."
