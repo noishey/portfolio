@@ -209,13 +209,13 @@
 .animate-rainbow {
   background: linear-gradient(
     to right,
-    #cba2a2,
-    #d1bda5,
-    #b6c5a0,
-    #a1bfbf,
-    #bca8c9,
-    #cca4b8,
-    #cba2a2
+    #df8080,
+    #dfb380,
+    #b8df80,
+    #80dfdf,
+    #be80df,
+    #df80b8,
+    #df8080
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
