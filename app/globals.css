@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #FDFBD4;
+  --background: #FFFFE3;
   --foreground: oklch(0.18 0.003 80);
   --card: var(--background);
   --card-foreground: var(--foreground);
