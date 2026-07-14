@@ -1,1 +1,1 @@
-* this blog entails the ai engineering journey.
+* this blog entails my journey.
