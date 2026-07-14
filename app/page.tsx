@@ -11,16 +11,44 @@ import { photos } from "@/lib/photography"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
 
 function PhotographySection() {
+  const keralaPhotos = photos.filter(p => p.gallery === 'kerala')
+  const delhiPhotos = photos.filter(p => p.gallery === 'new-delhi')
+
   return (
     <div className="space-y-6">
-      <Accordion type="single" collapsible defaultValue="kerala">
+      <Accordion type="multiple" defaultValue={["kerala", "new-delhi"]} className="space-y-4">
         <AccordionItem value="kerala" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
             Kerala, India
           </AccordionTrigger>
           <AccordionContent className="pt-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {photos.map((photo, i) => (
+              {keralaPhotos.map((photo, i) => (
+                <div
+                  key={i}
+                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="new-delhi" className="border-none">
+          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
+            New Delhi, India
+          </AccordionTrigger>
+          <AccordionContent className="pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {delhiPhotos.map((photo, i) => (
                 <div
                   key={i}
                   className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
@@ -47,7 +75,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "writing" | "photography">("tech")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "writing" | "poetry" | "photography">("tech")
 
   // If a tag is active in the URL, show the articles view filtered by that tag
   const displayView = urlTag ? "articles" : activeTab
@@ -64,6 +92,9 @@ function PortfolioContent() {
     }
     if (activeTab === "writing") {
       return articles.filter((article) => article.tags?.includes("writing"))
+    }
+    if (activeTab === "poetry") {
+      return articles.filter((article) => article.tags?.includes("poetry"))
     }
     if (activeTab === "photography") {
       return articles.filter((article) => article.tags?.includes("photography"))
@@ -112,6 +143,17 @@ function PortfolioContent() {
               )}
             >
               writing
+            </button>
+            <button
+              onClick={() => setActiveTab("poetry")}
+              className={cn(
+                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
+                activeTab === "poetry"
+                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
+                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+              )}
+            >
+              poetry
             </button>
             <button
               onClick={() => setActiveTab("photography")}

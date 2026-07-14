@@ -10,7 +10,8 @@ export const siteChanges: SiteChange[] = [
     date: "July 14, 2026",
     added: [
       "Collapsible photography section titled 'Kerala, India' displaying a grid of 19 optimized photos.",
-      "Published two new articles: 'All The Judgement is Inside You Baby.' and 'I live in India but I'm English.'."
+      "Published two new articles: 'All The Judgement is Inside You Baby.' and 'I live in India but I'm English.'.",
+      "Added a new 'poetry' tab to showcase articles tagged with 'poetry'."
     ],
     changed: [
       "Renamed the 'philosophy' tab, state, and related tags to 'writing'.",
