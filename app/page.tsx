@@ -47,7 +47,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
 
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "writing" | "photography">("tech")
+  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "writing" | "photography" | "hippie-trail">("tech")
 
   // If a tag is active in the URL, show the articles view filtered by that tag
   const displayView = urlTag ? "articles" : activeTab
@@ -123,6 +123,17 @@ function PortfolioContent() {
               )}
             >
               photography
+            </button>
+            <button
+              onClick={() => setActiveTab("hippie-trail")}
+              className={cn(
+                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
+                activeTab === "hippie-trail"
+                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
+                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+              )}
+            >
+              walking back the hippie trail
             </button>
             <button
               onClick={() => setActiveTab("about-me")}
@@ -252,6 +263,12 @@ function PortfolioContent() {
         </div>
       ) : displayView === "photography" ? (
         <PhotographySection />
+      ) : displayView === "hippie-trail" ? (
+        <div className="flex flex-col items-center justify-center py-20 font-mono">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-center animate-rainbow select-none leading-normal">
+            walking back the hippie trail
+          </h1>
+        </div>
       ) : (
         /* ARTICLES LIST */
         <div className="space-y-8">
