@@ -8,6 +8,7 @@ import RevealOnView from "@/components/reveal-on-view"
 import { cn } from "@/lib/utils"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
 import { useSupabaseData } from "@/components/supabase-provider"
+import ContactForm from "@/components/contact-form"
 
 function PhotographySection() {
   const { photos } = useSupabaseData()
@@ -472,9 +473,11 @@ function PortfolioContent() {
                   My Ikigai is working in audio tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
                   I&apos;ve adopted Path of Yoga as the primary philosophical framework to curb my phobias. This yogic, musical and tech journey is what Neural Manacle
                   has to offer to humanity.
-                  I&apos;m primarily available on mail: <a href="mailto:neuralmanacle@gmail.com" className="animate-rainbow font-bold hover:underline">neuralmanacle@gmail.com</a>
                 </div>
               </div>
+
+              {/* CONTACT FORM */}
+              <ContactForm />
 
               {/* FORMAL EDUCATION */}
               <div className="space-y-4">
