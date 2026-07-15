@@ -324,6 +324,9 @@ function PortfolioContent() {
               <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
                 products
               </h2>
+              <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono leading-relaxed text-justify max-w-lg">
+                My focus is on audio programming in C++, including the development of VST plugins and real-time DSP systems. I explore machine learning integration for intelligent audio processing, such as audio effects, analysis, and generation. I&apos;m interested in source separation (STEM separation), browser-based music tools, sample management workflows, and improving creative software for musicians and producers. I also work with digital audio workstation (DAW) workflows involving automation, MIDI routing, and plugin interoperability. Alongside audio engineering, I emphasize version control, CI/CD, and thoughtful UI/UX design to build reliable, developer-friendly, and musician-centric products.
+              </p>
             </section>
           )}
 
