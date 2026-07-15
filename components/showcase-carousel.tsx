@@ -33,7 +33,7 @@ export default function ShowcaseCarousel({
     <div
       ref={ref}
       className={cn(
-        "h-full w-full overflow-x-auto overflow-y-hidden rounded-[1.35rem] bg-black/40",
+        "h-full w-full overflow-x-auto overflow-y-hidden rounded-[1.35rem] bg-black/40 scrollbar-none",
         "scroll-smooth",
         className
       )}

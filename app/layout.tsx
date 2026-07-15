@@ -1,17 +1,19 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '../components/navbar'
+import SideNav from '@/components/side-nav'
 import Footer from '@/components/footer'
 import SearchMenu from '@/components/search-menu'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SupabaseDataProvider } from '@/components/supabase-provider'
 
 export const metadata: Metadata = {
-  title: 'neural manacle',
-  description: 'Created with v0',
+  title: 'walking back the hippie trail ꩜ | neural manacle',
+  description: 'music tech',
   generator: 'v0.dev',
   openGraph: {
-    title: "neural manacle's tech blog",
-    description: 'ai/web-apps',
+    title: "neural manacle's blog",
+    description: 'music-tech',
     type: 'website',
   }
 }
@@ -39,12 +41,15 @@ html { font-family: var(--font-mono); }
         `}</style>
       </head>
       <body className="min-h-dvh bg-white text-black dark:bg-black dark:text-white antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          {children}
-          <Footer />
-          <SearchMenu />
-        </ThemeProvider>
+        <SupabaseDataProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Navbar />
+            <SideNav />
+            {children}
+            <Footer />
+            <SearchMenu />
+          </ThemeProvider>
+        </SupabaseDataProvider>
       </body>
     </html>
   )

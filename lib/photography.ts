@@ -9,232 +9,232 @@ export interface Photo {
 
 export const photos: Photo[] = [
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_1.jpg",
-    "alt": "dharamkot &-mcledoganj photo 1",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_1.jpg",
+    "alt": "dharamkot &-mcleodganj photo 1",
     "name": "photo_1.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_2.jpg",
-    "alt": "dharamkot &-mcledoganj photo 2",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_2.jpg",
+    "alt": "dharamkot &-mcleodganj photo 2",
     "name": "photo_2.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_3.jpg",
-    "alt": "dharamkot &-mcledoganj photo 3",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_3.jpg",
+    "alt": "dharamkot &-mcleodganj photo 3",
     "name": "photo_3.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_4.jpg",
-    "alt": "dharamkot &-mcledoganj photo 4",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_4.jpg",
+    "alt": "dharamkot &-mcleodganj photo 4",
     "name": "photo_4.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_5.jpg",
-    "alt": "dharamkot &-mcledoganj photo 5",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_5.jpg",
+    "alt": "dharamkot &-mcleodganj photo 5",
     "name": "photo_5.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_6.jpg",
-    "alt": "dharamkot &-mcledoganj photo 6",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_6.jpg",
+    "alt": "dharamkot &-mcleodganj photo 6",
     "name": "photo_6.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_7.jpg",
-    "alt": "dharamkot &-mcledoganj photo 7",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_7.jpg",
+    "alt": "dharamkot &-mcleodganj photo 7",
     "name": "photo_7.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_8.jpg",
-    "alt": "dharamkot &-mcledoganj photo 8",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_8.jpg",
+    "alt": "dharamkot &-mcleodganj photo 8",
     "name": "photo_8.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_9.jpg",
-    "alt": "dharamkot &-mcledoganj photo 9",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_9.jpg",
+    "alt": "dharamkot &-mcleodganj photo 9",
     "name": "photo_9.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_10.jpg",
-    "alt": "dharamkot &-mcledoganj photo 10",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_10.jpg",
+    "alt": "dharamkot &-mcleodganj photo 10",
     "name": "photo_10.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_11.jpg",
-    "alt": "dharamkot &-mcledoganj photo 11",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_11.jpg",
+    "alt": "dharamkot &-mcleodganj photo 11",
     "name": "photo_11.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_12.jpg",
-    "alt": "dharamkot &-mcledoganj photo 12",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_12.jpg",
+    "alt": "dharamkot &-mcleodganj photo 12",
     "name": "photo_12.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_13.jpg",
-    "alt": "dharamkot &-mcledoganj photo 13",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_13.jpg",
+    "alt": "dharamkot &-mcleodganj photo 13",
     "name": "photo_13.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_14.jpg",
-    "alt": "dharamkot &-mcledoganj photo 14",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_14.jpg",
+    "alt": "dharamkot &-mcleodganj photo 14",
     "name": "photo_14.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_15.jpg",
-    "alt": "dharamkot &-mcledoganj photo 15",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_15.jpg",
+    "alt": "dharamkot &-mcleodganj photo 15",
     "name": "photo_15.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_16.jpg",
-    "alt": "dharamkot &-mcledoganj photo 16",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_16.jpg",
+    "alt": "dharamkot &-mcleodganj photo 16",
     "name": "photo_16.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_17.jpg",
-    "alt": "dharamkot &-mcledoganj photo 17",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_17.jpg",
+    "alt": "dharamkot &-mcleodganj photo 17",
     "name": "photo_17.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_18.jpg",
-    "alt": "dharamkot &-mcledoganj photo 18",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_18.jpg",
+    "alt": "dharamkot &-mcleodganj photo 18",
     "name": "photo_18.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_19.jpg",
-    "alt": "dharamkot &-mcledoganj photo 19",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_19.jpg",
+    "alt": "dharamkot &-mcleodganj photo 19",
     "name": "photo_19.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_20.jpg",
-    "alt": "dharamkot &-mcledoganj photo 20",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_20.jpg",
+    "alt": "dharamkot &-mcleodganj photo 20",
     "name": "photo_20.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_21.jpg",
-    "alt": "dharamkot &-mcledoganj photo 21",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_21.jpg",
+    "alt": "dharamkot &-mcleodganj photo 21",
     "name": "photo_21.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_22.jpg",
-    "alt": "dharamkot &-mcledoganj photo 22",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_22.jpg",
+    "alt": "dharamkot &-mcleodganj photo 22",
     "name": "photo_22.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_23.jpg",
-    "alt": "dharamkot &-mcledoganj photo 23",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_23.jpg",
+    "alt": "dharamkot &-mcleodganj photo 23",
     "name": "photo_23.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_24.jpg",
-    "alt": "dharamkot &-mcledoganj photo 24",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_24.jpg",
+    "alt": "dharamkot &-mcleodganj photo 24",
     "name": "photo_24.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_25.jpg",
-    "alt": "dharamkot &-mcledoganj photo 25",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_25.jpg",
+    "alt": "dharamkot &-mcleodganj photo 25",
     "name": "photo_25.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_26.jpg",
-    "alt": "dharamkot &-mcledoganj photo 26",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_26.jpg",
+    "alt": "dharamkot &-mcleodganj photo 26",
     "name": "photo_26.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_27.jpg",
-    "alt": "dharamkot &-mcledoganj photo 27",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_27.jpg",
+    "alt": "dharamkot &-mcleodganj photo 27",
     "name": "photo_27.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_28.jpg",
-    "alt": "dharamkot &-mcledoganj photo 28",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_28.jpg",
+    "alt": "dharamkot &-mcleodganj photo 28",
     "name": "photo_28.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_29.jpg",
-    "alt": "dharamkot &-mcledoganj photo 29",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_29.jpg",
+    "alt": "dharamkot &-mcleodganj photo 29",
     "name": "photo_29.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_30.jpg",
-    "alt": "dharamkot &-mcledoganj photo 30",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_30.jpg",
+    "alt": "dharamkot &-mcleodganj photo 30",
     "name": "photo_30.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_31.jpg",
-    "alt": "dharamkot &-mcledoganj photo 31",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_31.jpg",
+    "alt": "dharamkot &-mcleodganj photo 31",
     "name": "photo_31.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_32.jpg",
-    "alt": "dharamkot &-mcledoganj photo 32",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_32.jpg",
+    "alt": "dharamkot &-mcleodganj photo 32",
     "name": "photo_32.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_33.jpg",
-    "alt": "dharamkot &-mcledoganj photo 33",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_33.jpg",
+    "alt": "dharamkot &-mcleodganj photo 33",
     "name": "photo_33.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_34.jpg",
-    "alt": "dharamkot &-mcledoganj photo 34",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_34.jpg",
+    "alt": "dharamkot &-mcleodganj photo 34",
     "name": "photo_34.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_35.jpg",
-    "alt": "dharamkot &-mcledoganj photo 35",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_35.jpg",
+    "alt": "dharamkot &-mcleodganj photo 35",
     "name": "photo_35.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_36.jpg",
-    "alt": "dharamkot &-mcledoganj photo 36",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_36.jpg",
+    "alt": "dharamkot &-mcleodganj photo 36",
     "name": "photo_36.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_37.jpg",
-    "alt": "dharamkot &-mcledoganj photo 37",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_37.jpg",
+    "alt": "dharamkot &-mcleodganj photo 37",
     "name": "photo_37.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
-    "src": "/gallery/dharamkot-&-mcledoganj/photo_38.jpg",
-    "alt": "dharamkot &-mcledoganj photo 38",
+    "src": "/gallery/dharamkot-&-mcleodganj/photo_38.jpg",
+    "alt": "dharamkot &-mcleodganj photo 38",
     "name": "photo_38.jpg",
-    "gallery": "dharamkot-&-mcledoganj"
+    "gallery": "dharamkot-&-mcleodganj"
   },
   {
     "src": "/gallery/kerala/photo_1.jpg",

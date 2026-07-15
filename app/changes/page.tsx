@@ -1,8 +1,11 @@
+"use client"
+
 import Link from "next/link"
 import RevealOnView from "@/components/reveal-on-view"
-import { siteChanges } from "@/lib/changes"
+import { useSupabaseData } from "@/components/supabase-provider"
 
 export default function ChangesPage() {
+  const { siteChanges } = useSupabaseData()
   return (
     <main className="mx-auto w-full max-w-2xl px-4 pt-20 pb-8">
       <RevealOnView intensity="soft">

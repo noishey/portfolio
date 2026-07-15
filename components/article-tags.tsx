@@ -2,9 +2,10 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { articles } from "@/lib/articles"
+import { useSupabaseData } from "@/components/supabase-provider"
 
 export default function ArticleTags() {
+  const { articles } = useSupabaseData()
   const pathname = usePathname()
   const article = articles.find((a) => a.href === pathname)
 
