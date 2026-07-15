@@ -33,10 +33,10 @@ export default function ContactForm() {
         <div className="bg-white dark:bg-black rounded-[11px] p-6 space-y-6">
           <div className="space-y-1">
             <h3 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
-              write a message
+              let&apos;s connect!!
             </h3>
             <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">
-              drop a line directly. i will get back to you shortly.
+              write to me about anything under and above the sun xD
             </p>
           </div>
 
