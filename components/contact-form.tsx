@@ -13,11 +13,32 @@ export default function ContactForm() {
 
     setStatus("submitting")
     
-    // Simulate API submission
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1200))
+    const formspreeKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY
+    if (!formspreeKey) {
+      console.warn("Formspree key is missing. Add NEXT_PUBLIC_FORMSPREE_KEY to your env variables.")
+      // Graceful fallback for development/prerender
+      await new Promise((resolve) => setTimeout(resolve, 1000))
       setStatus("success")
       setFormData({ name: "", email: "", subject: "", message: "" })
+      return
+    }
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formspreeKey}`, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setStatus("success")
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        setStatus("error")
+      }
     } catch (error) {
       setStatus("error")
     }
@@ -107,19 +128,26 @@ export default function ContactForm() {
                 />
               </div>
 
-              <div className="flex justify-end pt-2">
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className={cn(
-                    "inline-flex items-center justify-center rounded border border-neutral-300 dark:border-neutral-700 px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-50",
-                    status === "submitting"
-                      ? "bg-neutral-50 dark:bg-neutral-950 text-neutral-400"
-                      : "bg-transparent hover:bg-neutral-100 text-neutral-700 dark:hover:bg-white/3 dark:text-white"
-                  )}
-                >
-                  {status === "submitting" ? "Sending..." : "Submit"}
-                </button>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2">
+                {status === "error" && (
+                  <p className="text-xs font-mono text-rose-500 animate-fade-in">
+                    Failed to send. Please check your network and try again.
+                  </p>
+                )}
+                <div className="flex justify-end ml-auto">
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className={cn(
+                      "inline-flex items-center justify-center rounded border border-neutral-300 dark:border-neutral-700 px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-50",
+                      status === "submitting"
+                        ? "bg-neutral-50 dark:bg-neutral-950 text-neutral-400"
+                        : "bg-transparent hover:bg-neutral-100 text-neutral-700 dark:hover:bg-white/3 dark:text-white"
+                    )}
+                  >
+                    {status === "submitting" ? "Sending..." : "Submit"}
+                  </button>
+                </div>
               </div>
             </form>
           )}
