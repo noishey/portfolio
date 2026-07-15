@@ -494,6 +494,20 @@ function PortfolioContent() {
               {/* CONTACT FORM */}
               <ContactForm />
 
+
+            </section>
+          )}
+
+          {/* RESUME SECTION */}
+          {currentSection === "resume" && (
+            <section
+              id="resume"
+              className="space-y-12 scroll-mt-28 animate-fade-in"
+            >
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                resume
+              </h2>
+
               {/* WORK EXPERIENCE */}
               <div className="space-y-4">
                 <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">

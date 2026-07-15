@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { User, FileText, Sparkles, Camera, Book, Archive, Compass, Music, Headphones, Mail, Github, Linkedin, Package } from "lucide-react"
+import { User, FileText, Sparkles, Camera, Book, Archive, Compass, Music, Headphones, Mail, Github, Linkedin, Package, Briefcase } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type SectionItem = {
@@ -32,6 +32,7 @@ const superSections: SuperSection[] = [
     items: [
       { id: "tech", label: "blog", icon: Headphones },
       { id: "products", label: "products", icon: Package },
+      { id: "resume", label: "resume", icon: Briefcase },
       { id: "archives", label: "archives", icon: Archive },
     ]
   },
