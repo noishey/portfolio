@@ -103,12 +103,15 @@ function SideNavContent() {
     if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current)
   }
 
+  const isArticlePage = pathname.startsWith("/articles")
+
   return (
     <nav
       ref={navRef}
       className={cn(
         "fixed left-0 top-1/2 -translate-y-1/2 z-40 flex items-center transition-all duration-300 ease-in-out",
-        isExpanded ? "w-56" : "w-14"
+        isExpanded ? "w-56" : "w-14",
+        isArticlePage && "hidden md:flex"
       )}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
