@@ -522,18 +522,18 @@ function PortfolioContent() {
                       <span className="text-sm text-neutral-500 dark:text-neutral-400 block mt-1">
                         Pitch Innovations &middot; Internship &middot; Remote
                       </span>
-                      <ul className="list-disc pl-4 space-y-1.5 mt-3 text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xl">
+                      <ul className="list-disc pl-4 space-y-1.5 mt-3 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xl">
                         <li>Developed production-grade audio applications, bridging desktop audio architectures with modern web technologies.</li>
                         <li>Engineered C++ based music plugins for Digital Audio Workstations (DAWs) and seamlessly integrated them with Node.js-based user interfaces.</li>
                       </ul>
                       <div className="mt-3 flex flex-wrap gap-1.5 items-center">
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-400 dark:text-neutral-500 mr-1 select-none">
+                        <span className="text-xs uppercase font-bold tracking-wider text-neutral-400 dark:text-neutral-500 mr-1 select-none">
                           Skills:
                         </span>
                         {["C++", "JavaScript", "CI/CD", "JUCE"].map((skill, sIdx) => (
                           <span
                             key={sIdx}
-                            className="text-[10px] font-semibold bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded-sm"
+                            className="text-xs font-semibold bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded-sm"
                           >
                             {skill}
                           </span>
