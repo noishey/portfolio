@@ -285,7 +285,7 @@ function PortfolioContent() {
               )}
             >
               <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
-                tech
+                audio tech
               </h2>
               <div className="space-y-12">
                 {articles

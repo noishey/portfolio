@@ -30,7 +30,7 @@ const superSections: SuperSection[] = [
   {
     title: "engineering",
     items: [
-      { id: "tech", label: "tech", icon: Headphones },
+      { id: "tech", label: "audio tech", icon: Headphones },
       { id: "archives", label: "archives", icon: Archive },
     ]
   },
