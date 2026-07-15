@@ -315,6 +315,76 @@ function PortfolioContent() {
             </section>
           )}
 
+          {/* PRODUCTS SECTION */}
+          {currentSection === "products" && (
+            <section
+              id="products"
+              className="space-y-6 scroll-mt-28 animate-fade-in"
+            >
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                products
+              </h2>
+              <div className="grid grid-cols-1 gap-6">
+                {[
+                  {
+                    name: "Pneuma Synth",
+                    desc: "An AI-powered virtual synthesizer leveraging neuro-symbolic digital signal processing (DSP) to generate organic, evolving timbres.",
+                    tags: ["C++", "JUCE", "Audio DSP", "Neural Networks"],
+                    status: "in-development"
+                  },
+                  {
+                    name: "BeatLock",
+                    desc: "A browser-based real-time collaborative audio editor and arranger with sub-millisecond network synchronization latency.",
+                    tags: ["Next.js", "WebAudio API", "WebSockets", "Rust"],
+                    status: "prototype"
+                  },
+                  {
+                    name: "YogaFlow Audio",
+                    desc: "A generative ambient audio engine that dynamically shifts soundscapes mapped to real-time biofeedback and yogic breathing rhythms.",
+                    tags: ["Web Audio API", "React", "TypeScript", "EEG Integration"],
+                    status: "released"
+                  }
+                ].map((product, idx) => (
+                  <div
+                    key={idx}
+                    className="p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-background hover:border-neutral-400 dark:hover:border-neutral-600 transition-all duration-300 group flex flex-col justify-between"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-sm font-mono font-bold text-neutral-900 dark:text-white group-hover:animate-rainbow">
+                          {product.name}
+                        </h3>
+                        <span className={cn(
+                          "text-[9px] font-bold uppercase tracking-wider font-mono px-2 py-0.5 rounded-full border",
+                          product.status === "released"
+                            ? "bg-emerald-50 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800"
+                            : product.status === "in-development"
+                            ? "bg-blue-50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800"
+                            : "bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800"
+                        )}>
+                          {product.status.replace("-", " ")}
+                        </span>
+                      </div>
+                      <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono leading-relaxed">
+                        {product.desc}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 pt-4">
+                      {product.tags.map((tag, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="text-[9px] font-mono bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* MUSIC SECTION */}
           {currentSection === "music" && (
             <section id="music" className="space-y-6 scroll-mt-28 animate-fade-in">
