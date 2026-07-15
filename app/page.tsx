@@ -494,6 +494,33 @@ function PortfolioContent() {
               {/* CONTACT FORM */}
               <ContactForm />
 
+              {/* WORK EXPERIENCE */}
+              <div className="space-y-4">
+                <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+                  work experience
+                </h2>
+                <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+                  <div className="flex flex-col sm:flex-row sm:justify-between border-b border-neutral-200 dark:border-neutral-800 pb-3 gap-1">
+                    <div>
+                      <span className="font-semibold text-neutral-900 dark:text-neutral-100 block">
+                        Software Engineer Intern
+                      </span>
+                      <span className="text-sm text-neutral-500 dark:text-neutral-400 block mt-1">
+                        Pitch Innovations &middot; Internship &middot; Remote
+                      </span>
+                      <ul className="list-disc pl-4 space-y-1.5 mt-3 text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xl">
+                        <li>Developed production-grade audio applications, bridging desktop audio architectures with modern web technologies.</li>
+                        <li>Engineered C++ based music plugins for Digital Audio Workstations (DAWs) and seamlessly integrated them with Node.js-based user interfaces.</li>
+                      </ul>
+                    </div>
+                    <div className="flex sm:flex-col sm:items-end text-sm text-neutral-500 dark:text-neutral-400 gap-2 sm:gap-0 shrink-0">
+                      <span>Sep 2025 &mdash; Dec 2025</span>
+                      <span>4 mos</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* FORMAL EDUCATION */}
               <div className="space-y-4">
                 <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
