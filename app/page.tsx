@@ -595,7 +595,7 @@ function PortfolioContent() {
 
 export default function Page() {
   return (
-    <main className="mx-auto w-full max-w-2xl px-16 md:px-4 pt-6 pb-8">
+    <main className="mx-auto w-full max-w-2xl pl-16 pr-4 md:px-4 pt-6 pb-8">
       <React.Suspense fallback={<div className="font-mono text-sm text-neutral-500">Loading...</div>}>
         <PortfolioContent />
       </React.Suspense>

@@ -45,6 +45,8 @@ html { font-family: var(--font-mono); }
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Navbar />
             <SideNav />
+            {/* Mirrored right-side border for desktop symmetry */}
+            <div className="fixed right-0 top-0 h-screen w-14 border-l border-neutral-200/80 dark:border-neutral-800/80 z-40 hidden md:block pointer-events-none" />
             {children}
             <Footer />
             <SearchMenu />
