@@ -132,7 +132,7 @@ function SideNavContent() {
     <nav
       ref={navRef}
       className={cn(
-        "fixed left-0 top-1/2 -translate-y-1/2 z-40 flex items-center transition-all duration-300 ease-in-out",
+        "fixed left-0 top-0 h-screen z-40 flex items-stretch transition-all duration-300 ease-in-out",
         isExpanded ? "w-56" : "w-14",
         isArticlePage && "hidden md:flex"
       )}
@@ -143,7 +143,7 @@ function SideNavContent() {
       }}
     >
       {/* Container holding the navigation bar */}
-      <div className="flex items-stretch bg-background/50 dark:bg-background/40 backdrop-blur-md rounded-r-2xl shadow-md w-full h-[460px] overflow-hidden transition-all duration-300 ease-in-out">
+      <div className="flex items-stretch bg-background/50 dark:bg-background/40 backdrop-blur-md border-r border-neutral-200/80 dark:border-neutral-800/80 shadow-md w-full h-full overflow-hidden transition-all duration-300 ease-in-out">
         
         {/* Navigation Content */}
         <div className="flex flex-col py-6 px-3 w-full justify-center items-center">
