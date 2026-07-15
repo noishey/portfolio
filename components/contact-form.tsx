@@ -13,13 +13,9 @@ export default function ContactForm() {
 
     setStatus("submitting")
     
-    const formspreeKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY
+    const formspreeKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY || 'mqerarwv'
     if (!formspreeKey) {
-      console.warn("Formspree key is missing. Add NEXT_PUBLIC_FORMSPREE_KEY to your env variables.")
-      // Graceful fallback for development/prerender
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      setStatus("success")
-      setFormData({ name: "", email: "", subject: "", message: "" })
+      console.warn("Formspree key is missing.")
       return
     }
 
