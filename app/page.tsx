@@ -526,6 +526,19 @@ function PortfolioContent() {
                         <li>Developed production-grade audio applications, bridging desktop audio architectures with modern web technologies.</li>
                         <li>Engineered C++ based music plugins for Digital Audio Workstations (DAWs) and seamlessly integrated them with Node.js-based user interfaces.</li>
                       </ul>
+                      <div className="mt-3 flex flex-wrap gap-1.5 items-center">
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-400 dark:text-neutral-500 mr-1 select-none">
+                          Skills:
+                        </span>
+                        {["C++", "JavaScript", "CI/CD", "JUCE"].map((skill, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-[10px] font-semibold bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded-sm"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     <div className="flex sm:flex-col sm:items-end text-sm text-neutral-500 dark:text-neutral-400 gap-2 sm:gap-0 shrink-0">
                       <span>Sep 2025 &mdash; Dec 2025</span>
