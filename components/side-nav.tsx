@@ -36,6 +36,7 @@ const superSections: SuperSection[] = [
     ]
   },
   {
+    title: "about",
     items: [
       { id: "about-me", label: "about me", icon: User },
     ]
