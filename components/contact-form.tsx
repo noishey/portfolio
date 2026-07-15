@@ -54,33 +54,31 @@ export default function ContactForm() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1">
-                  <label htmlFor="form-name" className="sr-only">Name</label>
-                  <input
-                    id="form-name"
-                    type="text"
-                    required
-                    placeholder="Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    disabled={status === "submitting"}
-                    className="w-full bg-transparent border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 focus:outline-none py-1.5 transition-colors font-mono text-sm placeholder-neutral-400 text-neutral-800 dark:text-neutral-100"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <label htmlFor="form-email" className="sr-only">Email</label>
-                  <input
-                    id="form-email"
-                    type="email"
-                    required
-                    placeholder="Email Address"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    disabled={status === "submitting"}
-                    className="w-full bg-transparent border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 focus:outline-none py-1.5 transition-colors font-mono text-sm placeholder-neutral-400 text-neutral-800 dark:text-neutral-100"
-                  />
-                </div>
+              <div className="space-y-1">
+                <label htmlFor="form-name" className="sr-only">Name</label>
+                <input
+                  id="form-name"
+                  type="text"
+                  required
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  disabled={status === "submitting"}
+                  className="w-full bg-transparent border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 focus:outline-none py-1.5 transition-colors font-mono text-sm placeholder-neutral-400 text-neutral-800 dark:text-neutral-100"
+                />
+              </div>
+              <div className="space-y-1">
+                <label htmlFor="form-email" className="sr-only">Email</label>
+                <input
+                  id="form-email"
+                  type="email"
+                  required
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={status === "submitting"}
+                  className="w-full bg-transparent border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 focus:outline-none py-1.5 transition-colors font-mono text-sm placeholder-neutral-400 text-neutral-800 dark:text-neutral-100"
+                />
               </div>
               <div className="space-y-1">
                 <label htmlFor="form-message" className="sr-only">Message</label>
