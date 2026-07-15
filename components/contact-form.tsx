@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils"
 
 export default function ContactForm() {
   const [status, setStatus] = React.useState<"idle" | "submitting" | "success" | "error">("idle")
-  const [formData, setFormData] = React.useState({ name: "", email: "", message: "" })
+  const [formData, setFormData] = React.useState({ name: "", email: "", subject: "", message: "" })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.name || !formData.email || !formData.message) return
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) return
 
     setStatus("submitting")
     
@@ -17,7 +17,7 @@ export default function ContactForm() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1200))
       setStatus("success")
-      setFormData({ name: "", email: "", message: "" })
+      setFormData({ name: "", email: "", subject: "", message: "" })
     } catch (error) {
       setStatus("error")
     }
@@ -76,6 +76,19 @@ export default function ContactForm() {
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={status === "submitting"}
+                  className="w-full bg-transparent border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 focus:outline-none py-1.5 transition-colors font-mono text-sm placeholder-neutral-400 text-neutral-800 dark:text-neutral-100"
+                />
+              </div>
+              <div className="space-y-1">
+                <label htmlFor="form-subject" className="sr-only">Subject</label>
+                <input
+                  id="form-subject"
+                  type="text"
+                  required
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   disabled={status === "submitting"}
                   className="w-full bg-transparent border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 focus:outline-none py-1.5 transition-colors font-mono text-sm placeholder-neutral-400 text-neutral-800 dark:text-neutral-100"
                 />
