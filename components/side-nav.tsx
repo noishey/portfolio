@@ -11,16 +11,37 @@ type SectionItem = {
   icon: React.ComponentType<{ className?: string }>
 }
 
-const sections: SectionItem[] = [
-  { id: "tech", label: "tech", icon: Headphones },
-  { id: "music", label: "music", icon: Music },
-  { id: "articles", label: "articles", icon: FileText },
-  { id: "poetry", label: "poetry", icon: Sparkles },
-  { id: "photography", label: "photography", icon: Camera },
-  { id: "bookshelf", label: "bookshelf", icon: Book },
-  { id: "about-me", label: "about me", icon: User },
-  { id: "archives", label: "archives", icon: Archive },
+type SuperSection = {
+  title?: string
+  items: SectionItem[]
+}
+
+const superSections: SuperSection[] = [
+  {
+    title: "art",
+    items: [
+      { id: "music", label: "music", icon: Music },
+      { id: "articles", label: "articles", icon: FileText },
+      { id: "poetry", label: "poetry", icon: Sparkles },
+      { id: "photography", label: "photography", icon: Camera },
+      { id: "bookshelf", label: "bookshelf", icon: Book },
+    ]
+  },
+  {
+    title: "engineering",
+    items: [
+      { id: "tech", label: "tech", icon: Headphones },
+      { id: "archives", label: "archives", icon: Archive },
+    ]
+  },
+  {
+    items: [
+      { id: "about-me", label: "about me", icon: User },
+    ]
+  }
 ]
+
+const sections = superSections.flatMap((s) => s.items)
 
 function SideNavContent() {
   const router = useRouter()
@@ -126,40 +147,49 @@ function SideNavContent() {
         <div className="flex flex-col py-6 px-3 w-full justify-center items-center">
           {/* Links container */}
           <div ref={containerRef} className="space-y-2 flex flex-col justify-center items-center w-full">
-            {sections.map((section) => {
-              const Icon = section.icon
-              const isActive = isHomepage && activeSection === section.id
+            {superSections.map((superSection, sIdx) => (
+              <React.Fragment key={sIdx}>
+                {superSection.title && isExpanded && (
+                  <div className="text-[9px] uppercase font-mono font-bold tracking-wider text-neutral-400 dark:text-neutral-500 w-full px-3 mt-4 mb-1 text-left select-none">
+                    {superSection.title}
+                  </div>
+                )}
+                {superSection.items.map((section) => {
+                  const Icon = section.icon
+                  const isActive = isHomepage && activeSection === section.id
 
-              return (
-                <a
-                  key={section.id}
-                  data-section-id={section.id}
-                  href={`/?section=${section.id}`}
-                  onClick={(e) => handleClick(e, section.id)}
-                  onMouseEnter={() => handleSectionHover(section.id)}
-                  onMouseLeave={cancelHover}
-                  className={cn(
-                    "flex items-center rounded-md font-mono text-sm transition-all duration-200 hover:bg-neutral-100 dark:hover:bg-neutral-900/60 group/item",
-                    isExpanded ? "px-3 py-2 justify-start w-full" : "p-2 justify-center w-10 h-10",
-                    isActive 
-                      ? "bg-neutral-100/50 dark:bg-neutral-900/40 text-neutral-900 dark:text-white"
-                      : "text-neutral-500 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-200"
-                  )}
-                >
-                  <Icon className={cn(
-                    "h-4 w-4 shrink-0 transition-transform duration-200 group-hover/item:scale-110",
-                    isActive ? "text-neutral-900 dark:text-white" : "text-neutral-400 dark:text-neutral-500"
-                  )} />
-                  <span className={cn(
-                    "capitalize transition-all duration-300 whitespace-nowrap",
-                    isExpanded ? "opacity-100 max-w-[150px] ml-3" : "opacity-0 max-w-0 overflow-hidden ml-0",
-                    isActive ? "font-bold animate-rainbow" : "font-medium"
-                  )}>
-                    {section.label}
-                  </span>
-                </a>
-              )
-            })}
+                  return (
+                    <a
+                      key={section.id}
+                      data-section-id={section.id}
+                      href={`/?section=${section.id}`}
+                      onClick={(e) => handleClick(e, section.id)}
+                      onMouseEnter={() => handleSectionHover(section.id)}
+                      onMouseLeave={cancelHover}
+                      className={cn(
+                        "flex items-center rounded-md font-mono text-sm transition-all duration-200 hover:bg-neutral-100 dark:hover:bg-neutral-900/60 group/item",
+                        isExpanded ? "px-3 py-2 justify-start w-full" : "p-2 justify-center w-10 h-10",
+                        isActive 
+                          ? "bg-neutral-100/50 dark:bg-neutral-900/40 text-neutral-900 dark:text-white"
+                          : "text-neutral-500 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-200"
+                      )}
+                    >
+                      <Icon className={cn(
+                        "h-4 w-4 shrink-0 transition-transform duration-200 group-hover/item:scale-110",
+                        isActive ? "text-neutral-900 dark:text-white" : "text-neutral-400 dark:text-neutral-500"
+                      )} />
+                      <span className={cn(
+                        "capitalize transition-all duration-300 whitespace-nowrap",
+                        isExpanded ? "opacity-100 max-w-[150px] ml-3" : "opacity-0 max-w-0 overflow-hidden ml-0",
+                        isActive ? "font-bold animate-rainbow" : "font-medium"
+                      )}>
+                        {section.label}
+                      </span>
+                    </a>
+                  )
+                })}
+              </React.Fragment>
+            ))}
           </div>
 
           {/* Socials section (visible only when expanded on mobile) */}
