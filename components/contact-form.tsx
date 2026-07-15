@@ -47,7 +47,7 @@ export default function ContactForm() {
       
       {/* Border Wrapper */}
       <div className="relative p-[1.5px] rounded-xl bg-gradient-to-r from-[var(--rainbow-1)] via-[var(--rainbow-3)] to-[var(--rainbow-5)] bg-[length:200%_auto] animate-[rainbow-flow_6s_linear_infinite] overflow-hidden shadow-lg dark:shadow-neutral-950">
-        <div className="bg-white dark:bg-black rounded-[11px] p-6 space-y-6">
+        <div className="bg-background rounded-[11px] p-6 space-y-6">
           <div className="space-y-1">
             <h3 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
               let&apos;s connect!!
@@ -58,7 +58,7 @@ export default function ContactForm() {
           </div>
 
           {status === "success" ? (
-            <div className="p-8 rounded-lg bg-neutral-50/50 dark:bg-neutral-950/50 border border-neutral-200 dark:border-neutral-800 animate-fade-in text-center">
+            <div className="p-8 rounded-lg bg-background/50 border border-neutral-200 dark:border-neutral-800 animate-fade-in text-center">
               <p className="font-mono text-sm text-neutral-800 dark:text-neutral-200 font-medium">
                 Message sent! Namaste 🙏
               </p>
