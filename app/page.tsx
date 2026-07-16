@@ -468,7 +468,7 @@ function PortfolioContent() {
             >
               {/* HERO / BIO */}
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 relative overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 self-center md:self-start">
+                <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 relative overflow-hidden rounded-full border border-neutral-200 dark:border-neutral-800 self-center md:self-start">
                   <Image
                     src="/arjun.jpg"
                     alt="Arjun"
@@ -478,7 +478,7 @@ function PortfolioContent() {
                     priority
                   />
                 </div>
-                <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono text-justify flex-1">
+                <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono font-bold text-justify flex-1">
                   <p>Namaste 🙏</p>
                   <p>I&apos;m Arjun. a.k.a Neural Manacle!!</p> <br />
                   
