@@ -10,6 +10,17 @@ export interface Article {
 export const articles: Article[] = [
   {
     date: "July 17, 2026",
+    title: "Diamond",
+    href: "",
+    takeaway: "She wept in silence with a sigh, blaming the fault in her stars.",
+    tags: ["poetry"],
+    content: `She wept in silence with a sigh
+blaming the fault in her stars
+Wearing the blood red chains of control
+as she prayed to the divine feminine`,
+  },
+  {
+    date: "July 17, 2026",
     title: "Witches vs Patriarchy",
     href: "/articles/witches-vs-patriarchy",
     takeaway: "There are only two sides one could pick: either that of the witch or that of the dreaded patriarchy.",
