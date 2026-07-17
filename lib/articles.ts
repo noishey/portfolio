@@ -9,6 +9,31 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 17, 2026",
+    title: "Remnants of My Desires",
+    href: "",
+    takeaway: "Remnants of my desires lay flat for the withered rain to take me away.",
+    tags: ["poetry"],
+    content: `Remnants of my desires lay flat
+for the withered rain to take me away
+The slow song of a distant bird
+has no way but to enter my soul
+As I lay flat losing my breath
+seldom did I realize that I must
+I must only listen to the beats of my heart`,
+  },
+  {
+    date: "July 17, 2026",
+    title: "A Fleeting Glance",
+    href: "",
+    takeaway: "A fleeting glance upon your Shakti energy, crafted shockwaves of my serpent energy.",
+    tags: ["poetry"],
+    content: `A fleeting glance upon your Shakti energy
+Crafted shockwaves of my serpent energy
+The sky of the dawn and the shadows at night
+remains still as I look into your past`,
+  },
+  {
     date: "July 14, 2026",
     title: "These Are The Times",
     href: "",
