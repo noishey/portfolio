@@ -10,6 +10,21 @@ export interface Article {
 export const articles: Article[] = [
   {
     date: "July 17, 2026",
+    title: "The Sun",
+    href: "",
+    takeaway: "Repressed are his desires and emotions as he is casted into his said role.",
+    tags: ["poetry"],
+    content: `Repressed are his desires and emotions
+as he is casted into his said role
+to the generation of trauma passed
+and it is his burden of life
+watching his soul corrode into sparks
+the sparks of this system to which
+he stands as the chaste sun, the pillar
+holding the burden of patriarchy.`,
+  },
+  {
+    date: "July 17, 2026",
     title: "Diamond",
     href: "",
     takeaway: "She wept in silence with a sigh, blaming the fault in her stars.",
