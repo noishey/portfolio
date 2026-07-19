@@ -5,15 +5,16 @@ import Link from "next/link"
 import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 import RevealOnView from "@/components/reveal-on-view"
-import { articles } from "@/lib/articles"
 import { cn } from "@/lib/utils"
-import { photos } from "@/lib/photography"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
+import { useSupabaseData } from "@/components/supabase-provider"
+import ContactForm from "@/components/contact-form"
 
 function PhotographySection() {
+  const { photos } = useSupabaseData()
   const keralaPhotos = photos.filter(p => p.gallery === 'kerala')
   const delhiPhotos = photos.filter(p => p.gallery === 'new-delhi')
-  const hpPhotos = photos.filter(p => p.gallery === 'dharamkot-&-mcledoganj')
+  const hpPhotos = photos.filter(p => p.gallery === 'dharamkot-&-mcleodganj')
   const rishikeshPhotos = photos.filter(p => p.gallery === 'rishikesh')
   const goaPhotos = photos.filter(p => p.gallery === 'north-goa')
 
@@ -21,7 +22,7 @@ function PhotographySection() {
 
   return (
     <div className="space-y-6">
-      <Accordion type="multiple" defaultValue={["kerala", "new-delhi", "dharamkot-&-mcledoganj", "rishikesh", "north-goa"]} className="space-y-4">
+      <Accordion type="multiple" defaultValue={["kerala", "new-delhi", "dharamkot-&-mcleodganj", "rishikesh", "north-goa"]} className="space-y-4">
         <AccordionItem value="kerala" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
             Kochi, Kerala, India
@@ -72,9 +73,9 @@ function PhotographySection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="dharamkot-&-mcledoganj" className="border-none">
+        <AccordionItem value="dharamkot-&-mcleodganj" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
-            Dharamkot & Mcledoganj, Himachal Pradesh, India
+            Dharamkot & Mcleodganj, Himachal Pradesh, India
           </AccordionTrigger>
           <AccordionContent className="pt-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -193,350 +194,465 @@ function RatingStars({ rating }: { rating: number }) {
   )
 }
 
-const books = [
-  {
-    title: "The Zahir",
-    author: "Paulo Coelho",
-    publishedYear: 2005,
-    rating: 4,
-    coverUrl: "/api/bookcover?isbn=9780060832810",
-    wikiUrl: "https://en.wikipedia.org/wiki/The_Zahir_(novel)",
-    review: "A wonderful exploration of obsession, love, and self-discovery."
-  },
-  {
-    title: "The Grapes of Wrath",
-    author: "John Steinbeck",
-    publishedYear: 1939,
-    rating: 4.5,
-    coverUrl: "/api/bookcover?isbn=9780143039433",
-    wikiUrl: "https://en.wikipedia.org/wiki/The_Grapes_of_Wrath",
-    review: "An absolute masterpiece. Deeply moving portrayal of human resilience and social injustice."
-  },
-  {
-    title: "Sapiens: A Brief History of Humankind",
-    author: "Yuval Noah Harari",
-    publishedYear: 2011,
-    coverUrl: "/api/bookcover?isbn=9780062316097",
-    wikiUrl: "https://en.wikipedia.org/wiki/Sapiens:_A_Brief_History_of_Humankind",
-    status: "reading"
-  }
-]
-
 function PortfolioContent() {
+  const { articles, books } = useSupabaseData()
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
-
-  const [activeTab, setActiveTab] = React.useState<"about-me" | "archives" | "tech" | "writing" | "poetry" | "photography" | "books">("tech")
-
-  // If a tag is active in the URL, show the articles view filtered by that tag
-  const displayView = urlTag ? "articles" : activeTab
+  const currentSection = searchParams.get("section") || "tech"
+  const hasSectionParam = searchParams.has("section") && !!searchParams.get("section")
 
   const filteredArticles = React.useMemo(() => {
     if (urlTag) {
       return articles.filter((article) => article.tags?.includes(urlTag))
     }
-    if (activeTab === "archives") {
-      return articles.filter((article) => article.tags?.includes("archives"))
-    }
-    if (activeTab === "tech") {
-      return articles.filter((article) => article.tags?.includes("tech"))
-    }
-    if (activeTab === "writing") {
-      return articles.filter((article) => article.tags?.includes("writing"))
-    }
-    if (activeTab === "poetry") {
-      return articles.filter((article) => article.tags?.includes("poetry"))
-    }
-    if (activeTab === "photography") {
-      return articles.filter((article) => article.tags?.includes("photography"))
-    }
     return []
-  }, [activeTab, urlTag])
+  }, [urlTag, articles])
 
   return (
     <RevealOnView intensity="soft">
       <div className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono mb-8 italic animate-rainbow">
         walking back the hippie trail ꩜
       </div>
-      {/* TAB BAR */}
-      <div className="flex border-b border-neutral-200 dark:border-neutral-800 mb-8 font-mono text-sm overflow-x-auto scrollbar-none whitespace-nowrap">
-        {urlTag ? (
-          <div className="flex items-center gap-2 pb-2 -mb-px">
-            <span className="text-neutral-500">tag:</span>
-            <span className="text-neutral-900 dark:text-neutral-100 font-medium border-b-2 border-neutral-900 dark:border-neutral-100 pb-2 -mb-px">
-              {urlTag}
-            </span>
-            <Link href="/" className="text-xs text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 ml-2">
-              (clear)
-            </Link>
-          </div>
-        ) : (
-          <div className="flex gap-6">
-            <button
-              onClick={() => setActiveTab("tech")}
-              className={cn(
-                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "tech"
-                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
-                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-              )}
-            >
-              tech
-            </button>
 
-            <button
-              onClick={() => setActiveTab("writing")}
-              className={cn(
-                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "writing"
-                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
-                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-              )}
-            >
-              writing
-            </button>
-            <button
-              onClick={() => setActiveTab("poetry")}
-              className={cn(
-                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "poetry"
-                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
-                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-              )}
-            >
-              poetry
-            </button>
-            <button
-              onClick={() => setActiveTab("photography")}
-              className={cn(
-                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "photography"
-                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
-                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-              )}
-            >
-              photography
-            </button>
-            <button
-              onClick={() => setActiveTab("books")}
-              className={cn(
-                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "books"
-                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
-                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-              )}
-            >
-              books
-            </button>
-            <button
-              onClick={() => setActiveTab("about-me")}
-              className={cn(
-                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "about-me"
-                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
-                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-              )}
-            >
-              about me
-            </button>
-            <button
-              onClick={() => setActiveTab("archives")}
-              className={cn(
-                "pb-2 -mb-px font-medium border-b-2 transition-all cursor-pointer",
-                activeTab === "archives"
-                  ? "text-neutral-900 dark:text-neutral-100 border-neutral-900 dark:border-neutral-100"
-                  : "text-neutral-400 border-transparent hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-              )}
-            >
-              (archives)
-            </button>
-          </div>
-        )}
-      </div>
-
-      {/* CONTENT */}
-      {displayView === "about-me" ? (
+      {urlTag ? (
+        /* FILTERED TAG VIEW */
         <div className="space-y-12">
-          {/* HERO / BIO */}
-          <section className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-            <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 relative overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 self-center md:self-start">
-              <Image
-                src="/arjun.jpg"
-                alt="Arjun"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 128px, 160px"
-                priority
-              />
+          <div className="flex border-b border-neutral-200 dark:border-neutral-800 mb-8 font-mono text-sm overflow-x-auto scrollbar-none whitespace-nowrap">
+            <div className="flex items-center gap-2 pb-2 -mb-px">
+              <span className="text-neutral-500">tag:</span>
+              <span className="text-neutral-900 dark:text-neutral-100 font-medium border-b-2 border-neutral-900 dark:border-neutral-100 pb-2 -mb-px">
+                {urlTag}
+              </span>
+              <Link href="/" className="text-xs text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 ml-2">
+                (clear)
+              </Link>
             </div>
-            <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono text-justify flex-1">
-              <p>Namaste 🙏</p>
-              <p>I&apos;m Arjun. a.k.a Neural Manacle!!</p> <br />
-              
-              The formation of the name comes from the division of syllables 'Neu' and 'Ma' from the greek word symbolizing the vital spirit, 'Pneuma'.
-              I filled the gap with Neural Manacle as it symbolizes my neurodivergence and the fact that humans are bound to the capabilities of their cognition.
-              Neural Manacle is also a rebirth to my birth identity. It is my adopted persona. I'm a musical artist and a computer engineer. 
-              My Ikigai is working in audio tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
-              I've adopted Path of Yoga as the primary philosophical framework to curb my phobias. This yogic, musical and tech journey is what Neural Manacle
-              has to offer to humanity.
-              I'm primarily available on mail: <a href="mailto:neuralmanacle@gmail.com" className="animate-rainbow font-bold hover:underline">neuralmanacle@gmail.com</a>
-            </div>
-          </section>
-
-          {/* FORMAL EDUCATION */}
-          <section className="space-y-4">
-            <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
-              formal education
-            </h2>
-            <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
-              <div className="flex flex-col sm:flex-row sm:justify-between border-b border-neutral-200 dark:border-neutral-800 pb-2 gap-1">
-                <div>
-                  <span className="font-semibold text-neutral-900 dark:text-neutral-100 block">
-                    Computer Science and Engineering
-                  </span>
-                  <span className="text-sm text-neutral-500 dark:text-neutral-400 block mt-1">
-                    <a href="https://en.wikipedia.org/wiki/APJ_Abdul_Kalam_Technological_University" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">
-                      APJ Abdul Kalam Technological University
-                    </a>
-                  </span>
-                </div>
-                <div className="flex sm:flex-col sm:items-end text-sm text-neutral-500 dark:text-neutral-400 gap-2 sm:gap-0 shrink-0">
-                  <span>2018 &mdash; 2022</span>
-                  <span>7.95 CGPA</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
-            {/* NATURAL LANGUAGE */}
-            <section className="space-y-4 flex-1">
-              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
-                natural language
-              </h2>
-              <div className="text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
-                <div className="flex justify-between max-w-xs border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                  <span>English</span>
-                  <span className="text-neutral-900 dark:text-neutral-100 font-semibold">8/10 (<a href="https://drive.google.com/file/d/1LEPz41yJ3vUFL_huUh73JZIY93YNpuaF/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 px-1 py-0.5 rounded-sm hover:bg-blue-100 dark:hover:bg-blue-950/70 transition-colors">IELTS</a>)</span>
-                </div>
-              </div>
-            </section>
-
-            {/* PROGRAMMING LANGUAGE */}
-            <section className="space-y-4 flex-1">
-              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
-                programming language
-              </h2>
-              <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono max-w-xs">
-                <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                  <span>C++</span>
-                  <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
-                </div>
-                <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                  <span>Python</span>
-                  <span className="text-neutral-900 dark:text-neutral-100 font-semibold">3/10</span>
-                </div>
-                <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                  <span>TypeScript</span>
-                  <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
-                </div>
-              </div>
-            </section>
           </div>
-        </div>
-      ) : displayView === "books" ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
-          {books.map((book, i) => (
-            <a
-              key={i}
-              href={book.wikiUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center text-center space-y-3 cursor-pointer w-full max-w-[160px]"
-            >
-              <div className="h-5 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                {book.status === "reading" ? (
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider font-mono">
-                    Currently Reading
-                  </span>
-                ) : book.rating !== undefined ? (
-                  <RatingStars rating={book.rating} />
-                ) : null}
-              </div>
-              <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
-                <Image
-                  src={book.coverUrl}
-                  alt={book.title}
-                  fill
-                  sizes="(max-width: 640px) 112px, 144px"
-                  className="object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="space-y-1">
-                <div className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-black dark:group-hover:text-white transition-colors text-xs sm:text-sm font-sans line-clamp-2 leading-snug">
-                  {book.title}
-                </div>
-                <div className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-sans">
-                  {book.author} {book.publishedYear && `(${book.publishedYear})`}
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      ) : displayView === "photography" ? (
-        <PhotographySection />
-      ) : (
-        /* ARTICLES LIST */
-        <div className="space-y-12">
-          {filteredArticles.map((article, i) => {
-            const isPoetry = article.tags?.includes("poetry")
 
-            if (isPoetry) {
-              return (
-                <div key={i} className="space-y-4 max-w-lg">
-                  <h3 className="text-lg font-semibold font-mono text-neutral-900 dark:text-neutral-200">
-                    {article.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 font-mono leading-relaxed whitespace-pre-line">
-                    {article.content}
-                  </p>
-                </div>
-              )
-            }
+          <div className="space-y-12">
+            {filteredArticles.map((article, i) => {
+              const isPoetry = article.tags?.includes("poetry")
 
-            return (
-              <Link
-                key={i}
-                href={article.href}
-                className="group block"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-10">
-                  <span className="text-sm font-mono text-neutral-600 shrink-0 min-w-[140px]">
-                    {article.date}
-                  </span>
-                  <div className="space-y-1.5">
-                    <span className="text-lg text-neutral-900 group-hover:text-black transition-colors decoration-neutral-300 group-hover:decoration-neutral-700 underline underline-offset-4 block dark:text-neutral-200 dark:group-hover:text-white dark:decoration-neutral-800 dark:group-hover:decoration-neutral-400">
+              if (isPoetry) {
+                return (
+                  <div key={i} className="space-y-4 max-w-lg">
+                    <h3 className="text-lg font-semibold font-mono text-neutral-900 dark:text-neutral-200">
                       {article.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 font-mono leading-relaxed whitespace-pre-line">
+                      {article.content}
+                    </p>
+                  </div>
+                )
+              }
+
+              return (
+                <Link
+                  key={i}
+                  href={article.href}
+                  className="group block"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-10">
+                    <span className="text-sm font-mono text-neutral-600 shrink-0 min-w-[140px]">
+                      {article.date}
                     </span>
-                    <span className="text-sm text-neutral-500 block font-mono">
-                      {article.takeaway}
-                    </span>
+                    <div className="space-y-1.5">
+                      <span className="text-lg text-neutral-900 group-hover:text-black transition-colors decoration-neutral-300 group-hover:decoration-neutral-700 underline underline-offset-4 block dark:text-neutral-200 dark:group-hover:text-white dark:decoration-neutral-800 dark:group-hover:decoration-neutral-400">
+                        {article.title}
+                      </span>
+                      <span className="text-sm text-neutral-500 block font-mono">
+                        {article.takeaway}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      ) : (
+        /* SIMPLE VERTICAL SECTIONS VIEW - Now displaying one section at a time */
+        <div className="space-y-12">
+
+
+          {/* TECH SECTION */}
+          {currentSection === "tech" && (
+            <section
+              id="tech"
+              className={cn(
+                "space-y-6 scroll-mt-28 animate-fade-in",
+                !hasSectionParam && "hidden md:block"
+              )}
+            >
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                blog
+              </h2>
+              <div className="space-y-12">
+                {articles
+                  .filter((article) => article.tags?.includes("tech") && !article.tags?.includes("archives"))
+                  .map((article, i) => (
+                    <Link
+                      key={i}
+                      href={article.href}
+                      className="group block"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-10">
+                        <span className="text-sm font-mono text-neutral-600 shrink-0 min-w-[140px]">
+                          {article.date}
+                        </span>
+                        <div className="space-y-1.5">
+                          <span className="text-lg text-neutral-900 group-hover:text-black transition-colors decoration-neutral-300 group-hover:decoration-neutral-700 underline underline-offset-4 block dark:text-neutral-200 dark:group-hover:text-white dark:decoration-neutral-800 dark:group-hover:decoration-neutral-400">
+                            {article.title}
+                          </span>
+                          <span className="text-sm text-neutral-500 block font-mono">
+                            {article.takeaway}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+            </section>
+          )}
+
+          {/* PRODUCTS SECTION */}
+          {currentSection === "products" && (
+            <section
+              id="products"
+              className="space-y-6 scroll-mt-28 animate-fade-in"
+            >
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                products
+              </h2>
+              <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono leading-relaxed text-justify max-w-lg">
+                <strong>Focus Areas:</strong> Building audio software in C++, including VST plugins and real-time audio processing. Applying machine learning to create intelligent tools for audio effects, analysis, and music generation. Developing tools for separating instruments and vocals (STEM separation), browser-based music applications, and sample management. Improving digital audio workstation (DAW) workflows through automation, MIDI integration, and plugin compatibility. Following modern software engineering practices such as version control, CI/CD, and intuitive UI/UX design to build reliable, easy-to-use tools for musicians, producers, and audio developers.
+              </p>
+            </section>
+          )}
+
+          {/* MUSIC SECTION */}
+          {currentSection === "music" && (
+            <section id="music" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                music
+              </h2>
+              <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono italic leading-relaxed text-justify max-w-lg">
+                I have pulled down all releases under the name Neural Manacle. Focused on musical training and education. Awaiting for the music and live shows to unfold in the upcoming times. Stay Tuned!! Stay Blessed!!
+              </p>
+            </section>
+          )}
+
+          {/* ARTICLES & ESSAYS SECTION */}
+          {currentSection === "articles" && (
+            <section id="articles" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                articles & essays
+              </h2>
+              <div className="space-y-12">
+                {articles
+                  .filter((article) => !article.tags?.includes("poetry") && !article.tags?.includes("archives") && !article.tags?.includes("tech"))
+                  .map((article, i) => (
+                    <Link
+                      key={i}
+                      href={article.href}
+                      className="group block"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-10">
+                        <span className="text-sm font-mono text-neutral-600 shrink-0 min-w-[140px]">
+                          {article.date}
+                        </span>
+                        <div className="space-y-1.5">
+                          <span className="text-lg text-neutral-900 group-hover:text-black transition-colors decoration-neutral-300 group-hover:decoration-neutral-700 underline underline-offset-4 block dark:text-neutral-200 dark:group-hover:text-white dark:decoration-neutral-800 dark:group-hover:decoration-neutral-400">
+                            {article.title}
+                          </span>
+                          <span className="text-sm text-neutral-500 block font-mono">
+                            {article.takeaway}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+            </section>
+          )}
+
+          {/* POETRY SECTION */}
+          {currentSection === "poetry" && (
+            <section id="poetry" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                poetry
+              </h2>
+              <div className="space-y-12">
+                {articles
+                  .filter((article) => article.tags?.includes("poetry"))
+                  .map((article, i) => (
+                    <div key={i} className="space-y-4 max-w-lg">
+                      <h3 className="text-base font-semibold font-mono text-neutral-900 dark:text-neutral-200">
+                        {article.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 font-mono leading-relaxed whitespace-pre-line">
+                        {article.content}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            </section>
+          )}
+
+          {/* PHOTOGRAPHY SECTION */}
+          {currentSection === "photography" && (
+            <section id="photography" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                photography
+              </h2>
+              <PhotographySection />
+            </section>
+          )}
+
+          {/* BOOKS SECTION */}
+          {currentSection === "bookshelf" && (
+            <section id="bookshelf" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                bookshelf
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
+                {books.map((book, i) => (
+                  <a
+                    key={i}
+                    href={book.wikiUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col items-center text-center space-y-3 cursor-pointer w-full max-w-[160px]"
+                  >
+                    <div className="h-5 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                      {book.status === "reading" ? (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider font-mono">
+                          Currently Reading
+                        </span>
+                      ) : book.rating !== undefined ? (
+                        <RatingStars rating={book.rating} />
+                      ) : null}
+                    </div>
+                    <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
+                      <Image
+                        src={book.coverUrl}
+                        alt={book.title}
+                        fill
+                        sizes="(max-width: 640px) 112px, 144px"
+                        className="object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <div className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-black dark:group-hover:text-white transition-colors text-xs sm:text-sm font-sans line-clamp-2 leading-snug">
+                        {book.title}
+                      </div>
+                      <div className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-sans">
+                        {book.author} {book.publishedYear && `(${book.publishedYear})`}
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* ABOUT ME SECTION */}
+          {(currentSection === "about-me" || !hasSectionParam) && (
+            <section
+              id="about-me"
+              className={cn(
+                "space-y-12 scroll-mt-28 animate-fade-in",
+                !hasSectionParam && "block md:hidden"
+              )}
+            >
+              {/* HERO / BIO */}
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 relative overflow-hidden rounded-full border border-neutral-200 dark:border-neutral-800 self-center md:self-start">
+                  <Image
+                    src="/arjun.jpg"
+                    alt="Arjun"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 128px, 160px"
+                    priority
+                  />
+                </div>
+                <div className="space-y-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono font-bold text-justify flex-1">
+                  <p>Namaste 🙏</p>
+                  <p>I&apos;m Arjun. a.k.a Neural Manacle!!</p> <br />
+                  
+                  The formation of the name comes from the division of syllables &apos;Neu&apos; and &apos;Ma&apos; from the greek word symbolizing the vital spirit, &apos;Pneuma&apos;.
+                  I filled the gap with Neural Manacle as it symbolizes my neurodivergence and the fact that humans are bound to the capabilities of their cognition.
+                  Neural Manacle is also a rebirth to my birth identity. It is my adopted persona. I&apos;m a musical artist and a computer engineer. 
+                  My Ikigai is working in audio tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
+                  I&apos;ve adopted Path of Yoga as the primary philosophical framework to curb my phobias. This yogic, musical and tech journey is what Neural Manacle
+                  has to offer to humanity.
+                </div>
+              </div>
+
+              {/* CONTACT FORM */}
+              <ContactForm />
+
+
+            </section>
+          )}
+
+          {/* RESUME SECTION */}
+          {currentSection === "resume" && (
+            <section
+              id="resume"
+              className="space-y-12 scroll-mt-28 animate-fade-in"
+            >
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                resume
+              </h2>
+
+              {/* WORK EXPERIENCE */}
+              <div className="space-y-4">
+                <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+                  work experience
+                </h2>
+                <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+                  <div className="flex flex-col sm:flex-row sm:justify-between border-b border-neutral-200 dark:border-neutral-800 pb-3 gap-1">
+                    <div>
+                      <span className="font-semibold text-neutral-900 dark:text-neutral-100 block">
+                        Software Engineer Intern
+                      </span>
+                      <span className="text-sm text-neutral-500 dark:text-neutral-400 block mt-1">
+                        Pitch Innovations &middot; Internship &middot; Remote
+                      </span>
+                      <ul className="list-disc pl-4 space-y-1.5 mt-3 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xl">
+                        <li>Developed production-grade audio applications, bridging desktop audio architectures with modern web technologies.</li>
+                        <li>Engineered C++ based music plugins for Digital Audio Workstations (DAWs) and seamlessly integrated them with Node.js-based user interfaces.</li>
+                      </ul>
+                      <div className="mt-3 flex flex-wrap gap-1.5 items-center">
+                        <span className="text-xs uppercase font-bold tracking-wider text-neutral-400 dark:text-neutral-500 mr-1 select-none">
+                          Skills:
+                        </span>
+                        {["C++", "JavaScript", "CI/CD", "JUCE"].map((skill, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-xs font-semibold bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded-sm"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex sm:flex-col sm:items-end text-sm text-neutral-500 dark:text-neutral-400 gap-2 sm:gap-0 shrink-0">
+                      <span>Sep 2025 &mdash; Dec 2025</span>
+                      <span>4 mos</span>
+                    </div>
                   </div>
                 </div>
-              </Link>
-            )
-          })}
+              </div>
+
+              {/* FORMAL EDUCATION */}
+              <div className="space-y-4">
+                <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+                  formal education
+                </h2>
+                <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+                  <div className="flex flex-col sm:flex-row sm:justify-between border-b border-neutral-200 dark:border-neutral-800 pb-2 gap-1">
+                    <div>
+                      <span className="font-semibold text-neutral-900 dark:text-neutral-100 block">
+                        Computer Science and Engineering
+                      </span>
+                      <span className="text-sm text-neutral-500 dark:text-neutral-400 block mt-1">
+                        <a href="https://en.wikipedia.org/wiki/APJ_Abdul_Kalam_Technological_University" target="_blank" rel="noopener noreferrer" className="bg-yellow-50 dark:bg-yellow-950/40 text-yellow-800 dark:text-yellow-300 px-1 py-0.5 rounded-sm hover:bg-yellow-100 dark:hover:bg-yellow-950/70 transition-colors">
+                          APJ Abdul Kalam Technological University
+                        </a>
+                      </span>
+                    </div>
+                    <div className="flex sm:flex-col sm:items-end text-sm text-neutral-500 dark:text-neutral-400 gap-2 sm:gap-0 shrink-0">
+                      <span>2018 &mdash; 2022</span>
+                      <span>7.95 CGPA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
+                {/* NATURAL LANGUAGE */}
+                <div className="space-y-4 flex-1">
+                  <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+                    natural language
+                  </h2>
+                  <div className="text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono">
+                    <div className="flex justify-between max-w-xs border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                      <span>English</span>
+                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">8/10 (<a href="https://drive.google.com/file/d/1LEPz41yJ3vUFL_huUh73JZIY93YNpuaF/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 px-1 py-0.5 rounded-sm hover:bg-blue-100 dark:hover:bg-blue-950/70 transition-colors">IELTS</a>)</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* PROGRAMMING LANGUAGE */}
+                <div className="space-y-4 flex-1">
+                  <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+                    programming language
+                  </h2>
+                  <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono max-w-xs">
+                    <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                      <span>C++</span>
+                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
+                    </div>
+                    <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                      <span>Python</span>
+                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">3/10</span>
+                    </div>
+                    <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                      <span>TypeScript</span>
+                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* ARCHIVES SECTION */}
+          {currentSection === "archives" && (
+            <section id="archives" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                archives
+              </h2>
+              <div className="space-y-12">
+                {articles
+                  .filter((article) => article.tags?.includes("archives"))
+                  .map((article, i) => (
+                    <Link
+                      key={i}
+                      href={article.href}
+                      className="group block"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-10">
+                        <span className="text-sm font-mono text-neutral-600 shrink-0 min-w-[140px]">
+                          {article.date}
+                        </span>
+                        <div className="space-y-1.5">
+                          <span className="text-lg text-neutral-900 group-hover:text-black transition-colors decoration-neutral-300 group-hover:decoration-neutral-700 underline underline-offset-4 block dark:text-neutral-200 dark:group-hover:text-white dark:decoration-neutral-800 dark:group-hover:decoration-neutral-400">
+                            {article.title}
+                          </span>
+                          <span className="text-sm text-neutral-500 block font-mono">
+                            {article.takeaway}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+            </section>
+          )}
         </div>
       )}
-
     </RevealOnView>
   )
 }
 
 export default function Page() {
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 pt-6 pb-8">
+    <main className="mx-auto w-full max-w-2xl pl-16 pr-4 md:px-4 pt-6 pb-8">
       <React.Suspense fallback={<div className="font-mono text-sm text-neutral-500">Loading...</div>}>
         <PortfolioContent />
       </React.Suspense>

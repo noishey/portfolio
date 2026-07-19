@@ -11,10 +11,11 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command"
-import { articles } from "@/lib/articles"
 import { FileText, Sparkles } from "lucide-react"
+import { useSupabaseData } from "@/components/supabase-provider"
 
 export default function SearchMenu() {
+  const { articles } = useSupabaseData()
   const [open, setOpen] = React.useState(false)
   const router = useRouter()
 

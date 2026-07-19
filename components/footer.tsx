@@ -2,11 +2,12 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { articles } from "@/lib/articles"
 import { useHoverFlip } from "@/hooks/use-sanskrit"
 import { cn } from "@/lib/utils"
+import { useSupabaseData } from "@/components/supabase-provider"
 
 export default function Footer() {
+  const { articles } = useSupabaseData()
   const { isSanskrit, hoverProps } = useHoverFlip(1000)
   const allTags = React.useMemo(() => {
     const tagsSet = new Set<string>()
@@ -14,7 +15,7 @@ export default function Footer() {
       article.tags?.forEach((tag) => tagsSet.add(tag))
     })
     return Array.from(tagsSet).sort()
-  }, [])
+  }, [articles])
 
   return (
     <footer className="mx-auto w-full max-w-2xl px-4 pb-20 border-t border-neutral-100 dark:border-neutral-900 pt-8 font-mono text-xs text-neutral-500">

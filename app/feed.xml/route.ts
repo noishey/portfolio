@@ -1,7 +1,24 @@
-import { articles } from "@/lib/articles"
+import { articles as localArticles } from "@/lib/articles"
+import { createClient } from "@supabase/supabase-js"
 
 export async function GET() {
   const siteUrl = "https://neuralmanacle.blog"
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ""
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
+
+  let articles = localArticles
+
+  if (supabaseUrl && supabaseAnonKey) {
+    try {
+      const supabase = createClient(supabaseUrl, supabaseAnonKey)
+      const { data } = await supabase.from("articles").select("*")
+      if (data && data.length > 0) {
+        articles = data
+      }
+    } catch (e) {
+      console.error("Failed to fetch articles from Supabase in feed.xml, falling back to local.", e)
+    }
+  }
 
   const rssItems = articles
     .filter((article) => article.href)

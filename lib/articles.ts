@@ -9,6 +9,64 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 17, 2026",
+    title: "The Sun",
+    href: "",
+    takeaway: "Repressed are his desires and emotions as he is casted into his said role.",
+    tags: ["poetry"],
+    content: `Repressed are his desires and emotions
+as he is casted into his said role
+to the generation of trauma passed
+and it is his burden of life
+watching his soul corrode into sparks
+the sparks of this system to which
+he stands as the chaste sun, the pillar
+holding the burden of patriarchy.`,
+  },
+  {
+    date: "July 17, 2026",
+    title: "Diamond",
+    href: "",
+    takeaway: "She wept in silence with a sigh, blaming the fault in her stars.",
+    tags: ["poetry"],
+    content: `She wept in silence with a sigh
+blaming the fault in her stars
+Wearing the blood red chains of control
+as she prayed to the divine feminine`,
+  },
+  {
+    date: "July 17, 2026",
+    title: "Witches vs Patriarchy",
+    href: "/articles/witches-vs-patriarchy",
+    takeaway: "There are only two sides one could pick: either that of the witch or that of the dreaded patriarchy.",
+    tags: ["writing", "ethics", "spirituality", "yoga"],
+  },
+  {
+    date: "July 17, 2026",
+    title: "Remnants of My Desires",
+    href: "",
+    takeaway: "Remnants of my desires lay flat for the withered rain to take me away.",
+    tags: ["poetry"],
+    content: `Remnants of my desires lay flat
+for the withered rain to take me away
+The slow song of a distant bird
+has no way but to enter my soul
+As I lay flat losing my breath
+seldom did I realize that I must
+I must only listen to the beats of my heart`,
+  },
+  {
+    date: "July 17, 2026",
+    title: "A Fleeting Glance",
+    href: "",
+    takeaway: "A fleeting glance upon your Shakti energy, crafted shockwaves of my serpent energy.",
+    tags: ["poetry"],
+    content: `A fleeting glance upon your Shakti energy
+Crafted shockwaves of my serpent energy
+The sky of the dawn and the shadows at night
+remains still as I look into your past`,
+  },
+  {
     date: "July 14, 2026",
     title: "These Are The Times",
     href: "",
