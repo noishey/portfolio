@@ -8,13 +8,27 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { SupabaseDataProvider } from '@/components/supabase-provider'
 
 export const metadata: Metadata = {
-  title: 'walking back the hippie trail ꩜ | neural manacle',
-  description: 'music tech',
-  generator: 'v0.dev',
+  title: {
+    default: 'walking back the hippie trail ꩜ | neural manacle',
+    template: '%s | neural manacle'
+  },
+  description: 'An exploration of art, tech, and spirituality.',
+  metadataBase: new URL('https://neuralmanacle.blog'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: "neural manacle's blog",
-    description: 'music-tech',
+    title: 'neural manacle',
+    description: 'An exploration of art, tech, and spirituality.',
+    url: 'https://neuralmanacle.blog',
+    siteName: 'neural manacle',
+    locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'neural manacle',
+    description: 'An exploration of art, tech, and spirituality.',
   }
 }
 
