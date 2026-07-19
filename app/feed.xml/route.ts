@@ -43,7 +43,7 @@ export async function GET() {
   <channel>
     <title>neural manacle</title>
     <link>${siteUrl}</link>
-    <description>ai/web-apps</description>
+    <description>An exploration of art, tech, and spirituality.</description>
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
 ${rssItems}
