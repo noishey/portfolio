@@ -9,6 +9,13 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 19, 2026",
+    title: "A F*cked Family & Society",
+    href: "/articles/a-f-cked-family-and-society",
+    takeaway: "The typical Indian family is a control system, and financial freedom is the trump card.",
+    tags: ["writing", "ethics", "spirituality", "yoga"],
+  },
+  {
     date: "July 17, 2026",
     title: "The Sun",
     href: "",
@@ -199,7 +206,7 @@ to their own selves`,
     title: "Historical Profiles for Nuclear Site Layers",
     href: "/articles/historical-profiles",
     takeaway: "added rich operational metadata and details accordions inside map tooltips with optimized dismiss timings.",
-    tags: ["gis", "map-visualization", "ui-ux"],
+    tags: ["tech", "gis", "map-visualization", "ui-ux"],
   },
   {
     date: "May 21, 2026",
@@ -220,7 +227,7 @@ to their own selves`,
     title: "Streaming Byte Cap to Prevent Resource Exhaustion",
     href: "/articles/streaming-byte-cap",
     takeaway: "implemented programmatic chunk-size boundaries on HTTPX streams to mitigate Node.js heap exhaustion vectors.",
-    tags: ["node-js", "security", "streaming"],
+    tags: ["tech", "node-js", "security", "streaming"],
   },
 ]
 

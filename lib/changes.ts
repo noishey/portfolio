@@ -7,6 +7,15 @@ export interface SiteChange {
 
 export const siteChanges: SiteChange[] = [
   {
+    date: "July 19, 2026",
+    added: [
+      "Published a new article: 'A F*cked Family & Society' discussing control systems, colonization effects, and the path to financial freedom."
+    ],
+    changed: [
+      "Removed technical articles ('Historical Profiles' and 'Streaming Byte Cap') from the essays section by properly classifying them under tech tags."
+    ]
+  },
+  {
     date: "July 15, 2026",
     added: [
       "Dedicated 'music' section showing upcoming plans and a stay tuned message.",
