@@ -24,7 +24,7 @@ const superSections: SuperSection[] = [
       { id: "articles", label: "articles", icon: FileText },
       { id: "poetry", label: "poetry", icon: Sparkles },
       { id: "photography", label: "photography", icon: Camera },
-      { id: "bookshelf", label: "bookshelf", icon: Book },
+      { id: "bookshelf", label: "reading nook", icon: Book },
     ]
   },
   {

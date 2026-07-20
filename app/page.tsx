@@ -410,7 +410,7 @@ function PortfolioContent() {
           {currentSection === "bookshelf" && (
             <section id="bookshelf" className="space-y-6 scroll-mt-28 animate-fade-in">
               <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
-                bookshelf
+                reading nook
               </h2>
               <blockquote className="border-l-2 border-neutral-300 dark:border-neutral-700 pl-4 py-1 italic my-6 text-neutral-600 dark:text-neutral-400 font-mono text-base max-w-lg leading-relaxed">
                 &ldquo;A mind needs books as a sword needs a whetstone, if it is to keep its edge.&rdquo;
