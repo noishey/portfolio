@@ -395,7 +395,7 @@ function PortfolioContent() {
               <div className="flex flex-col items-center justify-center space-y-3 pt-2 pb-6 max-w-md">
                 <div className="relative w-full rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
                   <img
-                    src="https://imgs.search.brave.com/dt8R3ByEfQyfTIUD4QbvQ8yESNj761rwqCbL63oy6J8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5uZXd5b3JrZXIu/Y29tL3Bob3Rvcy81/YTI5YTY5MTRlYzVi/ZDQ2NzhlNjQxNWUvNDozL3dfNjQwLGNf/bGltaXQvQ3Jhd2Zv/cmQtTGV0dGVycy1v/Zi1TeWx2aWEtUGxh/dGguanBn"
+                    src="https://imgs.search.brave.com/dt8R3ByEfQyfTIUD4QbvQ8yESNj761rwqCbL63oy6J8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5uZXd5b3JrZXIu/Y29tL3Bob3Rvcy81/YTI5YTY5MTRlYzVi/ZDQ2NzhlNjQxNWUv/NDozL3dfNjQwLGNf/bGltaXQvQ3Jhd2Zv/cmQtTGV0dGVycy1v/Zi1TeWx2aWEtUGxh/dGguanBn"
                     alt="Letters of Sylvia Plath"
                     className="w-full h-auto object-cover"
                   />
