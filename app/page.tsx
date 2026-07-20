@@ -691,12 +691,14 @@ function PortfolioContent() {
                       </span>
                     </div>
                   )}
-                  <iframe
-                    src="https://tenor.com/embed/23659393"
-                    className="w-full h-full border-0"
-                    allowFullScreen
-                    title="I Want To Break Free Queen GIF"
-                    onLoad={() => setIframeLoading(false)}
+                  <video
+                    src="https://media.tenor.com/U5VRXe1WnocAAAPo/i-want-to-break-free-i-want-to-break-free-music-video.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    onLoadedData={() => setIframeLoading(false)}
                   />
                 </div>
                 <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono italic text-center">
