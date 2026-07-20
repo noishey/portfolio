@@ -486,16 +486,16 @@ function PortfolioContent() {
               </div>
 
               {/* CAL.COM BOOKING CARD */}
-              <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/30 p-6 space-y-4 transition-all duration-300 hover:scale-[1.01] hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-sm">
+              <div className="rounded-xl border border-neutral-900 bg-[#FFFFE3] p-6 space-y-4 transition-all duration-300 hover:scale-[1.01] hover:border-neutral-950 hover:shadow-sm text-neutral-900">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg text-neutral-600 dark:text-neutral-400">
+                  <div className="p-3 bg-[#FFFFE3] border border-neutral-900 rounded-lg text-neutral-900">
                     <Calendar className="h-5 w-5" />
                   </div>
                   <div className="space-y-1.5 flex-1">
-                    <h3 className="font-mono font-bold text-neutral-900 dark:text-white text-base">
+                    <h3 className="font-mono font-bold text-neutral-900 text-base">
                       Book a Session
                     </h3>
-                    <p className="text-sm text-neutral-500 dark:text-neutral-400 font-mono leading-relaxed">
+                    <p className="text-sm text-neutral-700 font-mono leading-relaxed">
                       Schedule a video call to discuss audio engineering, C++ software development, or musical collaborations.
                     </p>
                   </div>
@@ -505,7 +505,7 @@ function PortfolioContent() {
                     href="https://cal.com/neuralmanacle"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-white/5 text-sm font-semibold text-neutral-700 dark:text-neutral-300 px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
+                    className="inline-flex items-center justify-center rounded-lg border border-neutral-900 bg-[#FFFFE3] hover:bg-neutral-200/40 text-sm font-semibold text-neutral-900 px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
                   >
                     Book a call on Cal.com &rarr;
                   </a>
