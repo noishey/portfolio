@@ -50,7 +50,7 @@ function SideNavContent() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const activeSection = searchParams.get("section") || "tech"
+  const activeSection = searchParams.get("section") || "about-me"
   const isHomepage = pathname === "/"
 
   const [isExpanded, setIsExpanded] = React.useState(false)

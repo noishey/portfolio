@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
 import { useSupabaseData } from "@/components/supabase-provider"
 import ContactForm from "@/components/contact-form"
+import { Calendar } from "lucide-react"
 
 function PhotographySection() {
   const { photos } = useSupabaseData()
@@ -198,8 +199,7 @@ function PortfolioContent() {
   const { articles, books } = useSupabaseData()
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
-  const currentSection = searchParams.get("section") || "tech"
-  const hasSectionParam = searchParams.has("section") && !!searchParams.get("section")
+  const currentSection = searchParams.get("section") || "about-me"
 
   const filteredArticles = React.useMemo(() => {
     if (urlTag) {
@@ -279,10 +279,7 @@ function PortfolioContent() {
           {currentSection === "tech" && (
             <section
               id="tech"
-              className={cn(
-                "space-y-6 scroll-mt-28 animate-fade-in",
-                !hasSectionParam && "hidden md:block"
-              )}
+              className="space-y-6 scroll-mt-28 animate-fade-in"
             >
               <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
                 blog
@@ -458,13 +455,10 @@ function PortfolioContent() {
           )}
 
           {/* ABOUT ME SECTION */}
-          {(currentSection === "about-me" || !hasSectionParam) && (
+          {currentSection === "about-me" && (
             <section
               id="about-me"
-              className={cn(
-                "space-y-12 scroll-mt-28 animate-fade-in",
-                !hasSectionParam && "block md:hidden"
-              )}
+              className="space-y-12 scroll-mt-28 animate-fade-in"
             >
               {/* HERO / BIO */}
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
@@ -488,6 +482,33 @@ function PortfolioContent() {
                   My Ikigai is working in audio tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
                   I&apos;ve adopted Path of Yoga as the primary philosophical framework to curb my phobias. This yogic, musical and tech journey is what Neural Manacle
                   has to offer to humanity.
+                </div>
+              </div>
+
+              {/* CAL.COM BOOKING CARD */}
+              <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/30 p-6 space-y-4 transition-all duration-300 hover:scale-[1.01] hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg text-neutral-600 dark:text-neutral-400">
+                    <Calendar className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-1.5 flex-1">
+                    <h3 className="font-mono font-bold text-neutral-900 dark:text-white text-base">
+                      Book a Session
+                    </h3>
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400 font-mono leading-relaxed">
+                      Schedule a video call to discuss audio engineering, C++ software development, or musical collaborations.
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-2">
+                  <a
+                    href="https://cal.com/neuralmanacle"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-white/5 text-sm font-semibold text-neutral-700 dark:text-neutral-300 px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
+                  >
+                    Book a call on Cal.com &rarr;
+                  </a>
                 </div>
               </div>
 
