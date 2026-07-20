@@ -337,6 +337,15 @@ function PortfolioContent() {
               <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono italic leading-relaxed text-justify max-w-lg">
                 I have pulled down all releases under the name Neural Manacle. Focused on musical training and education. Awaiting for the music and live shows to unfold in the upcoming times. Stay Tuned!! Stay Blessed!!
               </p>
+              <div className="flex flex-col items-center justify-center space-y-3 pt-4 max-w-md">
+                <div className="relative w-full rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
+                  <img
+                    src="https://www.learnreligions.com/thmb/w3j_YcohdrgsULfyrXKj6qnsGg0=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/158320403_HighRes-56a4839d3df78cf77282ca06.jpg"
+                    alt="Music Inspiration"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
             </section>
           )}
 
