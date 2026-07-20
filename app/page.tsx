@@ -566,6 +566,19 @@ function PortfolioContent() {
               <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono leading-relaxed text-justify max-w-lg mb-6">
                 Exploring aesthetics, subcultures, and self-expression through garments and silhouettes. Logs, styling concepts, and collections are coming here soon.
               </p>
+              <div className="flex flex-col items-center justify-center space-y-3 pt-4 max-w-sm">
+                <div className="relative w-full aspect-square rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
+                  <iframe
+                    src="https://tenor.com/embed/23659393"
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                    title="I Want To Break Free Queen GIF"
+                  />
+                </div>
+                <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono italic text-center">
+                  Queen — I Want To Break Free (1984)
+                </div>
+              </div>
             </section>
           )}
 
