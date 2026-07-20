@@ -203,6 +203,7 @@ function PortfolioContent() {
   const urlTag = searchParams.get("tag")
   const currentSection = searchParams.get("section") || "about-me"
   const [activeReviewBook, setActiveReviewBook] = React.useState<Book | null>(null)
+  const [iframeLoading, setIframeLoading] = React.useState(true)
 
   const filteredArticles = React.useMemo(() => {
     if (urlTag) {
@@ -682,11 +683,20 @@ function PortfolioContent() {
               </p>
               <div className="flex flex-col items-center justify-center space-y-3 pt-4 max-w-sm">
                 <div className="relative w-full aspect-square rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
+                  {iframeLoading && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-neutral-100 dark:bg-[#2C321E] z-10 space-y-3">
+                      <div className="w-8 h-8 rounded-full border-2 border-neutral-300 dark:border-neutral-700 border-t-neutral-950 dark:border-t-[#EEF2E6] animate-spin" />
+                      <span className="text-[10px] font-mono text-neutral-400 dark:text-neutral-500 uppercase tracking-widest animate-pulse">
+                        Loading GIF...
+                      </span>
+                    </div>
+                  )}
                   <iframe
                     src="https://tenor.com/embed/23659393"
                     className="w-full h-full border-0"
                     allowFullScreen
                     title="I Want To Break Free Queen GIF"
+                    onLoad={() => setIframeLoading(false)}
                   />
                 </div>
                 <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono italic text-center">
