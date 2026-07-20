@@ -647,16 +647,16 @@ function PortfolioContent() {
                   animation: 'rainbow-flow 8s linear infinite',
                 }}
               >
-                <div className="rounded-[11px] bg-[#FFFFE3] p-6 space-y-4 text-neutral-900">
+                <div className="rounded-[11px] bg-[#FFFFE3] dark:bg-[#2F2F2E] p-6 space-y-4 text-neutral-900 dark:text-[#FFFFE3]">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-[#FFFFE3] border border-neutral-300 rounded-lg text-neutral-900">
+                    <div className="p-3 bg-[#FFFFE3] dark:bg-[#2F2F2E] border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-[#FFFFE3]">
                       <Calendar className="h-5 w-5" />
                     </div>
                     <div className="space-y-1.5 flex-1">
-                      <h3 className="font-mono font-bold text-neutral-900 text-base">
+                      <h3 className="font-mono font-bold text-neutral-900 dark:text-[#FFFFE3] text-base">
                         Book a Session
                       </h3>
-                      <p className="text-sm text-neutral-700 font-mono leading-relaxed">
+                      <p className="text-sm text-neutral-700 dark:text-neutral-300 font-mono leading-relaxed">
                         Schedule a video call to discuss art, engineering, creative collaborations and anything across the universe. Shanti.
                       </p>
                     </div>
@@ -666,7 +666,7 @@ function PortfolioContent() {
                       href="https://cal.com/neuralmanacle"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-lg border border-neutral-900 bg-[#FFFFE3] hover:bg-neutral-200/40 text-sm font-semibold text-neutral-900 px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
+                      className="inline-flex items-center justify-center rounded-lg border border-neutral-900 dark:border-[#FFFFE3] bg-[#FFFFE3] dark:bg-[#2F2F2E] hover:bg-neutral-200/40 dark:hover:bg-white/10 text-sm font-semibold text-neutral-900 dark:text-[#FFFFE3] px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
                     >
                       Book a call on Cal.com &rarr;
                     </a>
