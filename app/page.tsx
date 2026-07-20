@@ -631,7 +631,7 @@ function PortfolioContent() {
                   
                   The formation of the name comes from the division of syllables &apos;Neu&apos; and &apos;Ma&apos; from the greek word symbolizing the vital spirit, &apos;Pneuma&apos;.
                   I filled the gap with Neural Manacle as it symbolizes my neurodivergence and the fact that humans are bound to the capabilities of their cognition.
-                  Neural Manacle is also a rebirth to my birth identity. It is my adopted persona. I&apos;m a musical artist and a computer engineer. 
+                  Neural Manacle is also a rebirth to my identity after I left the 9 to 5 to embrace the creative in me. I&apos;m a musical artist and a computer engineer. 
                   My Ikigai is working in audio tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
                   I&apos;ve adopted Path of Yoga as the primary philosophical framework to curb my phobias. This yogic, musical and tech journey is what Neural Manacle
                   has to offer to humanity.
