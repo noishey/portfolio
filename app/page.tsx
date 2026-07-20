@@ -545,6 +545,18 @@ function PortfolioContent() {
             </section>
           )}
 
+          {/* FASHION SECTION */}
+          {currentSection === "fashion" && (
+            <section id="fashion" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                fashion
+              </h2>
+              <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono leading-relaxed text-justify max-w-lg mb-6">
+                Exploring aesthetics, subcultures, and self-expression through garments and silhouettes. Logs, styling concepts, and collections are coming here soon.
+              </p>
+            </section>
+          )}
+
           {/* ABOUT ME SECTION */}
           {currentSection === "about-me" && (
             <section
