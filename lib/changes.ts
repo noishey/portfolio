@@ -7,6 +7,12 @@ export interface SiteChange {
 
 export const siteChanges: SiteChange[] = [
   {
+    date: "July 20, 2026",
+    added: [
+      "Published a new article: 'A Responsible \"Hippie\"' redefining unconventional living, Goan memories, and the balance between counter-culture and financial grounding."
+    ]
+  },
+  {
     date: "July 19, 2026",
     added: [
       "Published a new article: 'A F*cked Family & Society' discussing control systems, colonization effects, and the path to financial freedom."
