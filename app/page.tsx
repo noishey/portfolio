@@ -412,6 +412,12 @@ function PortfolioContent() {
               <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
                 bookshelf
               </h2>
+              <blockquote className="border-l-2 border-neutral-300 dark:border-neutral-700 pl-4 py-1 italic my-6 text-neutral-600 dark:text-neutral-400 font-mono text-base max-w-lg leading-relaxed">
+                &ldquo;A mind needs books as a sword needs a whetstone, if it is to keep its edge.&rdquo;
+                <span className="block text-xs font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mt-2 not-italic">
+                  &mdash; Tyrion Lannister
+                </span>
+              </blockquote>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
                 {books.map((book, i) => (
                   <a
