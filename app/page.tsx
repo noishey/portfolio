@@ -504,7 +504,7 @@ function PortfolioContent() {
                         Book a Session
                       </h3>
                       <p className="text-sm text-neutral-700 font-mono leading-relaxed">
-                        Schedule a video call to discuss audio engineering, C++ software development, or musical collaborations.
+                        Schedule a video call to discuss art, engineering, creative collaborations and anything across the universe. Shanti.
                       </p>
                     </div>
                   </div>
