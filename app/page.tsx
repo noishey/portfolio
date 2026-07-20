@@ -470,6 +470,16 @@ function PortfolioContent() {
               <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono leading-relaxed text-justify max-w-lg mb-6">
                 A curated selection of cinematic masterpieces that shape my worldview, alongside my journey in film and acting.
               </p>
+              <div className="pt-2">
+                <a
+                  href="https://letterboxd.com/neuralmanacle/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-white/5 text-sm font-semibold text-neutral-700 dark:text-neutral-300 px-4 py-2 transition-colors font-mono cursor-pointer"
+                >
+                  Follow my film log on Letterboxd &rarr;
+                </a>
+              </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
                 {films.map((film, i) => (
                   <a
