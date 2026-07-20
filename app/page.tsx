@@ -11,6 +11,7 @@ import { useSupabaseData } from "@/components/supabase-provider"
 import ContactForm from "@/components/contact-form"
 import { Calendar } from "lucide-react"
 import { films } from "@/lib/films"
+import { type Book } from "@/lib/books"
 
 function PhotographySection() {
   const { photos } = useSupabaseData()
@@ -201,6 +202,7 @@ function PortfolioContent() {
   const searchParams = useSearchParams()
   const urlTag = searchParams.get("tag")
   const currentSection = searchParams.get("section") || "about-me"
+  const [activeReviewBook, setActiveReviewBook] = React.useState<Book | null>(null)
 
   const filteredArticles = React.useMemo(() => {
     if (urlTag) {
@@ -447,9 +449,11 @@ function PortfolioContent() {
                 {books.map((book, i) => (
                   <a
                     key={i}
-                    href={book.wikiUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setActiveReviewBook(book)
+                    }}
                     className="group flex flex-col items-center text-center space-y-3 cursor-pointer w-full max-w-[160px]"
                   >
                     <div className="h-5 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
@@ -470,6 +474,12 @@ function PortfolioContent() {
                         className="object-cover"
                         loading="lazy"
                       />
+                      {/* Hover review hint */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="text-[10px] font-semibold font-mono uppercase tracking-wider text-[#FFFFE3] bg-[#2C321E]/80 border border-neutral-700 px-2.5 py-1.5 rounded shadow-lg backdrop-blur-xs">
+                          Read Review
+                        </span>
+                      </div>
                     </div>
                     <div className="space-y-1">
                       <div className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-black dark:group-hover:text-white transition-colors text-xs sm:text-sm font-sans line-clamp-2 leading-snug">
@@ -482,6 +492,85 @@ function PortfolioContent() {
                   </a>
                 ))}
               </div>
+
+              {/* BOOK REVIEW MODAL */}
+              {activeReviewBook && (
+                <div 
+                  className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in"
+                  onClick={() => setActiveReviewBook(null)}
+                >
+                  <div 
+                    className="bg-[#FFFFE3] dark:bg-[#2C321E] text-neutral-900 dark:text-[#EEF2E6] rounded-xl border border-neutral-300 dark:border-neutral-700 shadow-2xl p-6 max-w-sm w-full relative space-y-4 animate-scale-in"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {/* Close Button */}
+                    <button
+                      onClick={() => setActiveReviewBook(null)}
+                      className="absolute top-3.5 right-3.5 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 text-xl font-bold font-mono transition-colors cursor-pointer leading-none"
+                    >
+                      &times;
+                    </button>
+
+                    <div className="flex gap-4">
+                      <div className="relative w-20 h-28 rounded border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden shrink-0 bg-neutral-100 dark:bg-neutral-900">
+                        <Image
+                          src={activeReviewBook.coverUrl}
+                          alt={activeReviewBook.title}
+                          fill
+                          sizes="80px"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="space-y-1.5 flex-1 min-w-0">
+                        <h3 className="font-semibold text-neutral-900 dark:text-[#EEF2E6] text-sm font-sans leading-snug line-clamp-2">
+                          {activeReviewBook.title}
+                        </h3>
+                        <div className="text-[11px] text-neutral-500 dark:text-neutral-400 font-sans truncate">
+                          {activeReviewBook.author}
+                        </div>
+                        <div className="text-[10px] text-neutral-400 dark:text-neutral-500 font-sans">
+                          Published: {activeReviewBook.publishedYear}
+                        </div>
+                        <div className="pt-0.5">
+                          {activeReviewBook.status === "reading" ? (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider font-mono">
+                              Currently Reading
+                            </span>
+                          ) : activeReviewBook.rating !== undefined ? (
+                            <RatingStars rating={activeReviewBook.rating} />
+                          ) : null}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2 pt-3 border-t border-neutral-200 dark:border-neutral-800">
+                      <h4 className="text-[9px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500 font-bold">
+                        Review / Thoughts
+                      </h4>
+                      <p className="text-xs sm:text-sm font-mono text-neutral-700 dark:text-neutral-300 leading-relaxed italic whitespace-pre-wrap">
+                        {activeReviewBook.review || (activeReviewBook.status === "reading" ? "Currently reading this book. My thoughts and review will be updated here soon!" : "No review added yet.")}
+                      </p>
+                    </div>
+
+                    <div className="pt-2 flex justify-between items-center gap-4">
+                      <a
+                        href={activeReviewBook.wikiUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-200/30 dark:hover:bg-white/5 text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 px-3 py-1.5 transition-colors font-mono cursor-pointer"
+                      >
+                        Wikipedia &rarr;
+                      </a>
+                      <button
+                        onClick={() => setActiveReviewBook(null)}
+                        className="inline-flex items-center justify-center rounded-lg bg-neutral-900 dark:bg-[#EEF2E6] text-[#FFFFE3] dark:text-neutral-900 text-[11px] font-semibold px-4 py-1.5 transition-colors font-mono cursor-pointer"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </section>
           )}
 
