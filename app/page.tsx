@@ -485,30 +485,39 @@ function PortfolioContent() {
                 </div>
               </div>
 
-              {/* CAL.COM BOOKING CARD */}
-              <div className="rounded-xl border border-neutral-900 bg-[#FFFFE3] p-6 space-y-4 transition-all duration-300 hover:scale-[1.01] hover:border-neutral-950 hover:shadow-sm text-neutral-900">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#FFFFE3] border border-neutral-900 rounded-lg text-neutral-900">
-                    <Calendar className="h-5 w-5" />
+              {/* CAL.COM BOOKING CARD WITH RAINBOW BORDER */}
+              <div 
+                className="p-[1.5px] rounded-xl transition-all duration-300 hover:scale-[1.01] hover:shadow-md"
+                style={{
+                  background: 'linear-gradient(to right, var(--rainbow-1), var(--rainbow-2), var(--rainbow-3), var(--rainbow-4), var(--rainbow-5), var(--rainbow-6), var(--rainbow-1))',
+                  backgroundSize: '200% auto',
+                  animation: 'rainbow-flow 8s linear infinite',
+                }}
+              >
+                <div className="rounded-[11px] bg-[#FFFFE3] p-6 space-y-4 text-neutral-900">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-[#FFFFE3] border border-neutral-300 rounded-lg text-neutral-900">
+                      <Calendar className="h-5 w-5" />
+                    </div>
+                    <div className="space-y-1.5 flex-1">
+                      <h3 className="font-mono font-bold text-neutral-900 text-base">
+                        Book a Session
+                      </h3>
+                      <p className="text-sm text-neutral-700 font-mono leading-relaxed">
+                        Schedule a video call to discuss audio engineering, C++ software development, or musical collaborations.
+                      </p>
+                    </div>
                   </div>
-                  <div className="space-y-1.5 flex-1">
-                    <h3 className="font-mono font-bold text-neutral-900 text-base">
-                      Book a Session
-                    </h3>
-                    <p className="text-sm text-neutral-700 font-mono leading-relaxed">
-                      Schedule a video call to discuss audio engineering, C++ software development, or musical collaborations.
-                    </p>
+                  <div className="pt-2">
+                    <a
+                      href="https://cal.com/neuralmanacle"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-lg border border-neutral-900 bg-[#FFFFE3] hover:bg-neutral-200/40 text-sm font-semibold text-neutral-900 px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
+                    >
+                      Book a call on Cal.com &rarr;
+                    </a>
                   </div>
-                </div>
-                <div className="pt-2">
-                  <a
-                    href="https://cal.com/neuralmanacle"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-lg border border-neutral-900 bg-[#FFFFE3] hover:bg-neutral-200/40 text-sm font-semibold text-neutral-900 px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
-                  >
-                    Book a call on Cal.com &rarr;
-                  </a>
                 </div>
               </div>
 
