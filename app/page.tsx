@@ -477,7 +477,12 @@ function PortfolioContent() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-white/5 text-sm font-semibold text-neutral-700 dark:text-neutral-300 px-4 py-2 transition-colors font-mono cursor-pointer"
                 >
-                  Follow my film log on Letterboxd &rarr;
+                  <svg className="h-3 w-auto shrink-0 mr-2" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="6" cy="6" r="5.5" fill="#FF8000" opacity="0.85" />
+                    <circle cx="11" cy="6" r="5.5" fill="#00C030" opacity="0.85" />
+                    <circle cx="16" cy="6" r="5.5" fill="#00B0EA" opacity="0.85" />
+                  </svg>
+                  LetterBox
                 </a>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
