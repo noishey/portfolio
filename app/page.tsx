@@ -485,6 +485,24 @@ function PortfolioContent() {
                   LetterBox
                 </a>
               </div>
+              
+              {/* UNCLE MONTY IMAGE CARD */}
+              <div className="flex flex-col items-center justify-center space-y-3 pt-6 max-w-sm">
+                <div className="relative w-full aspect-[4/3] rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
+                  <Image
+                    src="/uncle-monty.jpg"
+                    alt="Uncle Monty"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 384px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono italic text-center">
+                  Withnail and I (1987)
+                </div>
+              </div>
+              
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
                 {films.map((film, i) => (
                   <a
