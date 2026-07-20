@@ -463,7 +463,7 @@ function PortfolioContent() {
                     </div>
                     <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
                       <Image
-                        src={book.coverUrl.replace("-L.jpg", "-M.jpg")}
+                        src={book.coverUrl}
                         alt={book.title}
                         fill
                         sizes="(max-width: 640px) 112px, 144px"
