@@ -500,16 +500,29 @@ function PortfolioContent() {
               
               {/* UNCLE MONTY IMAGE CARD */}
               <div className="flex flex-col items-center justify-center space-y-3 pt-6 max-w-sm">
-                <div className="relative w-full aspect-[4/3] rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
+                <a
+                  href="https://www.youtube.com/watch?v=pDl4ye22U-E"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative w-full aspect-[4/3] rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg cursor-pointer block"
+                >
                   <Image
                     src="/uncle-monty.jpg"
                     alt="Uncle Monty"
                     fill
                     sizes="(max-width: 640px) 100vw, 384px"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                     priority
                   />
-                </div>
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/25 opacity-70 group-hover:opacity-90 transition-opacity duration-300">
+                    <div className="p-4 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 text-white transform transition-transform duration-300 group-hover:scale-110 shadow-lg">
+                      <svg className="h-8 w-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
                 <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono italic text-center">
                   Withnail and I (1987)
                 </div>
