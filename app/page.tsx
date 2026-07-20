@@ -345,6 +345,9 @@ function PortfolioContent() {
                     className="w-full h-auto object-cover"
                   />
                 </div>
+                <div className="text-[10px] text-neutral-400 dark:text-neutral-500 font-mono italic text-center">
+                  Credit: Anwar Hussein/Hulton Archive/Getty Images
+                </div>
               </div>
             </section>
           )}
