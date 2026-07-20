@@ -392,6 +392,18 @@ function PortfolioContent() {
               <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
                 poetry
               </h2>
+              <div className="flex flex-col items-center justify-center space-y-3 pt-2 pb-6 max-w-md">
+                <div className="relative w-full rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
+                  <img
+                    src="https://imgs.search.brave.com/dt8R3ByEfQyfTIUD4QbvQ8yESNj761rwqCbL63oy6J8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5uZXd5b3JrZXIu/Y29tL3Bob3Rvcy81/YTI5YTY5MTRlYzVi/ZDQ2NzhlNjQxNWUvNDozL3dfNjQwLGNf/bGltaXQvQ3Jhd2Zv/cmQtTGV0dGVycy1v/Zi1TeWx2aWEtUGxh/dGguanBn"
+                    alt="Letters of Sylvia Plath"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="text-[10px] text-neutral-400 dark:text-neutral-500 font-mono italic text-center">
+                  Source: <a href="https://media.newyorker.com/photos/5a29a6914ec5bd4678e6415e/4:3/w_640,c_limit/Crawford-Letters-of-Sylvia-Plath.jpg" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600 dark:hover:text-neutral-400">The New Yorker</a>
+                </div>
+              </div>
               <div className="space-y-12">
                 {articles
                   .filter((article) => article.tags?.includes("poetry"))
