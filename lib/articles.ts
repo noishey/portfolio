@@ -9,6 +9,13 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 20, 2026",
+    title: "A responsible \"hippie.\"",
+    href: "/articles/a-responsible-hippie",
+    takeaway: "A responsible hippie is rich enough to take care of themselves and create money for the betterment of the community also.",
+    tags: ["writing", "spirituality", "ethics", "yoga"],
+  },
+  {
     date: "July 19, 2026",
     title: "A F*cked Family & Society",
     href: "/articles/a-f-cked-family-and-society",
