@@ -10,6 +10,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { useSupabaseData } from "@/components/supabase-provider"
 import ContactForm from "@/components/contact-form"
 import { Calendar } from "lucide-react"
+import { films } from "@/lib/films"
 
 function PhotographySection() {
   const { photos } = useSupabaseData()
@@ -452,6 +453,57 @@ function PortfolioContent() {
                       </div>
                       <div className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-sans">
                         {book.author} {book.publishedYear && `(${book.publishedYear})`}
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* FILM AND ACTING SECTION */}
+          {currentSection === "film-and-acting" && (
+            <section id="film-and-acting" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                film and acting
+              </h2>
+              <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono leading-relaxed text-justify max-w-lg mb-6">
+                A curated selection of cinematic masterpieces that shape my worldview, alongside my journey in film and acting.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
+                {films.map((film, i) => (
+                  <a
+                    key={i}
+                    href={film.wikiUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col items-center text-center space-y-3 cursor-pointer w-full max-w-[160px]"
+                  >
+                    <div className="h-5 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                      {film.status === "watching" ? (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider font-mono">
+                          Currently Watching
+                        </span>
+                      ) : film.rating !== undefined ? (
+                        <RatingStars rating={film.rating} />
+                      ) : null}
+                    </div>
+                    <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
+                      <Image
+                        src={film.coverUrl}
+                        alt={film.title}
+                        fill
+                        sizes="(max-width: 640px) 112px, 144px"
+                        className="object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <div className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-black dark:group-hover:text-white transition-colors text-xs sm:text-sm font-sans line-clamp-2 leading-snug">
+                        {film.title}
+                      </div>
+                      <div className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-sans">
+                        Directed by {film.director} {film.publishedYear && `(${film.publishedYear})`}
                       </div>
                     </div>
                   </a>
