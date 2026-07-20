@@ -335,7 +335,7 @@ function PortfolioContent() {
                 music
               </h2>
               <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono italic leading-relaxed text-justify max-w-lg">
-                I have pulled down all releases under the name Neural Manacle. Focused on musical training and education. Awaiting for the music and live shows to unfold in the upcoming times. Stay Tuned!! Stay Blessed!!
+                Focused on musical training and education. Awaiting for the music and live shows to unfold in the upcoming times. Stay Tuned!! Stay Blessed!!
               </p>
               <div className="flex flex-col items-center justify-center space-y-3 pt-4 max-w-md">
                 <div className="relative w-full rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
