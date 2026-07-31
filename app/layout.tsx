@@ -54,7 +54,7 @@ export default function RootLayout({
 html { font-family: var(--font-mono); }
         `}</style>
       </head>
-      <body className="min-h-dvh bg-white text-black dark:bg-black dark:text-white antialiased">
+      <body className="min-h-dvh bg-white text-black dark:bg-black dark:text-white antialiased" suppressHydrationWarning={true}>
         <SupabaseDataProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Navbar />

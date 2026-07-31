@@ -12,9 +12,20 @@ import ContactForm from "@/components/contact-form"
 import { Calendar } from "lucide-react"
 import { films } from "@/lib/films"
 import { type Book } from "@/lib/books"
+import PhotoMap from "@/components/photo-map"
 
 function PhotographySection() {
   const { photos } = useSupabaseData()
+  const [openAccordions, setOpenAccordions] = React.useState<string[]>([
+    "kerala",
+    // "bikaner",
+    "new-delhi",
+    "dharamkot-&-mcleodganj",
+    "rishikesh",
+    "north-goa",
+  ])
+  const [activeLoc, setActiveLoc] = React.useState<string | null>(null)
+
   const keralaPhotos = photos.filter(p => p.gallery === 'kerala')
   const delhiPhotos = photos.filter(p => p.gallery === 'new-delhi')
   const hpPhotos = photos.filter(p => p.gallery === 'dharamkot-&-mcleodganj')
@@ -23,10 +34,31 @@ function PhotographySection() {
 
   const otherGoaPhotos = goaPhotos.filter(p => p.name !== 'photo_1.jpg')
 
+  /*
+  const bikanerPhotos = [
+    { src: "/gallery/bikaner/IMG_2385.jpg", alt: "Bikaner photo 1", name: "IMG_2385.jpg", gallery: "bikaner" },
+    { src: "/gallery/bikaner/IMG_2386.jpg", alt: "Bikaner photo 2", name: "IMG_2386.jpg", gallery: "bikaner" },
+    { src: "/gallery/bikaner/IMG_2387.jpeg", alt: "Bikaner photo 3", name: "IMG_2387.jpeg", gallery: "bikaner" },
+    { src: "/gallery/bikaner/IMG_2390.jpeg", alt: "Bikaner photo 4", name: "IMG_2390.jpeg", gallery: "bikaner" },
+    { src: "/gallery/bikaner/IMG_2393.jpeg", alt: "Bikaner photo 5", name: "IMG_2393.jpeg", gallery: "bikaner" },
+    { src: "/gallery/bikaner/IMG_2394.jpeg", alt: "Bikaner photo 6", name: "IMG_2394.jpeg", gallery: "bikaner" },
+    { src: "/gallery/bikaner/IMG_2395.jpeg", alt: "Bikaner photo 7", name: "IMG_2395.jpeg", gallery: "bikaner" },
+  ]
+  */
+
+  const handleSelectLocation = (id: string) => {
+    setActiveLoc(id)
+    if (!openAccordions.includes(id)) {
+      setOpenAccordions(prev => [...prev, id])
+    }
+  }
+
   return (
     <div className="space-y-6">
-      <Accordion type="multiple" defaultValue={["kerala", "new-delhi", "dharamkot-&-mcleodganj", "rishikesh", "north-goa"]} className="space-y-4">
-        <AccordionItem value="kerala" className="border-none">
+      {/* <PhotoMap onSelectLocation={handleSelectLocation} activeLocation={activeLoc} /> */}
+
+      <Accordion type="multiple" value={openAccordions} onValueChange={setOpenAccordions} className="space-y-4">
+        <AccordionItem value="kerala" id="photo-accordion-kerala" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
             Kochi, Kerala, India
           </AccordionTrigger>
@@ -51,7 +83,34 @@ function PhotographySection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="new-delhi" className="border-none">
+        {/*
+        <AccordionItem value="bikaner" id="photo-accordion-bikaner" className="border-none">
+          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
+            Bikaner, Rajasthan, India
+          </AccordionTrigger>
+          <AccordionContent className="pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {bikanerPhotos.map((photo, i) => (
+                <div
+                  key={i}
+                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+        */}
+
+        <AccordionItem value="new-delhi" id="photo-accordion-new-delhi" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
             New Delhi, India
           </AccordionTrigger>
@@ -76,7 +135,7 @@ function PhotographySection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="dharamkot-&-mcleodganj" className="border-none">
+        <AccordionItem value="dharamkot-&-mcleodganj" id="photo-accordion-dharamkot-&-mcleodganj" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
             Dharamkot & Mcleodganj, Himachal Pradesh, India
           </AccordionTrigger>
@@ -101,7 +160,7 @@ function PhotographySection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="rishikesh" className="border-none">
+        <AccordionItem value="rishikesh" id="photo-accordion-rishikesh" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
             Rishikesh, Uttarakhand, India
           </AccordionTrigger>
@@ -126,7 +185,7 @@ function PhotographySection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="north-goa" className="border-none">
+        <AccordionItem value="north-goa" id="photo-accordion-north-goa" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
             North Goa, India
           </AccordionTrigger>
@@ -497,7 +556,7 @@ function PortfolioContent() {
               {/* BOOK REVIEW MODAL */}
               {activeReviewBook && (
                 <div 
-                  className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in"
+                  className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in"
                   onClick={() => setActiveReviewBook(null)}
                 >
                   <div 
@@ -691,15 +750,11 @@ function PortfolioContent() {
                       </span>
                     </div>
                   )}
-                  <video
-                    src="https://media.tenor.com/U5VRXe1WnocAAAPo/i-want-to-break-free-i-want-to-break-free-music-video.mp4"
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    onLoadedData={() => setIframeLoading(false)}
-                  />
+                  <img
+  src="https://media.tenor.com/23659393.gif"
+  className="w-full h-full object-cover"
+  alt="I Want To Break Free Queen GIF"
+/>
                 </div>
                 <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono italic text-center">
                   Queen — I Want To Break Free (1984)

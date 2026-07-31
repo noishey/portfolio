@@ -9,6 +9,67 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "July 27, 2026",
+    title: "A Train to Bikaner",
+    href: "/articles/a-train-to-bikaner",
+    takeaway: "Reflections from a train journey to Bikaner.",
+    tags: ["travel", "writing"],
+  },
+  {
+    date: "July 27, 2026",
+    title: "The Black Sheep",
+    href: "",
+    takeaway: "Please remember those years were golden, just like the Japanese craft of Kintsugi.",
+    tags: ["poetry"],
+    content: `As we breathe the soot of our past
+When in the quiet dark we weep
+I see you and hear you think about me
+and when you leave some words unsaid
+
+For the body we burnt in our pasts
+and the parts we bury of our present
+and the shadows which will prey in future
+could we look into each others eyes?
+
+In your eyes I see the chains of the past
+and in your soul I breathe love
+and when you are alone I have my prayers
+for us to live and let live in our hearts
+
+As we remember and forget the wasted time
+and when we go in circles over lost time
+please remember those years were golden
+Just like the japanese craft of Kintsugi`,
+  },
+  {
+    date: "July 27, 2026",
+    title: "One Last Time",
+    href: "",
+    takeaway: "Withered with time lay your wounds, only for me to pick my shattered soul.",
+    tags: ["poetry"],
+    content: `Withered with time lay your wounds
+Only for me to pick my shattered soul
+And as the world ends, what left is a soul
+A soul which needs to be filled with love
+
+And I carry on with my soul on my sleeves
+With a heart which was in your nourishment
+And I walk my path washing the sins away
+Only to look back and remember your face
+
+Oh my love, it's too late now as I was dead
+In the soul's search for meaning did I? 
+Did I kill a part of you, or your soul?
+I beg to a higher being for your integration
+
+As I trudge this winter hoping only a summer
+Just a summer if we had met again
+A summer with drinks and tunes to fill our hearts
+For it to only wash our souls one more time?
+
+One last time.`,
+  },
+  {
     date: "July 20, 2026",
     title: "A responsible \"hippie.\"",
     href: "/articles/a-responsible-hippie",
@@ -229,12 +290,5 @@ to their own selves`,
     takeaway: "resolved streaming frame type validation errors by standardizing mergeable base delta mappings in core.",
     tags: ["archives", "langchain", "streaming"],
   },
-  {
-    date: "May 17, 2026",
-    title: "Streaming Byte Cap to Prevent Resource Exhaustion",
-    href: "/articles/streaming-byte-cap",
-    takeaway: "implemented programmatic chunk-size boundaries on HTTPX streams to mitigate Node.js heap exhaustion vectors.",
-    tags: ["tech", "node-js", "security", "streaming"],
-  },
-]
+];
 
