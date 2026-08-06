@@ -880,8 +880,8 @@ function PortfolioContent() {
                       </div>
                     </div>
                     <div className="flex sm:flex-col sm:items-end text-sm text-neutral-500 dark:text-neutral-400 gap-2 sm:gap-0 shrink-0">
-                      <span>Sep 2025 &mdash; Dec 2025</span>
-                      <span>4 mos</span>
+                      <span>Oct 2025 &mdash; Nov 2025</span>
+                      <span>2 mos</span>
                     </div>
                   </div>
                 </div>

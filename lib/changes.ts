@@ -7,6 +7,12 @@ export interface SiteChange {
 
 export const siteChanges: SiteChange[] = [
   {
+    date: "August 6, 2026",
+    added: [
+      "Published a new article: 'Discovering Osho' reflecting on consciousness, Kalkiesque energy, objective art, and spiritual practices in Bikaner."
+    ]
+  },
+  {
     date: "July 20, 2026",
     added: [
       "Published a new article: 'A Responsible \"Hippie\"' redefining unconventional living, Goan memories, and the balance between counter-culture and financial grounding."

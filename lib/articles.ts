@@ -9,6 +9,13 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "August 6, 2026",
+    title: "Discovering Osho",
+    href: "/articles/discovering-osho",
+    takeaway: "Knowing is not a destination but the expansion of consciousness; it is a journey.",
+    tags: ["writing", "spirituality", "yoga"],
+  },
+  {
     date: "July 27, 2026",
     title: "A Train to Bikaner",
     href: "/articles/a-train-to-bikaner",
