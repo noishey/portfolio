@@ -35,5 +35,13 @@ export const books: Book[] = [
     coverUrl: "/sapiens.jpg",
     wikiUrl: "https://en.wikipedia.org/wiki/Sapiens:_A_Brief_History_of_Humankind",
     status: "reading"
-  }
+  },
+  {
+    title: "A Complete Guide to Programming in C++",
+    author: "Ulla Kirch-Prinz, Peter Prinz",
+    publishedYear: 2001,
+    coverUrl: "/c++-textbook.jpg",
+    wikiUrl: "https://www.idpoisson.fr/volkov/C++.pdf",
+    status: "reading"
+  },
 ]

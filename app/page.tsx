@@ -788,7 +788,7 @@ function PortfolioContent() {
                   The formation of the name comes from the division of syllables &apos;Neu&apos; and &apos;Ma&apos; from the greek word symbolizing the vital spirit, &apos;Pneuma&apos;.
                   I filled the gap with Neural Manacle as it symbolizes my neurodivergence and the fact that humans are bound to the capabilities of their cognition.
                   Neural Manacle is also a rebirth to my identity after I left the 9 to 5 to embrace the creative in me. I&apos;m a musical artist and a computer engineer. 
-                  My Ikigai is working in audio tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
+                  My Ikigai is working in music tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
                   I&apos;ve adopted Path of Yoga as the primary philosophical framework to curb my phobias. This yogic, musical and tech journey is what Neural Manacle
                   has to offer to humanity.
                 </div>
@@ -936,14 +936,20 @@ function PortfolioContent() {
                       <span>C++</span>
                       <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
                     </div>
-                    <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                      <span>Python</span>
-                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">3/10</span>
-                    </div>
-                    <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                      <span>TypeScript</span>
-                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
-                    </div>
+                  </div>
+                </div>
+                {/* SCRIPTING LANGUAGE */}
+                <div className="space-y-4 flex-1">
+                  <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
+                    scripting language
+                  </h2>
+                  <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                    <span>Python</span>
+                    <span className="text-neutral-900 dark:text-neutral-100 font-semibold">3/10</span>
+                  </div>
+                  <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                    <span>TypeScript</span>
+                    <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
                   </div>
                 </div>
               </div>
