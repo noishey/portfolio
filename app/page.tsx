@@ -528,6 +528,10 @@ function PortfolioContent() {
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider font-mono">
                           Currently Reading
                         </span>
+                      ) : book.status === "paused" ? (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800 uppercase tracking-wider font-mono">
+                          Paused
+                        </span>
                       ) : book.rating !== undefined ? (
                         <RatingStars rating={book.rating} />
                       ) : null}

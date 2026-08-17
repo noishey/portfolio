@@ -74,12 +74,12 @@ function AnimatedBody({
 
     animate(
       Array.from(wordSpans),
-      { opacity: 1, filter: "blur(0px)", transform: "translateY(0)" },
+      { opacity: 1, filter: "blur(0px)", transform: "translateY(0)" } as any,
       {
         duration: durationPerWord,
-        delay: stagger(staggerPerWord, { start: startDelay }),
+        delay: stagger(staggerPerWord, { start: startDelay } as any),
         easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-      }
+      } as any
     )
   }, [paragraphs, startDelay, durationPerWord, staggerPerWord, fromBlurPx, fromTranslateYPx])
 

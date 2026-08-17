@@ -1,4 +1,4 @@
-export type BookStatus = "to-read" | "reading" | "read"
+export type BookStatus = "to-read" | "reading" | "read" | "paused"
 
 export interface Book {
   title: string
@@ -38,7 +38,7 @@ export const books: Book[] = [
     publishedYear: 2011,
     coverUrl: "/sapiens.jpg",
     wikiUrl: "https://en.wikipedia.org/wiki/Sapiens:_A_Brief_History_of_Humankind",
-    status: "reading"
+    status: "paused"
   },
   {
     title: "A Tour of C++ - Third Edition",
@@ -46,6 +46,6 @@ export const books: Book[] = [
     publishedYear: 2023,
     coverUrl: "/atourofc++.jpg",
     wikiUrl: "https://www.amazon.in/Tour-C-Bjarne-Stroustrup/dp/0136816487/ref=pd_lpo_d_sccl_1/522-1782241-7133133?pd_rd_w=yBInU&content-id=amzn1.sym.e0c8139c-1aa1-443c-af8a-145a0481f27c&pf_rd_p=e0c8139c-1aa1-443c-af8a-145a0481f27c&pf_rd_r=R5G3222EDRW7KWJ9PWKQ&pd_rd_wg=smq3m&pd_rd_r=811ac8f4-a01f-4aed-ab03-fe691ba16527&pd_rd_i=0136816487&psc=1",
-    status: "to-read"
+    status: "reading"
   },
 ]
