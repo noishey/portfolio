@@ -17,22 +17,22 @@ import PhotoMap from "@/components/photo-map"
 function PhotographySection() {
   const { photos } = useSupabaseData()
   const [openAccordions, setOpenAccordions] = React.useState<string[]>([
+    "north-goa",
+    "rishikesh",
+    "dharamkot-&-mcleodganj",
+    "new-delhi",
     "kerala",
     // "bikaner",
-    "new-delhi",
-    "dharamkot-&-mcleodganj",
-    "rishikesh",
-    "north-goa",
   ])
   const [activeLoc, setActiveLoc] = React.useState<string | null>(null)
 
-  const keralaPhotos = photos.filter(p => p.gallery === 'kerala')
-  const delhiPhotos = photos.filter(p => p.gallery === 'new-delhi')
-  const hpPhotos = photos.filter(p => p.gallery === 'dharamkot-&-mcleodganj')
-  const rishikeshPhotos = photos.filter(p => p.gallery === 'rishikesh')
-  const goaPhotos = photos.filter(p => p.gallery === 'north-goa')
+  const keralaPhotos = photos.filter(p => p.gallery === 'kerala').slice().reverse()
+  const delhiPhotos = photos.filter(p => p.gallery === 'new-delhi').slice().reverse()
+  const hpPhotos = photos.filter(p => p.gallery === 'dharamkot-&-mcleodganj').slice().reverse()
+  const rishikeshPhotos = photos.filter(p => p.gallery === 'rishikesh').slice().reverse()
+  const goaPhotos = photos.filter(p => p.gallery === 'north-goa').slice().reverse()
 
-  const otherGoaPhotos = goaPhotos.filter(p => p.name !== 'photo_1.jpg')
+  const otherGoaPhotos = goaPhotos.slice(1)
 
   /*
   const bikanerPhotos = [
@@ -58,13 +58,88 @@ function PhotographySection() {
       {/* <PhotoMap onSelectLocation={handleSelectLocation} activeLocation={activeLoc} /> */}
 
       <Accordion type="multiple" value={openAccordions} onValueChange={setOpenAccordions} className="space-y-4">
-        <AccordionItem value="kerala" id="photo-accordion-kerala" className="border-none">
+        <AccordionItem value="north-goa" id="photo-accordion-north-goa" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
-            Kochi, Kerala, India
+            North Goa, India
           </AccordionTrigger>
           <AccordionContent className="pt-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {keralaPhotos.map((photo, i) => (
+              {otherGoaPhotos.map((photo, i) => (
+                <div
+                  key={i}
+                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="rishikesh" id="photo-accordion-rishikesh" className="border-none">
+          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
+            Rishikesh, Uttarakhand, India
+          </AccordionTrigger>
+          <AccordionContent className="pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {rishikeshPhotos.map((photo, i) => (
+                <div
+                  key={i}
+                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="dharamkot-&-mcleodganj" id="photo-accordion-dharamkot-&-mcleodganj" className="border-none">
+          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
+            Dharamkot & Mcleodganj, Himachal Pradesh, India
+          </AccordionTrigger>
+          <AccordionContent className="pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {hpPhotos.map((photo, i) => (
+                <div
+                  key={i}
+                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="new-delhi" id="photo-accordion-new-delhi" className="border-none">
+          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
+            New Delhi, India
+          </AccordionTrigger>
+          <AccordionContent className="pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {delhiPhotos.map((photo, i) => (
                 <div
                   key={i}
                   className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
@@ -110,88 +185,13 @@ function PhotographySection() {
         </AccordionItem>
         */}
 
-        <AccordionItem value="new-delhi" id="photo-accordion-new-delhi" className="border-none">
+        <AccordionItem value="kerala" id="photo-accordion-kerala" className="border-none">
           <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
-            New Delhi, India
+            Kochi, Kerala, India
           </AccordionTrigger>
           <AccordionContent className="pt-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {delhiPhotos.map((photo, i) => (
-                <div
-                  key={i}
-                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-                >
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="(max-width: 640px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem value="dharamkot-&-mcleodganj" id="photo-accordion-dharamkot-&-mcleodganj" className="border-none">
-          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
-            Dharamkot & Mcleodganj, Himachal Pradesh, India
-          </AccordionTrigger>
-          <AccordionContent className="pt-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {hpPhotos.map((photo, i) => (
-                <div
-                  key={i}
-                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-                >
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="(max-width: 640px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem value="rishikesh" id="photo-accordion-rishikesh" className="border-none">
-          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
-            Rishikesh, Uttarakhand, India
-          </AccordionTrigger>
-          <AccordionContent className="pt-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {rishikeshPhotos.map((photo, i) => (
-                <div
-                  key={i}
-                  className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-                >
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="(max-width: 640px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem value="north-goa" id="photo-accordion-north-goa" className="border-none">
-          <AccordionTrigger className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold py-2 hover:no-underline cursor-pointer">
-            North Goa, India
-          </AccordionTrigger>
-          <AccordionContent className="pt-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {otherGoaPhotos.map((photo, i) => (
+              {keralaPhotos.map((photo, i) => (
                 <div
                   key={i}
                   className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
@@ -390,6 +390,177 @@ function PortfolioContent() {
             </section>
           )}
 
+          {/* MUSIC TECH — BOOKS SECTION */}
+          {currentSection === "books" && (
+            <section id="books" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                reading
+              </h2>
+
+              <blockquote className="border-l-2 border-neutral-300 dark:border-neutral-700 pl-4 py-1 italic my-6 text-neutral-600 dark:text-neutral-400 font-mono text-base max-w-lg leading-relaxed">
+                &ldquo;The computer programmer is a creator of universes for which he alone is the lawgiver.&rdquo;
+                <span className="block text-xs font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mt-2 not-italic">
+                  &mdash; Joseph Weizenbaum
+                </span>
+              </blockquote>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
+                {books
+                  .filter((b) => b.category === "tech")
+                  .map((book, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        setActiveReviewBook(book)
+                      }}
+                      className="group flex flex-col items-center text-center space-y-3 cursor-pointer w-full max-w-[160px]"
+                    >
+                      {/* Status / Rating */}
+                      <div className="h-5 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                        {book.status === "to-read" ? (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800 uppercase tracking-wider font-mono">
+                            To Be Read
+                          </span>
+                        ) : book.status === "reading" ? (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider font-mono">
+                            Currently Reading
+                          </span>
+                        ) : book.status === "paused" ? (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800 uppercase tracking-wider font-mono">
+                            Paused
+                          </span>
+                        ) : book.rating !== undefined ? (
+                          <RatingStars rating={book.rating} />
+                        ) : null}
+                      </div>
+
+                      {/* Book Cover */}
+                      <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
+                        <Image
+                          src={book.coverUrl}
+                          alt={book.title}
+                          fill
+                          sizes="(max-width: 640px) 112px, 144px"
+                          className="object-cover"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="text-[10px] font-semibold font-mono uppercase tracking-wider text-[#FFFFE3] bg-[#2C321E]/80 border border-neutral-700 px-2.5 py-1.5 rounded shadow-lg backdrop-blur-xs">
+                            Read Review
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Book Information */}
+                      <div className="space-y-1">
+                        <div className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-black dark:group-hover:text-white transition-colors text-xs sm:text-sm font-sans line-clamp-2 leading-snug">
+                          {book.title}
+                        </div>
+                        <div className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-sans">
+                          {book.author} {book.publishedYear && `(${book.publishedYear})`}
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+              </div>
+
+              {/* BOOK REVIEW MODAL */}
+              {activeReviewBook && (
+                <div
+                  className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in"
+                  onClick={() => setActiveReviewBook(null)}
+                >
+                  <div
+                    className="bg-[#FFFFE3] dark:bg-[#2C321E] text-neutral-900 dark:text-[#EEF2E6] rounded-xl border border-neutral-300 dark:border-neutral-700 shadow-2xl p-6 max-w-sm w-full relative space-y-4 animate-scale-in"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      onClick={() => setActiveReviewBook(null)}
+                      className="absolute top-3.5 right-3.5 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 text-xl font-bold font-mono transition-colors cursor-pointer leading-none"
+                    >
+                      &times;
+                    </button>
+
+                    <div className="flex gap-4">
+                      <div className="relative w-20 h-28 rounded border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden shrink-0 bg-neutral-100 dark:bg-neutral-900">
+                        <Image
+                          src={activeReviewBook.coverUrl}
+                          alt={activeReviewBook.title}
+                          fill
+                          sizes="80px"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="space-y-1.5 flex-1 min-w-0">
+                        <h3 className="font-semibold text-neutral-900 dark:text-[#EEF2E6] text-sm font-sans leading-snug line-clamp-2">
+                          {activeReviewBook.title}
+                        </h3>
+                        <div className="text-[11px] text-neutral-500 dark:text-neutral-400 font-sans truncate">
+                          {activeReviewBook.author}
+                        </div>
+                        <div className="text-[10px] text-neutral-400 dark:text-neutral-500 font-sans">
+                          Published: {activeReviewBook.publishedYear}
+                        </div>
+                        <div className="pt-0.5">
+                          {activeReviewBook.status === "to-read" ? (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800 uppercase tracking-wider font-mono">
+                              To Be Read
+                            </span>
+                          ) : activeReviewBook.status === "reading" ? (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider font-mono">
+                              Currently Reading
+                            </span>
+                          ) : activeReviewBook.status === "paused" ? (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800 uppercase tracking-wider font-mono">
+                              Paused
+                            </span>
+                          ) : activeReviewBook.rating !== undefined ? (
+                            <RatingStars rating={activeReviewBook.rating} />
+                          ) : null}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2 pt-3 border-t border-neutral-200 dark:border-neutral-800">
+                      <h4 className="text-[9px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500 font-bold">
+                        Review / Thoughts
+                      </h4>
+                      <p className="text-xs sm:text-sm font-mono text-neutral-700 dark:text-neutral-300 leading-relaxed italic whitespace-pre-wrap">
+                        {activeReviewBook.review ||
+                          (activeReviewBook.status === "to-read"
+                            ? "On my reading list. Review and thoughts will be added after I read it."
+                            : activeReviewBook.status === "reading"
+                              ? "Currently reading this book. My thoughts and review will be updated here soon!"
+                              : activeReviewBook.status === "paused"
+                                ? "Reading is paused for now. Will pick it up again when the timing feels right."
+                                : "No review added yet.")}
+                      </p>
+                    </div>
+
+                    <div className="pt-2 flex justify-between items-center gap-4">
+                      <a
+                        href={activeReviewBook.wikiUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-200/30 dark:hover:bg-white/5 text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 px-3 py-1.5 transition-colors font-mono cursor-pointer"
+                      >
+                        Wikipedia &rarr;
+                      </a>
+                      <button
+                        onClick={() => setActiveReviewBook(null)}
+                        className="inline-flex items-center justify-center rounded-lg bg-neutral-900 dark:bg-[#EEF2E6] text-[#FFFFE3] dark:text-neutral-900 text-[11px] font-semibold px-4 py-1.5 transition-colors font-mono cursor-pointer"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </section>
+          )}
+
           {/* MUSIC SECTION */}
           {currentSection === "music" && (
             <section id="music" className="space-y-6 scroll-mt-28 animate-fade-in">
@@ -508,7 +679,9 @@ function PortfolioContent() {
               </blockquote>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center py-4">
-                {books.map((book, i) => (
+                {books
+                  .filter((b) => b.category === "art")
+                  .map((book, i) => (
                   <a
                     key={i}
                     href="#"
@@ -623,6 +796,10 @@ function PortfolioContent() {
                             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider font-mono">
                               Currently Reading
                             </span>
+                          ) : activeReviewBook.status === "paused" ? (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800 uppercase tracking-wider font-mono">
+                              Paused
+                            </span>
                           ) : activeReviewBook.rating !== undefined ? (
                             <RatingStars rating={activeReviewBook.rating} />
                           ) : null}
@@ -642,7 +819,9 @@ function PortfolioContent() {
                             ? "On my reading list. Review and thoughts will be added after I read it."
                             : activeReviewBook.status === "reading"
                               ? "Currently reading this book. My thoughts and review will be updated here soon!"
-                              : "No review added yet.")}
+                              : activeReviewBook.status === "paused"
+                                ? "Reading is paused for now. Will pick it up again when the timing feels right."
+                                : "No review added yet.")}
                       </p>
                     </div>
 

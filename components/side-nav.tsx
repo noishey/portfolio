@@ -18,6 +18,15 @@ type SuperSection = {
 
 const superSections: SuperSection[] = [
   {
+    title: "music tech",
+    items: [
+      { id: "tech", label: "blog", icon: Headphones },
+      { id: "products", label: "products", icon: Package },
+      { id: "books", label: "reading", icon: Book },
+      { id: "resume", label: "resume", icon: Briefcase },
+    ]
+  },
+  {
     title: "art",
     items: [
       { id: "music", label: "music", icon: Music },
@@ -30,18 +39,15 @@ const superSections: SuperSection[] = [
     ]
   },
   {
-    title: "engineering",
-    items: [
-      { id: "tech", label: "blog", icon: Headphones },
-      { id: "products", label: "products", icon: Package },
-      { id: "resume", label: "resume", icon: Briefcase },
-      { id: "archives", label: "archives", icon: Archive },
-    ]
-  },
-  {
     title: "about",
     items: [
       { id: "about-me", label: "about me", icon: User },
+    ]
+  },
+  {
+    title: "archives",
+    items: [
+      { id: "archives", label: "archives", icon: Archive },
     ]
   }
 ]
