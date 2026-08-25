@@ -20,7 +20,7 @@ export default function ArticlePage() {
                         <p className="text-sm font-mono text-neutral-500 dark:text-white/40">
                             June 7, 2026
                         </p>
-                        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+                        <h1 className="article-header text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
                             Chat Model Parameter Validation - Vertex AI(GCP)
                         </h1>
 

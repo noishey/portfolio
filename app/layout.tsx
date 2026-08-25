@@ -9,13 +9,18 @@ import { SupabaseDataProvider } from '@/components/supabase-provider'
 
 export const metadata: Metadata = {
   title: {
-    default: 'walking back the hippie trail ꩜ | neural manacle',
+    default: 'Neural Manacle',
     template: '%s | neural manacle'
   },
-  description: 'An exploration of art, tech, and spirituality.',
+  description: 'in a synthetic dream',
   metadataBase: new URL('https://neuralmanacle.blog'),
   alternates: {
     canonical: '/',
+  },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
   openGraph: {
     title: 'neural manacle',
@@ -24,11 +29,13 @@ export const metadata: Metadata = {
     siteName: 'neural manacle',
     locale: 'en_US',
     type: 'website',
+    images: ['/logo.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'neural manacle',
     description: 'An exploration of art, tech, and spirituality.',
+    images: ['/logo.png'],
   }
 }
 

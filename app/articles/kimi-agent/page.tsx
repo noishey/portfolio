@@ -21,7 +21,7 @@ export default function ArticlePage() {
                             May 27, 2026
                         </p>
 
-                        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+                        <h1 className="article-header text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
                             Adding Kimi Code Support to CodeGraph: Local MCP Semantic Indexing
                         </h1>
 

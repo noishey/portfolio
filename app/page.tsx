@@ -273,10 +273,6 @@ function PortfolioContent() {
 
   return (
     <RevealOnView intensity="soft">
-      <div className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono mb-8 italic animate-rainbow">
-        walking back the hippie trail ꩜
-      </div>
-
       {urlTag ? (
         /* FILTERED TAG VIEW */
         <div className="space-y-12">
@@ -390,6 +386,28 @@ function PortfolioContent() {
             </section>
           )}
 
+          {currentSection === "demos" && (
+            <section id="demos" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                demos
+              </h2>
+              <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono leading-relaxed max-w-lg">
+                Small experiments, audio tools, and interactive work in progress.
+              </p>
+            </section>
+          )}
+
+          {currentSection === "setup" && (
+            <section id="setup" className="space-y-6 scroll-mt-28 animate-fade-in">
+              <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold mb-4">
+                setup
+              </h2>
+              <p className="text-base text-neutral-600 dark:text-neutral-300 font-mono leading-relaxed max-w-lg">
+                The tools, systems, and rituals behind the work.
+              </p>
+            </section>
+          )}
+
           {/* MUSIC TECH — BOOKS SECTION */}
           {currentSection === "books" && (
             <section id="books" className="space-y-6 scroll-mt-28 animate-fade-in">
@@ -437,17 +455,17 @@ function PortfolioContent() {
                       </div>
 
                       {/* Book Cover */}
-                      <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
+                      <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-black transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
                         <Image
                           src={book.coverUrl}
                           alt={book.title}
                           fill
                           sizes="(max-width: 640px) 112px, 144px"
-                          className="object-cover"
+                          className="object-cover grayscale"
                           loading="lazy"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <span className="text-[10px] font-semibold font-mono uppercase tracking-wider text-[#FFFFE3] bg-[#2C321E]/80 border border-neutral-700 px-2.5 py-1.5 rounded shadow-lg backdrop-blur-xs">
+                          <span className="text-[10px] font-semibold font-mono uppercase tracking-wider text-white bg-black/80 border border-neutral-700 px-2.5 py-1.5 rounded shadow-lg backdrop-blur-xs">
                             Read Review
                           </span>
                         </div>
@@ -473,7 +491,7 @@ function PortfolioContent() {
                   onClick={() => setActiveReviewBook(null)}
                 >
                   <div
-                    className="bg-[#FFFFE3] dark:bg-[#2C321E] text-neutral-900 dark:text-[#EEF2E6] rounded-xl border border-neutral-300 dark:border-neutral-700 shadow-2xl p-6 max-w-sm w-full relative space-y-4 animate-scale-in"
+                    className="bg-white dark:bg-black text-neutral-900 dark:text-white rounded-xl border border-neutral-300 dark:border-neutral-700 shadow-2xl p-6 max-w-sm w-full relative space-y-4 animate-scale-in"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <button
@@ -484,17 +502,17 @@ function PortfolioContent() {
                     </button>
 
                     <div className="flex gap-4">
-                      <div className="relative w-20 h-28 rounded border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden shrink-0 bg-neutral-100 dark:bg-neutral-900">
+                      <div className="relative w-20 h-28 rounded border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden shrink-0 bg-neutral-100 dark:bg-black">
                         <Image
                           src={activeReviewBook.coverUrl}
                           alt={activeReviewBook.title}
                           fill
                           sizes="80px"
-                          className="object-cover"
+                          className="object-cover grayscale"
                         />
                       </div>
                       <div className="space-y-1.5 flex-1 min-w-0">
-                        <h3 className="font-semibold text-neutral-900 dark:text-[#EEF2E6] text-sm font-sans leading-snug line-clamp-2">
+                        <h3 className="font-semibold text-neutral-900 dark:text-white text-sm font-sans leading-snug line-clamp-2">
                           {activeReviewBook.title}
                         </h3>
                         <div className="text-[11px] text-neutral-500 dark:text-neutral-400 font-sans truncate">
@@ -550,7 +568,7 @@ function PortfolioContent() {
                       </a>
                       <button
                         onClick={() => setActiveReviewBook(null)}
-                        className="inline-flex items-center justify-center rounded-lg bg-neutral-900 dark:bg-[#EEF2E6] text-[#FFFFE3] dark:text-neutral-900 text-[11px] font-semibold px-4 py-1.5 transition-colors font-mono cursor-pointer"
+                        className="inline-flex items-center justify-center rounded-lg bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-[11px] font-semibold px-4 py-1.5 transition-colors font-mono cursor-pointer"
                       >
                         Close
                       </button>
@@ -711,19 +729,19 @@ function PortfolioContent() {
                     </div>
 
                     {/* Book Cover */}
-                    <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-neutral-900 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
+                    <div className="relative w-28 h-40 sm:w-36 sm:h-52 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden bg-neutral-100 dark:bg-black transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-xl dark:group-hover:shadow-neutral-900/50">
                       <Image
                         src={book.coverUrl}
                         alt={book.title}
                         fill
                         sizes="(max-width: 640px) 112px, 144px"
-                        className="object-cover"
+                        className="object-cover grayscale"
                         loading="lazy"
                       />
 
                       {/* Hover review hint */}
                       <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="text-[10px] font-semibold font-mono uppercase tracking-wider text-[#FFFFE3] bg-[#2C321E]/80 border border-neutral-700 px-2.5 py-1.5 rounded shadow-lg backdrop-blur-xs">
+                        <span className="text-[10px] font-semibold font-mono uppercase tracking-wider text-white bg-black/80 border border-neutral-700 px-2.5 py-1.5 rounded shadow-lg backdrop-blur-xs">
                           Read Review
                         </span>
                       </div>
@@ -750,7 +768,7 @@ function PortfolioContent() {
                   onClick={() => setActiveReviewBook(null)}
                 >
                   <div
-                    className="bg-[#FFFFE3] dark:bg-[#2C321E] text-neutral-900 dark:text-[#EEF2E6] rounded-xl border border-neutral-300 dark:border-neutral-700 shadow-2xl p-6 max-w-sm w-full relative space-y-4 animate-scale-in"
+                    className="bg-white dark:bg-black text-neutral-900 dark:text-white rounded-xl border border-neutral-300 dark:border-neutral-700 shadow-2xl p-6 max-w-sm w-full relative space-y-4 animate-scale-in"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {/* Close Button */}
@@ -763,18 +781,18 @@ function PortfolioContent() {
 
                     {/* Book Header */}
                     <div className="flex gap-4">
-                      <div className="relative w-20 h-28 rounded border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden shrink-0 bg-neutral-100 dark:bg-neutral-900">
+                      <div className="relative w-20 h-28 rounded border border-neutral-200 dark:border-neutral-800 shadow-md overflow-hidden shrink-0 bg-neutral-100 dark:bg-black">
                         <Image
                           src={activeReviewBook.coverUrl}
                           alt={activeReviewBook.title}
                           fill
                           sizes="80px"
-                          className="object-cover"
+                          className="object-cover grayscale"
                         />
                       </div>
 
                       <div className="space-y-1.5 flex-1 min-w-0">
-                        <h3 className="font-semibold text-neutral-900 dark:text-[#EEF2E6] text-sm font-sans leading-snug line-clamp-2">
+                        <h3 className="font-semibold text-neutral-900 dark:text-white text-sm font-sans leading-snug line-clamp-2">
                           {activeReviewBook.title}
                         </h3>
 
@@ -838,7 +856,7 @@ function PortfolioContent() {
 
                       <button
                         onClick={() => setActiveReviewBook(null)}
-                        className="inline-flex items-center justify-center rounded-lg bg-neutral-900 dark:bg-[#EEF2E6] text-[#FFFFE3] dark:text-neutral-900 text-[11px] font-semibold px-4 py-1.5 transition-colors font-mono cursor-pointer"
+                        className="inline-flex items-center justify-center rounded-lg bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-[11px] font-semibold px-4 py-1.5 transition-colors font-mono cursor-pointer"
                       >
                         Close
                       </button>
@@ -988,7 +1006,7 @@ function PortfolioContent() {
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                 <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 relative overflow-hidden rounded-full border border-neutral-200 dark:border-neutral-800 self-center md:self-start">
                   <Image
-                    src="/arjun.jpg"
+                    src="/arjun.png"
                     alt="Arjun"
                     fill
                     className="object-cover"
@@ -1000,12 +1018,9 @@ function PortfolioContent() {
                   <p>Namaste 🙏</p>
                   <p>I&apos;m Arjun. a.k.a Neural Manacle!!</p> <br />
                   
-                  The formation of the name comes from the division of syllables &apos;Neu&apos; and &apos;Ma&apos; from the greek word symbolizing the vital spirit, &apos;Pneuma&apos;.
-                  I filled the gap with Neural Manacle as it symbolizes my neurodivergence and the fact that humans are bound to the capabilities of their cognition.
-                  Neural Manacle is also a rebirth to my identity after I left the 9 to 5 to embrace the creative in me. I&apos;m a musical artist and a computer engineer. 
-                  My Ikigai is working in music tech and growing my musicianship. Neural Manacle also hints Neural Networks, the foundational framework which powers generative AI.
-                  I&apos;ve adopted Path of Yoga as the primary philosophical framework to curb my phobias. This yogic, musical and tech journey is what Neural Manacle
-                  has to offer to humanity.
+                  I&apos;m an audio software engineer working in the intersection of audio and technology. 
+                  The deep passion for music especially electronic and the love for synthesizers got me into audio software.
+                  I love writing C++. A big time bibliophile and is into wellness and meditation.
                 </div>
               </div>
 
@@ -1018,9 +1033,9 @@ function PortfolioContent() {
                   animation: 'rainbow-flow 8s linear infinite',
                 }}
               >
-                <div className="rounded-[11px] bg-[#FFFFE3] dark:bg-[#2C321E] p-6 space-y-4 text-neutral-900 dark:text-[#FFFFE3]">
+                <div className="rounded-[11px] bg-[#FFFFE3] dark:bg-[#000000] p-6 space-y-4 text-neutral-900 dark:text-[#FFFFE3]">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-[#FFFFE3] dark:bg-[#2C321E] border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-[#FFFFE3]">
+                    <div className="p-3 bg-[#FFFFE3] dark:bg-[#000000] border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-[#FFFFE3]">
                       <Calendar className="h-5 w-5" />
                     </div>
                     <div className="space-y-1.5 flex-1">
@@ -1037,7 +1052,7 @@ function PortfolioContent() {
                       href="https://cal.com/neuralmanacle"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-lg border border-neutral-900 dark:border-[#FFFFE3] bg-[#FFFFE3] dark:bg-[#2C321E] hover:bg-neutral-200/40 dark:hover:bg-white/10 text-sm font-semibold text-neutral-900 dark:text-[#FFFFE3] px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
+                      className="inline-flex items-center justify-center rounded-lg border border-neutral-900 dark:border-[#FFFFE3] bg-[#FFFFE3] dark:bg-[#000000] hover:bg-neutral-200/40 dark:hover:bg-white/10 text-sm font-semibold text-neutral-900 dark:text-[#FFFFE3] px-4 py-2 w-full sm:w-auto transition-colors font-mono cursor-pointer"
                     >
                       Book a call on Cal.com &rarr;
                     </a>
@@ -1146,27 +1161,28 @@ function PortfolioContent() {
                   <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
                     programming language
                   </h2>
-                  <div className="space-y-2 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono max-w-xs">
-                    <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                      <span>C++</span>
-                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
+                  <div className="space-y-1 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono max-w-xs">
+                    <div className="border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                      C++
                     </div>
                   </div>
                 </div>
+
                 {/* SCRIPTING LANGUAGE */}
                 <div className="space-y-4 flex-1">
                   <h2 className="text-sm font-mono text-neutral-900 dark:text-neutral-100 uppercase tracking-wider font-bold">
                     scripting language
                   </h2>
-                  <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                    <span>Python</span>
-                    <span className="text-neutral-900 dark:text-neutral-100 font-semibold">3/10</span>
-                  </div>
-                  <div className="flex justify-between border-b border-neutral-200 dark:border-neutral-800 pb-1">
-                    <span>TypeScript</span>
-                    <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2/10</span>
+                  <div className="space-y-1 text-base leading-relaxed text-neutral-600 dark:text-neutral-300 font-mono max-w-xs">
+                    <div className="border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                      Python
+                    </div>
+                    <div className="border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                      TypeScript
+                    </div>
                   </div>
                 </div>
+
               </div>
             </section>
           )}
@@ -1212,7 +1228,7 @@ function PortfolioContent() {
 
 export default function Page() {
   return (
-    <main className="mx-auto w-full max-w-2xl pl-16 pr-4 md:px-4 pt-6 pb-8">
+    <main className="mx-auto w-full max-w-2xl px-4 pt-20 pb-8">
       <React.Suspense fallback={<div className="font-mono text-sm text-neutral-500">Loading...</div>}>
         <PortfolioContent />
       </React.Suspense>

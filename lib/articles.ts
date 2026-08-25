@@ -232,7 +232,7 @@ to their own selves`,
     title: "Deep Learning (for Audio) with Python Course Notes",
     href: "/articles/dl-audio-py",
     takeaway: "Notes and implementation of a basic Multilayer Perceptron from scratch using NumPy.",
-    tags: ["tech", "deep-learning", "python", "neural-networks"],
+    tags: ["archives", "tech", "deep-learning", "python", "neural-networks"],
   },
   {
     date: "June 22, 2026",

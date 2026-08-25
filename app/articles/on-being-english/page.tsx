@@ -21,7 +21,7 @@ export default function ArticlePage() {
               July 13, 2026
             </p>
 
-            <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white font-mono">
+            <h1 className="article-header text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white font-mono">
               I live in India but I&apos;m English.
             </h1>
 

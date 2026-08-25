@@ -84,7 +84,7 @@ function AnimatedBody({
   }, [paragraphs, startDelay, durationPerWord, staggerPerWord, fromBlurPx, fromTranslateYPx])
 
   return (
-    <div ref={containerRef} className="space-y-6 text-base leading-relaxed text-justify font-mono">
+    <div ref={containerRef} className="article-header space-y-6 text-base leading-relaxed text-justify font-mono">
       {paragraphs.map((paraTokens, pIdx) => {
         const elements: React.ReactNode[] = []
         let currentLink: string | undefined = undefined
@@ -167,7 +167,7 @@ export default function ArticlePage() {
 
             <AnimatedHeading
               lines={['"Destroy Patriarchy,', 'Not The Planet."']}
-              className="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white font-mono"
+              className="article-header text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white font-mono"
               startDelay={0.1}
             />
 

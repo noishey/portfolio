@@ -7,6 +7,13 @@ export interface SiteChange {
 
 export const siteChanges: SiteChange[] = [
   {
+    date: "August 25, 2026",
+    changed: [
+      "Refreshed the navigation with demos, setup, and changelog tabs, and updated the site identity to in a synthetic dream.",
+      "Moved current blog content into the archive and refined the dark mode palette to black."
+    ]
+  },
+  {
     date: "August 6, 2026",
     added: [
       "Published a new article: 'Discovering Osho' reflecting on consciousness, Kalkiesque energy, objective art, and spiritual practices in Bikaner."

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { User, FileText, Sparkles, Camera, Book, Archive, Compass, Music, Headphones, Mail, Github, Linkedin, Package, Briefcase, Film, Shirt } from "lucide-react"
+import { User, Book, Headphones, Package, Briefcase, Play, Wrench, History } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type SectionItem = {
@@ -18,38 +18,21 @@ type SuperSection = {
 
 const superSections: SuperSection[] = [
   {
-    title: "music tech",
     items: [
       { id: "tech", label: "blog", icon: Headphones },
-      { id: "products", label: "products", icon: Package },
+      { id: "projects", label: "projects", icon: Package },
+      { id: "demos", label: "demos", icon: Play },
+      { id: "setup", label: "setup", icon: Wrench },
       { id: "books", label: "reading", icon: Book },
       { id: "resume", label: "resume", icon: Briefcase },
+      { id: "changelog", label: "changelog", icon: History },
     ]
   },
   {
-    title: "art",
-    items: [
-      { id: "music", label: "music", icon: Music },
-      { id: "articles", label: "articles", icon: FileText },
-      { id: "poetry", label: "poetry", icon: Sparkles },
-      { id: "photography", label: "photography", icon: Camera },
-      { id: "bookshelf", label: "reading nook", icon: Book },
-      { id: "film-and-acting", label: "film and acting", icon: Film },
-      { id: "fashion", label: "fashion", icon: Shirt },
-    ]
-  },
-  {
-    title: "about",
     items: [
       { id: "about-me", label: "about me", icon: User },
     ]
   },
-  {
-    title: "archives",
-    items: [
-      { id: "archives", label: "archives", icon: Archive },
-    ]
-  }
 ]
 
 const sections = superSections.flatMap((s) => s.items)
@@ -61,8 +44,7 @@ function SideNavContent() {
   const activeSection = searchParams.get("section") || "about-me"
   const isHomepage = pathname === "/"
 
-  const [isExpanded, setIsExpanded] = React.useState(false)
-  const navRef = React.useRef<HTMLDivElement>(null)
+  const isExpanded = true
   const containerRef = React.useRef<HTMLDivElement>(null)
   const hoverTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
   const isTouchActive = React.useRef(false)
@@ -76,16 +58,6 @@ function SideNavContent() {
       window.removeEventListener("touchstart", onTouchStart)
       window.removeEventListener("touchend", onTouchEnd)
     }
-  }, [])
-
-  React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsExpanded(false)
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
   React.useEffect(() => {
@@ -117,16 +89,20 @@ function SideNavContent() {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
-    router.push(`/?section=${id}`, { scroll: true })
-    setIsExpanded(false)
+    router.push(id === "changelog" ? "/changes" : `/?section=${id}`, { scroll: true })
   }
 
   const handleSectionHover = (id: string) => {
     if (isTouchActive.current) return
     if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current)
     hoverTimerRef.current = setTimeout(() => {
-      if (id !== activeSection) {
-        router.push(`/?section=${id}`, { scroll: false })
+      const isChangelog = id === "changelog"
+      const isActive = isChangelog
+        ? pathname === "/changes"
+        : isHomepage && activeSection === id
+
+      if (!isActive) {
+        router.push(id === "changelog" ? "/changes" : `/?section=${id}`, { scroll: false })
       }
     }, 300)
   }
@@ -139,47 +115,43 @@ function SideNavContent() {
 
   return (
     <nav
-      ref={navRef}
       className={cn(
-        "fixed left-0 top-0 h-screen z-40 flex items-stretch transition-all duration-300 ease-in-out",
-        isExpanded ? "w-56" : "w-14",
+        "fixed inset-x-0 top-20 z-40 flex items-stretch transition-all duration-300 ease-in-out",
         isArticlePage && "hidden md:flex"
       )}
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
-      onClick={() => {
-        if (!isExpanded) setIsExpanded(true)
-      }}
     >
       {/* Container holding the navigation bar */}
-      <div className="flex items-stretch bg-background/50 dark:bg-background/40 backdrop-blur-md border-r border-neutral-200/80 dark:border-neutral-800/80 shadow-md w-full h-full overflow-hidden transition-all duration-300 ease-in-out">
+      <div className="flex items-stretch bg-background/50 dark:bg-background/40 backdrop-blur-md border-b border-neutral-200/80 dark:border-neutral-700/80 shadow-md w-full overflow-hidden transition-colors duration-300 ease-in-out">
         
         {/* Navigation Content */}
-        <div className="flex flex-col py-6 px-3 w-full justify-center items-center">
+        <div className="flex py-2 px-3 w-full justify-center items-center">
           {/* Links container */}
-          <div ref={containerRef} className="space-y-2 flex flex-col justify-center items-center w-full">
+          <div ref={containerRef} className="flex flex-wrap justify-center items-center gap-1 w-full">
             {superSections.map((superSection, sIdx) => (
               <React.Fragment key={sIdx}>
-                {superSection.title && isExpanded && (
-                  <div className="text-[9px] uppercase font-mono font-bold tracking-wider text-neutral-400 dark:text-neutral-500 w-full px-3 mt-4 mb-1 text-left select-none">
+                {superSection.title && (
+                  <div className="text-[9px] uppercase font-mono font-bold tracking-wider text-neutral-400 dark:text-neutral-500 px-2 select-none">
                     {superSection.title}
                   </div>
                 )}
                 {superSection.items.map((section) => {
                   const Icon = section.icon
-                  const isActive = isHomepage && activeSection === section.id
+                  const isChangelog = section.id === "changelog"
+                  const isActive = isChangelog
+                    ? pathname === "/changes"
+                    : isHomepage && activeSection === section.id
 
                   return (
                     <a
                       key={section.id}
                       data-section-id={section.id}
-                      href={`/?section=${section.id}`}
+                      href={isChangelog ? "/changes" : `/?section=${section.id}`}
                       onClick={(e) => handleClick(e, section.id)}
                       onMouseEnter={() => handleSectionHover(section.id)}
                       onMouseLeave={cancelHover}
                       className={cn(
                         "flex items-center rounded-md font-mono text-sm transition-all duration-200 hover:bg-neutral-100 dark:hover:bg-neutral-900/60 group/item",
-                        isExpanded ? "px-3 py-2 justify-start w-full" : "p-2 justify-center w-10 h-10",
+                        "px-3 py-2 justify-start",
                         isActive 
                           ? "bg-neutral-100/50 dark:bg-neutral-900/40 text-neutral-900 dark:text-white"
                           : "text-neutral-500 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-200"
@@ -191,7 +163,7 @@ function SideNavContent() {
                       )} />
                       <span className={cn(
                         "capitalize transition-all duration-300 whitespace-nowrap",
-                        isExpanded ? "opacity-100 max-w-[150px] ml-3" : "opacity-0 max-w-0 overflow-hidden ml-0",
+                        "opacity-100 ml-2",
                         isActive ? "font-bold animate-rainbow" : "font-medium"
                       )}>
                         {section.label}
@@ -203,39 +175,6 @@ function SideNavContent() {
             ))}
           </div>
 
-          {/* Socials section (visible only when expanded on mobile) */}
-          {isExpanded && (
-            <div className="md:hidden flex items-center justify-center gap-4 pt-3.5 mt-2.5 border-t border-neutral-200/50 dark:border-neutral-800/50 w-full animate-fade-in">
-              <a
-                href="mailto:arjunshenoy23@gmail.com"
-                className="text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-                aria-label="Email"
-                title="Email"
-              >
-                <Mail className="h-4 w-4" />
-              </a>
-              <a
-                href="https://github.com/neuralmanacle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-                aria-label="GitHub"
-                title="GitHub"
-              >
-                <Github className="h-4 w-4" />
-              </a>
-              <a
-                href="https://linkedin.com/in/neuralmanacle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-                aria-label="LinkedIn"
-                title="LinkedIn"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
-          )}
         </div>
 
       </div>

@@ -3,9 +3,15 @@
 import Link from "next/link"
 import RevealOnView from "@/components/reveal-on-view"
 import { useSupabaseData } from "@/components/supabase-provider"
+import { siteChanges as fallbackChanges } from "@/lib/changes"
 
 export default function ChangesPage() {
   const { siteChanges } = useSupabaseData()
+  const todayChange = fallbackChanges[0]
+  const changes = siteChanges.some((change) => change.date === todayChange.date)
+    ? siteChanges
+    : [todayChange, ...siteChanges]
+  const visibleChanges = changes.filter((change) => change.date === todayChange.date)
   return (
     <main className="mx-auto w-full max-w-2xl px-4 pt-20 pb-8">
       <RevealOnView intensity="soft">
@@ -28,7 +34,7 @@ export default function ChangesPage() {
 
         {/* TIMELINE LIST */}
         <div className="relative border-l border-neutral-200 dark:border-neutral-800 ml-4 pl-6 space-y-12">
-          {siteChanges.map((change, idx) => (
+          {visibleChanges.map((change, idx) => (
             <div key={idx} className="relative group">
               {/* TIMELINE DOT */}
               <div className="absolute -left-[31px] top-1.5 size-2.5 rounded-full border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black group-hover:bg-neutral-900 dark:group-hover:bg-white transition-colors" />

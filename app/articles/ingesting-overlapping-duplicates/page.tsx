@@ -22,7 +22,7 @@ export default function ArticlePage() {
                             May 23, 2026
                         </p>
 
-                        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+                        <h1 className="article-header text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
                             Flagging Ingested Duplicates @gbrain
                         </h1>
 
