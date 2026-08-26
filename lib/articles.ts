@@ -9,6 +9,13 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    date: "August 26, 2026",
+    title: "AES August '26 Seminar Summary",
+    href: "/articles/audio-engineering-comm-conf-aug-26",
+    takeaway: "A few yet valuable insights from the seminar hosted by the Audio Engineering Society on August '26.",
+    tags: ["dsp", "meetup"],
+  },
+  {
     date: "August 6, 2026",
     title: "Discovering Osho",
     href: "/articles/discovering-osho",
