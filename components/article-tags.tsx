@@ -11,10 +11,14 @@ export default function ArticleTags() {
 
   if (!article || !article.tags || article.tags.length === 0) return null
 
+  const visibleTags = article.tags.filter((tag) => tag !== "tech")
+
+  if (visibleTags.length === 0) return null
+
   return (
     <div className="flex flex-wrap gap-2 pt-6 font-mono text-xs">
       <span className="text-neutral-400 dark:text-neutral-500 mr-1 flex items-center">tags:</span>
-      {article.tags.map((tag) => (
+      {visibleTags.map((tag) => (
         <Link
           key={tag}
           href={`/?tag=${tag}`}
